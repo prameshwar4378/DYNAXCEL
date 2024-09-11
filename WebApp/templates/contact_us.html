@@ -1,0 +1,251 @@
+{% extends "website_base.html" %}
+{% block title %}Contact us - Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+
+.page-header {
+    position: relative; 
+	background: url('/static/website/img/background-wave.png')   ;
+    <!-- background-color:green; -->
+    background-position: center center;
+    background-attachment: fixed; 
+    background-size: 100%; 
+    padding: 140px 0px 125px 0px;
+    overflow: hidden; /* Hide overflowing animated shapes */
+}
+.page-header::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(61, 61, 61, 0.753);
+    z-index: 1;
+}
+.page-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Shape container */
+.shape-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* So the shapes don't interfere with clicks */
+}
+
+/* Basic shape styling */
+.shape {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+    animation: moveRandom 20s infinite ease-in-out;
+}
+
+/* Specific shape styling */
+ 
+.circle {
+    border-radius: 50%;
+    background-color: #ffffff56;
+}
+ 
+
+/* Random movement animation */
+@keyframes moveRandom {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(100px, 200px) rotate(45deg);
+    }
+    50% {
+        transform: translate(-150px, 50px) rotate(90deg);
+    }
+    75% {
+        transform: translate(200px, -100px) rotate(135deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(180deg);
+    }
+}
+
+
+h1{
+    font-size: 70px;
+}
+
+  @media (max-width: 990px) {
+    h1{
+        font-size: 60px;
+    }
+    
+  }
+
+  @media (max-width: 500px) {
+    h1{
+        font-size: 30px;
+    }
+    
+  }
+
+
+.contact-us-form{
+	background-color: #ffffff;
+	padding: 10px;
+	border:none;
+	border-bottom: 1px solid gray;
+    outline:none;
+    width:100%;
+    background:#e8f5ef;
+    border-radius:5px;
+}
+
+
+.contact-info {
+    transition: transform 0.5s ease-in-out; /* Smooth movement for the card */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.contact-info:hover {
+    transform: translateY(-10px); /* Moves the card upwards on hover */
+}
+
+.contact-info img {
+    width: 70px;
+    height: auto;
+    margin-bottom: 15px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.7s ease-in-out; /* Smooth image rotation */
+}
+
+.contact-info:hover img {
+    transform: rotate(360deg); /* 360-degree rotation on hover */
+}
+
+{% endblock style %}
+{% block content %}
+
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light" style="font-size: 40;">Contact Us</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Shapes for animation -->
+    <div class="shape-container"> 
+        <div class="shape circle"></div> 
+    </div>
+</section>
+
+
+
+<div class="container mt-4 px-4">
+    <div class="row">
+        <div class="col-md bg-light shadow px-3 py-3 text-center contact-info mt-2" style="border-radius: 30px; margin:5px;">
+            <img src="{% static 'website/img/call-icon.png' %}" alt="" class="icon shadow">
+            <p>+91 8888888888</p>
+             
+        </div>
+        <div class="col-md bg-light shadow px-3 py-3 text-center contact-info mt-2" style="border-radius: 30px; margin:5px;">
+            <img src="{% static 'website/img/gmail-icon.png' %}" alt="" class="icon shadow">
+            <p>sample@gmail.com</p>
+        </div>
+        <div class="col-md bg-light shadow px-3 py-3 text-center contact-info mt-2" style="border-radius: 30px; margin:5px;">
+            <img src="{% static 'website/img/location-icon.png' %}" alt="" class="icon shadow">
+            <p>A2, Gat No. 1237, 1239 & 1240(P) Alandi – Markal Road, Markal, Tal. Khed, Pune – 412105</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3 mb-4 bg-light px-2 py-4 shadow" style="border-radius: 30px; ">
+    <div class="row">
+        <!-- Contact Us Form -->
+        <div class="col-sm-12 text-center">
+            <h2>To Get In <span class="text-primary">Touch</span> With Us</h2>
+            <p>Contact us anytime—we’re here to help!</p>
+
+        </div>
+        <div class="col-sm-8 mt-3 px-4 form-section">
+            <form>
+                <div class="row">
+                    <div class="col-sm-6 mt-2">
+                        <input type="text" class="contact-us-form" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="col-sm-6 mt-2">
+                        <input type="text" class="contact-us-form" id="mobile" placeholder="Your Mobile" required>
+                    </div>
+                    <div class="col-sm-12 mt-2">
+                        <input type="email" class="contact-us-form" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="col-sm-12 mt-2">
+                        <input type="text" class="contact-us-form" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="col-sm-12 mt-2">
+                        <textarea class="contact-us-form" id="message" rows="4" placeholder="Your Message" required></textarea>
+                    </div> 
+                    <div class="col-sm-12 text-center">
+                        <button type="submit" class="btn btn-primary" style="width: 200px;">Send Message</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+
+        <!-- Map Section -->
+        <div class="col-sm-4 mt-3">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.9047689426437!2d144.95373641531564!3d-37.81720997975185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f7ff22f3%3A0x5045675218ce7e33!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1601294876247!5m2!1sen!2sin" 
+                width="100%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12 text-center fs-3 text-secondary">
+            <i class="bi bi-instagram" style="margin:5px; cursor: pointer;"></i>
+            <i class="bi bi-whatsapp" style="margin:5px; cursor: pointer;"></i>
+            <i class="bi bi-facebook" style="margin:5px; cursor: pointer;"></i>
+            <i class="bi bi-twitter" style="margin:5px; cursor: pointer;"></i>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const shapeContainer = document.querySelector('.shape-container');
+
+    // Function to create random shapes
+    function createShape(type) {
+        const shape = document.createElement('div');
+        shape.classList.add('shape', type);
+        shape.style.top = Math.random() * 100 + '%';
+        shape.style.left = Math.random() * 100 + '%';
+        shapeContainer.appendChild(shape);
+    }
+
+    // Create multiple shapes
+    const shapes = [ 'circle'];
+    for (let i = 0; i < 5; i++) {
+        const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+        createShape(randomShape);
+    }
+});
+
+</script>
+{% endblock content %}

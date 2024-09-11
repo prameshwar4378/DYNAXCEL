@@ -6,7 +6,7 @@ body{
 	font-family: 'Poppins';
 	font-weight: 400;
 	overflow-x: hidden;
-	background-color: #f7fdff;
+	background-color: #f9feff;
 }
 *{
 	margin:0;
@@ -40,7 +40,7 @@ a{
 	width: 100%;
 	position: relative;
 	z-index: 99;
-	padding:15px;
+	padding:15px; 
 }
 .header .item-left{
 	flex:0 0 17%;
@@ -108,7 +108,7 @@ a{
 	display: inline-block;
 	padding: 10px 0;
 	font-size: 15px;
-	color: #555555;
+	color: #50db34;
 	transition: color 0.3s ease;
 	text-decoration: none;
 	text-transform: capitalize;
@@ -118,14 +118,16 @@ a{
 	max-width: 350px;
 	border-radius: 30px; 
 	padding:20px 15px;
+	color: #000;
 }
 .header .menu > ul > li .single-column-menu >ul > li  a{
 	padding:20px 15px;
+	color: #000;
 }
 
 .header .menu > ul > li .single-column-menu >ul > li  a:hover{
-	color:#AB7442; 
-	background-color: #ebe4de;  
+	color:#0f5506; 
+	background-color: #c3f3c7;  
 	width:100%;
 	border-radius: 20px;
 }
@@ -186,9 +188,9 @@ a{
 
 .header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a:hover,
 .header .item-right a:hover{
-	color:#AB7442;
 	text-decoration: none;
-	background-color: #ebe4de;  
+	color:#0f5506; 
+	background-color: #c3f3c7;  
 
 }
 
@@ -682,7 +684,7 @@ a{
 	
 	.count-digit {
 		margin: 5px 0px;
-		color: #cc881b;
+		color: #7fd347;
 		font-weight: 700;
 		font-size: 36px;
 	}
@@ -779,7 +781,7 @@ a{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #fcb97aa9 6.14%, #fa7f598a 83.37%);
+    background: #7fd347 ;
     border-radius: 48px;
     transition: transform 0.7s;
     transform: translateY(100%); /* Start off-screen at the bottom */
@@ -791,6 +793,7 @@ a{
     transform: translateY(-10px); /* Smoothly moves card up */
 	transition: transform 0.7s;
     border-radius: 48px;
+	color: #fff;
 
 }
 
@@ -861,12 +864,12 @@ a{
 }
 
 .gallery-carousel .owl-dot.active {
-    background-color: #8d650f;
+    background-color: #4ae403;
     border-color: var(--primary);
 }
 
 .gallery-carousel .owl-dot:hover {
-    background-color: #f57c00;
+    background-color: #7ff17f;
 }
 
 
@@ -922,12 +925,12 @@ a{
 }
 
 .news-carousel .owl-dot.active {
-    background-color: #8d650f;
+    background-color: #5afa6f;
     border-color: var(--primary);
 }
 
 .news-carousel .owl-dot:hover {
-    background-color: #f57c00;
+    background-color: #88fc53;
 }
 
 
@@ -1047,7 +1050,15 @@ a{
 
 /* Footer start  */
 .footer{  
-    background: linear-gradient(90deg, #724f2e 6.14%, #382a26de 83.37%);
-	border-radius: 50px 50px 0px 0px;
-
+    background: #091f11de;
 }
+
+
+
+.contact-us-form{
+	background-color: #ffffff;
+	padding: 10px;
+	border:none;
+	border-bottom: 2px solid gray;
+}
+

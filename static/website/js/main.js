@@ -203,6 +203,44 @@ $(".news-carousel").owlCarousel({
           items:3
       }
   }
+
+
+  
 });
 
+
  
+$(document).ready(function(){
+  $(".about-gallery-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      items: 1, // Show only one item at a time
+      stagePadding: 50, // Adjust this value to control the visible portion of adjacent items
+      autoplay: true,
+      smartSpeed: 3000,
+      autoplayHoverPause: false,
+      dots: true,
+      center: false, // Center should be false to show only one image per slide
+      responsive: {
+          0: {
+              items: 1,
+              stagePadding: 20
+          },
+          600: {
+              items: 1,
+              stagePadding: 30
+          },
+          1000: {
+              items: 1,
+              stagePadding: 50
+          },
+          1200: {
+              items: 1,
+              stagePadding: 50
+          }
+      }
+  });
+}); 
+
+ 
+
