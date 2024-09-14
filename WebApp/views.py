@@ -10,3 +10,9 @@ def contact_us(request):
 
 def about_us(request):
     return render(request,"about_us.html")
+
+def career(request):
+    return render(request,"career.html")
+
+def career_apply_job(request):
+    return render(request,"career_apply_job.html")
