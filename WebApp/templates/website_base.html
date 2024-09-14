@@ -22,7 +22,7 @@
     <!-- Customized Bootstrap Stylesheet --> 
     <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet"> 
     <link href="{% static 'website/css/style.css' %}" rel="stylesheet"> 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
     <!-- Template Stylesheet --> 
 </head>
  <style>
@@ -86,7 +86,6 @@
     }
 }
  
-
  
 {% block style %}{% endblock style %}
  </style>
@@ -168,7 +167,7 @@
                         </li>
 
                         <li>
-                            <a href="#">News</a>
+                            <a href="{% url "web_news" %}">News</a>
                         </li>
 
                         <li>
