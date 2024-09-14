@@ -24,10 +24,6 @@
     <link href="{% static 'website/css/style.css' %}" rel="stylesheet"> 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Template Stylesheet --> 
-
-    <!-- International Telephone Input CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.16/build/css/intlTelInput.min.css">
-
 <!-- Bootstrap CSS (if not already included) -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -167,7 +163,7 @@
 
  
                         <li>
-                            <a href="#">Infrastructure</a>
+                            <a href="{% url 'website_infra' %}">Infrastructure</a>
                         </li>
 
                         <li>
@@ -334,9 +330,6 @@ $(document).ready(function(){
  
 
 
-<script src="https://cdn.lordicon.com/lordicon.js"></script>
-<!-- International Telephone Input JS -->
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.16/build/js/intlTelInput.min.js"></script>
 
 <!-- Bootstrap JS (if not already included) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

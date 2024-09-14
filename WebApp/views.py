@@ -16,3 +16,6 @@ def career(request):
 
 def career_apply_job(request):
     return render(request,"career_apply_job.html")
+
+def infrastructure(request):
+    return render(request,"infrastructure.html")

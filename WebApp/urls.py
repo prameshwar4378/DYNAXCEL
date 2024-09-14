@@ -6,5 +6,5 @@ urlpatterns = [
     path('/about_us', about_us, name="website_about_us"),
     path('/career', career, name="website_career"),
     path('/career_apply_job', career_apply_job, name="career_apply_job"),
-
+    path('/infrastructure', infrastructure, name="website_infra"),
 ]
