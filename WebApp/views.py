@@ -13,3 +13,8 @@ def about_us(request):
 
 def web_news(request):
     return render(request,"web_news.html")
+def career(request):
+    return render(request,"career.html")
+
+def career_apply_job(request):
+    return render(request,"career_apply_job.html")

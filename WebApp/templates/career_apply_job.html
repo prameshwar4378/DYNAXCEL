@@ -1,0 +1,213 @@
+{% extends "website_base.html" %}
+{% block title %}Career | Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+
+.page-header {
+position: relative;
+background: url('/static/website/img/background-wave.png') ;
+<!-- background-color:green; -->
+background-position: center center;
+background-attachment: fixed;
+background-size: 100%;
+padding: 140px 0px 125px 0px;
+overflow: hidden; /* Hide overflowing animated shapes */
+}
+.page-header::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(61, 61, 61, 0.753);
+z-index: 1;
+}
+.page-header > * {
+position: relative;
+z-index: 2;
+}
+
+/* Shape container */
+.shape-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+pointer-events: none; /* So the shapes don't interfere with clicks */
+}
+
+/* Basic shape styling */
+.shape {
+position: absolute;
+width: 50px;
+height: 50px;
+opacity: 0.8;
+animation: moveRandom 20s infinite ease-in-out;
+}
+
+/* Specific shape styling */
+
+.circle {
+border-radius: 50%;
+background-color: #ffffff56;
+}
+
+
+/* Random movement animation */
+@keyframes moveRandom {
+0% {
+transform: translate(0, 0) rotate(0deg);
+}
+25% {
+transform: translate(100px, 200px) rotate(45deg);
+}
+50% {
+transform: translate(-150px, 50px) rotate(90deg);
+}
+75% {
+transform: translate(200px, -100px) rotate(135deg);
+}
+100% {
+transform: translate(0, 0) rotate(180deg);
+}
+}
+
+
+h1{
+font-size: 70px;
+}
+
+@media (max-width: 990px) {
+h1{
+font-size: 60px;
+}
+
+}
+
+@media (max-width: 500px) {
+h1{
+font-size: 30px;
+}
+
+}
+
+{% endblock style %}
+{% block content %}
+
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light" style="font-size: 40;">Career</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Shapes for animation -->
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Job Details Section -->
+        <div class="col-12 col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Software Engineer</h2>
+                    <h5 class="card-subtitle mb-3 text-muted">
+                        <i class="bi bi-geo-alt"></i> San Francisco, CA
+                    </h5>
+                    <p class="card-text">
+                        <strong><i class="bi bi-file-text"></i> Job Description:</strong>
+                        Join our dynamic team as a Software Engineer. Work on cutting-edge projects and make a significant impact on our product development. Collaborate with a team of engineers and designers to build innovative software solutions.
+                    </p>
+                    <p class="card-text">
+                        <strong><i class="bi bi-star"></i> Job Features:</strong>
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> Competitive salary and benefits</li>
+                        <li><i class="bi bi-check-circle"></i> Flexible working hours</li>
+                        <li><i class="bi bi-check-circle"></i> Opportunity for professional growth</li>
+                        <li><i class="bi bi-check-circle"></i> Work on exciting projects with the latest technologies</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong><i class="bi bi-people"></i> Number of Vacancies:</strong> 3
+                    </p>
+                    <p class="card-text">
+                        <strong><i class="bi bi-calendar"></i> Application Deadline:</strong> December 31, 2024
+                    </p>
+                    <p class="card-text">
+                        <strong><i class="bi bi-briefcase"></i> Job Location:</strong> San Francisco, CA
+                    </p>
+                    <p class="card-text">
+                        <strong><i class="bi bi-lightbulb"></i> Required Skills:</strong>
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> Proficiency in JavaScript and Python</li>
+                        <li><i class="bi bi-check-circle"></i> Experience with React and Node.js</li>
+                        <li><i class="bi bi-check-circle"></i> Strong problem-solving skills</li>
+                        <li><i class="bi bi-check-circle"></i> Excellent communication and teamwork abilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Application Form Section -->
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Apply for This Job</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                                                
+                        <div class="mb-3">
+                            <label for="resume" class="form-label">Upload Resume</label>
+                            <input class="form-control" type="file" id="resume" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+
+        // Function to create random shapes
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+
+        // Create multiple shapes
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+
+</script>
+{% endblock content %}
