@@ -24,6 +24,9 @@
     <link href="{% static 'website/css/style.css' %}" rel="stylesheet"> 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
     <!-- Template Stylesheet --> 
+<!-- Bootstrap CSS (if not already included) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
  <style>
 .back-to-top {
@@ -159,7 +162,7 @@
 
  
                         <li>
-                            <a href="#">Infrastructure</a>
+                            <a href="{% url 'website_infra' %}">Infrastructure</a>
                         </li>
 
                         <li>
@@ -185,11 +188,11 @@
                         </li>
                         
                         <li>
-                            <a href="#">Career</a>
+                            <a href="{% url 'website_career' %}">Career</a>
                         </li>
 
                         <li>
-                            <a href="{% url "website_contact_us" %}">Contact Us</a>
+                            <a href="{% url 'website_contact_us' %}">Contact Us</a>
                         </li>
                     </ul>
                 </nav>
@@ -326,7 +329,12 @@ $(document).ready(function(){
  
 
 
-<script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+<!-- Bootstrap JS (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 </body>
 

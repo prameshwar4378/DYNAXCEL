@@ -1,0 +1,151 @@
+<!-- {% extends "website_base.html" %}
+{% block title %}Infrastructure - Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+{% block links %}
+{% endblock links %}
+
+.page-header {
+    position: relative;
+    background: url('/static/website/img/infrastructure-background.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100%;
+    padding: 140px 0px 125px 0px;
+    overflow: hidden;
+}
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(61, 61, 61, 0.753);
+    z-index: 1;
+}
+.page-header > * {
+    position: relative;
+    z-index: 2;
+}
+.shape-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+.shape {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+    animation: moveRandom 20s infinite ease-in-out;
+}
+.circle {
+    border-radius: 50%;
+    background-color: #ffffff56;
+}
+@keyframes moveRandom {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(100px, 200px) rotate(45deg); }
+    50% { transform: translate(-150px, 50px) rotate(90deg); }
+    75% { transform: translate(200px, -100px) rotate(135deg); }
+    100% { transform: translate(0, 0) rotate(180deg); }
+}
+h1 { font-size: 70px; }
+@media (max-width: 990px) { h1 { font-size: 60px; } }
+@media (max-width: 500px) { h1 { font-size: 30px; } }
+
+{% endblock style %}
+{% block content %}
+
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light" style="font-size: 40;">Our <span class="text-primary">Infrastructure</span></h1>
+                <p class="fs-5 text-white">World-class facilities driving innovation and excellence in equipment manufacturing.</p>
+            </div>
+        </div>
+    </div>
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+
+<!-- Infrastructure Carousel Start -->
+<div class="container-fluid p-0 pb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        <!-- Slide 1: State-of-the-art Facilities -->
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{% static 'website/img/infrastructure-1.jpg' %}" alt="" style="height:80vh">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8 text-center">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Welcome To <span style="color: #7fd347;"><b>Dynaxcel Infrastructure</b></span></h5>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">State-of-the-art <span class="text-primary">Manufacturing Facilities</span></h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Equipped with cutting-edge technology to produce high-precision components for critical industries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Advanced Machining -->
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{% static 'website/img/infrastructure-2.jpg' %}" alt="" style="height:80vh">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8 text-center">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Precision Engineering</h5>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">Advanced <span class="text-primary">Machining & Fabrication</span></h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Delivering unmatched accuracy in the production of custom-engineered components.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Assembly Line -->
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{% static 'website/img/infrastructure-3.jpg' %}" alt="" style="height:80vh">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8 text-center">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Efficient Production</h5>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">Streamlined <span class="text-primary">Assembly Lines</span></h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Optimized workflows to ensure timely and cost-effective manufacturing processes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Infrastructure Carousel End -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+</script>
+
+{% endblock content %} -->
