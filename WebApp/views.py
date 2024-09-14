@@ -11,6 +11,7 @@ def contact_us(request):
 def about_us(request):
     return render(request,"about_us.html")
 
+<<<<<<< HEAD
 def career(request):
     return render(request,"career.html")
 
@@ -19,3 +20,7 @@ def career_apply_job(request):
 
 def infrastructure(request):
     return render(request,"infrastructure.html")
+=======
+def web_news(request):
+    return render(request,"web_news.html")
+>>>>>>> 5fe898765030f8cfdcf04130b51a3745f7f6f3ad
