@@ -10,7 +10,7 @@
     background: url('/static/website/img/infrastructure-background.jpg');
     background-position: center center;
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
     padding: 140px 0px 125px 0px;
     overflow: hidden;
 }
@@ -59,6 +59,153 @@ h1 { font-size: 70px; }
 @media (max-width: 990px) { h1 { font-size: 60px; } }
 @media (max-width: 500px) { h1 { font-size: 30px; } }
 
+/* Ensure the carousel items are positioned properly */
+.carousel-item {
+    height: 100vh; /* Full height of the viewport */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden; /* Prevent content from spilling out */
+}
+
+/* Floating card */
+.floating-card {
+    position: absolute;
+    bottom: 10%; /* Adjust this value to make sure it's properly visible */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    color: #fff;
+    border-radius: 15px; /* Rounded corners */
+    text-align: center;
+    width: 70%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Add shadow for floating effect */
+    opacity: 0;
+    animation: slideIn 2s ease-in-out 1s forwards; /* Delay added for animation */
+    z-index: 10; /* Ensure it's on top of the carousel */
+}
+
+/* Animation for floating card */
+@keyframes slideIn {
+    from {
+        bottom: -30%; /* Start well below the carousel item */
+        opacity: 0;
+    }
+    to {
+        bottom: 10%; /* End with part of the card visible */
+        opacity: 1;
+    }
+}
+
+/* Key Features Section */
+.key-features {
+    padding: 60px 0;
+    background: #f9f9f9;
+}
+.key-features .feature {
+    margin-bottom: 30px;
+}
+.key-features .feature i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+.key-features .feature h4 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px 0;
+    background: #fff;
+}
+.testimonials .testimonial {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.testimonials .testimonial p {
+    font-style: italic;
+}
+.testimonials .testimonial h5 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Infographics Section */
+.infographics {
+    padding: 60px 0;
+    background: #f1f1f1;
+}
+.infographics .chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 10px solid #007bff;
+    position: relative;
+    margin: 0 auto;
+    animation: grow 2s ease-out forwards;
+}
+.infographics .chart .percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+.infographics .chart[data-percent="75"] {
+    border-color: #007bff;
+}
+.infographics .chart[data-percent="50"] {
+    border-color: #28a745;
+}
+.infographics .chart[data-percent="25"] {
+    border-color: #dc3545;
+}
+@keyframes grow {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+/* Call to Action */
+.cta {
+    padding: 60px 0;
+    background: #007bff;
+    color: #fff;
+}
+.cta h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+.cta p {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+.cta .btn-primary {
+    font-size: 18px;
+}
+
+/* Project Gallery */
+.project-gallery {
+    padding: 60px 0;
+}
+.project-gallery .project {
+    margin-bottom: 30px;
+}
+.project-gallery .project img {
+    border-radius: 10px;
+}
+.project-gallery .project h4 {
+    margin-top: 15px;
+    font-size: 24px;
+}
+.project-gallery .project p {
+    font-size: 16px;
+}
+
 {% endblock style %}
 {% block content %}
 
@@ -76,59 +223,182 @@ h1 { font-size: 70px; }
     </div>
 </section>
 
-<!-- Infrastructure Carousel Start -->
-<div class="container-fluid p-0 pb-5">
-    <div class="owl-carousel header-carousel position-relative">
-        <!-- Slide 1: State-of-the-art Facilities -->
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/infrastructure-1.jpg' %}" alt="" style="height:80vh">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-8 text-center">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Welcome To <span style="color: #7fd347;"><b>Dynaxcel Infrastructure</b></span></h5>
-                            <h1 class="display-3 text-white animated slideInDown mb-4">State-of-the-art <span class="text-primary">Manufacturing Facilities</span></h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Equipped with cutting-edge technology to produce high-precision components for critical industries.</p>
-                        </div>
-                    </div>
-                </div>
+<!-- Carousel Start -->
+<div id="infrastructureCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url('{% static 'website/img/carousel-1.png' %}');">
+            <div class="carousel-caption d-none d-md-block"></div>
+            <div class="floating-card">
+                <p>Our world-class manufacturing facility is equipped with advanced machinery to ensure top-notch precision.</p>
             </div>
         </div>
 
-        <!-- Slide 2: Advanced Machining -->
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/infrastructure-2.jpg' %}" alt="" style="height:80vh">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-8 text-center">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Precision Engineering</h5>
-                            <h1 class="display-3 text-white animated slideInDown mb-4">Advanced <span class="text-primary">Machining & Fabrication</span></h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Delivering unmatched accuracy in the production of custom-engineered components.</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url('{% static 'website/img/carousel-2.png' %}');">
+            <div class="carousel-caption d-none d-md-block"></div>
+            <div class="floating-card">
+                <p>We offer unmatched accuracy and quality through our precision engineering and high-end technology.</p>
             </div>
         </div>
 
-        <!-- Slide 3: Assembly Line -->
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/infrastructure-3.jpg' %}" alt="" style="height:80vh">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-8 text-center">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Efficient Production</h5>
-                            <h1 class="display-3 text-white animated slideInDown mb-4">Streamlined <span class="text-primary">Assembly Lines</span></h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Optimized workflows to ensure timely and cost-effective manufacturing processes.</p>
-                        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url('{% static 'website/img/carousel-3.png' %}');">
+            <div class="carousel-caption d-none d-md-block"></div>
+            <div class="floating-card">
+                <p>Our optimized workflows allow us to meet deadlines and deliver top-quality results efficiently.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#infrastructureCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#infrastructureCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- Carousel End -->
+
+<!-- Key Features Section -->
+<section class="key-features">
+    <div class="container text-center">
+        <h2 class="mb-5">Key Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="bi bi-cpu"></i>
+                    <h4>Advanced Technology</h4>
+                    <p>Cutting-edge machinery and equipment for superior manufacturing.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="bi bi-gear"></i>
+                    <h4>Precision Engineering</h4>
+                    <p>Unmatched accuracy and quality in every component we produce.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="bi bi-speedometer"></i>
+                    <h4>Efficient Processes</h4>
+                    <p>Optimized workflows to ensure timely delivery and high-quality results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="container text-center">
+        <h2 class="mb-5">What Our Clients Say</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"The quality and precision of the equipment are unmatched. Highly recommend!"</p>
+                    <h5>John Doe</h5>
+                    <p>CEO, TechCorp</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Exceptional service and cutting-edge technology. A true leader in the industry."</p>
+                    <h5>Jane Smith</h5>
+                    <p>Director, Innovate Ltd.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Their infrastructure and expertise have significantly enhanced our production capabilities."</p>
+                    <h5>Emily Johnson</h5>
+                    <p>Operations Manager, Manufacturing Inc.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Infographics Section -->
+<section class="infographics">
+    <div class="container text-center">
+        <h2 class="mb-5">Our Impact</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="infographic">
+                    <h4>Production Capacity</h4>
+                    <div class="chart" data-percent="75">
+                        <span class="percent">75%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="infographic">
+                    <h4>Quality Assurance</h4>
+                    <div class="chart" data-percent="50">
+                        <span class="percent">50%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="infographic">
+                    <h4>Innovation Index</h4>
+                    <div class="chart" data-percent="25">
+                        <span class="percent">25%</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Infrastructure Carousel End -->
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+    <div class="container text-center">
+        <h2>Ready to Experience Excellence?</h2>
+        <p>Contact us today to learn more about our world-class infrastructure and how it can benefit your operations.</p>
+        <a href="{% url 'website_contact_us' %}" class="btn btn-primary">Get in Touch</a>
+    </div>
+</section>
+
+<!-- Project Gallery -->
+<section class="project-gallery">
+    <div class="container text-center">
+        <h2 class="mb-5">Our Projects</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="project">
+                    <img src="{% static 'website/img/project1.jpg' %}" class="img-fluid" alt="Project 1">
+                    <h4>Project Title</h4>
+                    <p>Brief description of the project.</p>
+                </div>
+            </div>
+             <!-- Project 2 -->
+             <div class="col-md-4 mb-4">
+                <div class="project-card animate__animated animate__fadeInUp animate__delay-1s">
+                    <img src="{% static 'website/img/project-2.jpg' %}" alt="Project 2">
+                    <div class="project-content">
+                        <h3>Project Name 2</h3>
+                        <p>Brief description of Project 2. Emphasizing efficiency and effectiveness in execution.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="project-card animate__animated animate__fadeInUp animate__delay-2s">
+                    <img src="{% static 'website/img/project-3.jpg' %}" alt="Project 3">
+                    <div class="project-content">
+                        <h3>Project Name 3</h3>
+                        <p>Brief description of Project 3. Showcasing cutting-edge technology and successful implementation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -148,4 +418,4 @@ h1 { font-size: 70px; }
     });
 </script>
 
-{% endblock content %} 
+{% endblock content %}
