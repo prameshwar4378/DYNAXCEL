@@ -10,5 +10,6 @@ urlpatterns = [
     path('/web_news', web_news, name="web_news"),
     path('/career', career, name="website_career"),
     path('/career_apply_job', career_apply_job, name="career_apply_job"),
+    path('/sustainability', sustainability, name="sustainability"),
 
 ]

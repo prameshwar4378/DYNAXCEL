@@ -59,7 +59,6 @@ h1 { font-size: 70px; }
 @media (max-width: 990px) { h1 { font-size: 60px; } }
 @media (max-width: 500px) { h1 { font-size: 30px; } }
 
-/* Ensure the carousel items are positioned properly */
 .carousel-item {
     height: 100vh; /* Full height of the viewport */
     background-size: cover;
@@ -68,7 +67,6 @@ h1 { font-size: 70px; }
     overflow: hidden; /* Prevent content from spilling out */
 }
 
-/* Floating card */
 .floating-card {
     position: absolute;
     bottom: 10%; /* Adjust this value to make sure it's properly visible */
@@ -86,7 +84,6 @@ h1 { font-size: 70px; }
     z-index: 10; /* Ensure it's on top of the carousel */
 }
 
-/* Animation for floating card */
 @keyframes slideIn {
     from {
         bottom: -30%; /* Start well below the carousel item */
@@ -98,7 +95,6 @@ h1 { font-size: 70px; }
     }
 }
 
-/* Key Features Section */
 .key-features {
     padding: 60px 0;
     background: #f9f9f9;
@@ -116,7 +112,6 @@ h1 { font-size: 70px; }
     font-size: 24px;
 }
 
-/* Testimonials Section */
 .testimonials {
     padding: 60px 0;
     background: #fff;
@@ -135,7 +130,6 @@ h1 { font-size: 70px; }
     font-weight: bold;
 }
 
-/* Infographics Section */
 .infographics {
     padding: 60px 0;
     background: #f1f1f1;
@@ -170,7 +164,6 @@ h1 { font-size: 70px; }
     to { transform: scale(1); }
 }
 
-/* Call to Action */
 .cta {
     padding: 60px 0;
     background: #007bff;
@@ -188,7 +181,6 @@ h1 { font-size: 70px; }
     font-size: 18px;
 }
 
-/* Project Gallery */
 .project-gallery {
     padding: 60px 0;
 }
@@ -206,10 +198,37 @@ h1 { font-size: 70px; }
     font-size: 16px;
 }
 
+/* Add AOS styles for animations */
+[data-aos] {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+<!-- style to project cards -->
+.project-gallery .project-card {
+    border-radius: 10px; /* Optional: For rounded corners */
+    overflow: hidden; /* Ensure content does not spill out */
+}
+
+.project-gallery .project-card img {
+    width: 100%; /* Ensure image fills the width of its container */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    border-radius: 10px; /* Rounded corners for images */
+}
+
+.project-gallery .project-content {
+    padding: 15px;
+}
+
 {% endblock style %}
 {% block content %}
 
-<section class="page-header">
+<section class="page-header" data-aos="fade-in" data-aos-duration="1000">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 text-center text-light">
@@ -262,25 +281,25 @@ h1 { font-size: 70px; }
 <!-- Carousel End -->
 
 <!-- Key Features Section -->
-<section class="key-features">
+<section class="key-features" data-aos="fade-up" data-aos-duration="1000">
     <div class="container text-center">
         <h2 class="mb-5">Key Features</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
                 <div class="feature">
                     <i class="bi bi-cpu"></i>
                     <h4>Advanced Technology</h4>
                     <p>Cutting-edge machinery and equipment for superior manufacturing.</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
                 <div class="feature">
                     <i class="bi bi-gear"></i>
                     <h4>Precision Engineering</h4>
                     <p>Unmatched accuracy and quality in every component we produce.</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
                 <div class="feature">
                     <i class="bi bi-speedometer"></i>
                     <h4>Efficient Processes</h4>
@@ -292,25 +311,25 @@ h1 { font-size: 70px; }
 </section>
 
 <!-- Testimonials Section -->
-<section class="testimonials">
+<section class="testimonials" data-aos="fade-up" data-aos-duration="1000">
     <div class="container text-center">
         <h2 class="mb-5">What Our Clients Say</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
                 <div class="testimonial">
                     <p>"The quality and precision of the equipment are unmatched. Highly recommend!"</p>
                     <h5>John Doe</h5>
                     <p>CEO, TechCorp</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
                 <div class="testimonial">
                     <p>"Exceptional service and cutting-edge technology. A true leader in the industry."</p>
                     <h5>Jane Smith</h5>
                     <p>Director, Innovate Ltd.</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
                 <div class="testimonial">
                     <p>"Their infrastructure and expertise have significantly enhanced our production capabilities."</p>
                     <h5>Emily Johnson</h5>
@@ -322,11 +341,11 @@ h1 { font-size: 70px; }
 </section>
 
 <!-- Infographics Section -->
-<section class="infographics">
+<section class="infographics" data-aos="fade-up" data-aos-duration="1000">
     <div class="container text-center">
         <h2 class="mb-5">Our Impact</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
                 <div class="infographic">
                     <h4>Production Capacity</h4>
                     <div class="chart" data-percent="75">
@@ -334,7 +353,7 @@ h1 { font-size: 70px; }
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
                 <div class="infographic">
                     <h4>Quality Assurance</h4>
                     <div class="chart" data-percent="50">
@@ -342,7 +361,7 @@ h1 { font-size: 70px; }
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
                 <div class="infographic">
                     <h4>Innovation Index</h4>
                     <div class="chart" data-percent="25">
@@ -355,7 +374,7 @@ h1 { font-size: 70px; }
 </section>
 
 <!-- Call to Action -->
-<section class="cta">
+<section class="cta" data-aos="fade-up" data-aos-duration="1000">
     <div class="container text-center">
         <h2>Ready to Experience Excellence?</h2>
         <p>Contact us today to learn more about our world-class infrastructure and how it can benefit your operations.</p>
@@ -364,32 +383,31 @@ h1 { font-size: 70px; }
 </section>
 
 <!-- Project Gallery -->
-<section class="project-gallery">
+<section class="project-gallery" data-aos="fade-up" data-aos-duration="1000">
     <div class="container text-center">
         <h2 class="mb-5">Our Projects</h2>
         <div class="row">
-            <div class="col-md-4">
-                <div class="project">
-                    <img src="{% static 'website/img/project1.jpg' %}" class="img-fluid" alt="Project 1">
-                    <h4>Project Title</h4>
-                    <p>Brief description of the project.</p>
+            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
+                <div class="project-card animate__animated animate__fadeInUp">
+                    <img src="{% static 'website/img/sus1.jpg' %}" alt="Project 1">
+                    <div class="project-content">
+                        <h3>Project Title 1</h3>
+                        <p>Brief description of the project.</p>
+                    </div>
                 </div>
             </div>
-             <!-- Project 2 -->
-             <div class="col-md-4 mb-4">
-                <div class="project-card animate__animated animate__fadeInUp animate__delay-1s">
-                    <img src="{% static 'website/img/project-2.jpg' %}" alt="Project 2">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="project-card animate__animated animate__fadeInUp">
+                    <img src="{% static 'website/img/sus2.jpg' %}" alt="Project 2">
                     <div class="project-content">
                         <h3>Project Name 2</h3>
                         <p>Brief description of Project 2. Emphasizing efficiency and effectiveness in execution.</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- Project 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="project-card animate__animated animate__fadeInUp animate__delay-2s">
-                    <img src="{% static 'website/img/project-3.jpg' %}" alt="Project 3">
+            <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                <div class="project-card animate__animated animate__fadeInUp">
+                    <img src="{% static 'website/img/sus3.jpg' %}" alt="Project 3">
                     <div class="project-content">
                         <h3>Project Name 3</h3>
                         <p>Brief description of Project 3. Showcasing cutting-edge technology and successful implementation.</p>
@@ -416,6 +434,9 @@ h1 { font-size: 70px; }
             createShape(randomShape);
         }
     });
+    
+    // Initialize AOS
+    AOS.init();
 </script>
 
 {% endblock content %}

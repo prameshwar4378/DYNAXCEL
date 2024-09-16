@@ -27,3 +27,8 @@ def career(request):
 
 def career_apply_job(request):
     return render(request,"career_apply_job.html")
+
+def sustainability(request):
+    return render(request,"sustainability.html")
+
+

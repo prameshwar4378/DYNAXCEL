@@ -24,6 +24,10 @@
     <link href="{% static 'website/css/style.css' %}" rel="stylesheet"> 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
     <!-- Template Stylesheet --> 
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
 </head>
  <style>
 .back-to-top {
@@ -163,7 +167,7 @@
                         </li>
 
                         <li>
-                            <a href="#">Sustainability</a>
+                            <a href="{% url 'sustainability' %}">Sustainability</a>
                         </li>
 
                         <li>
@@ -300,7 +304,8 @@
       </script>
     <!-- Template Javascript -->
     <script src="{% static 'website/js/main.js' %}"></script>
-    
+      <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
 $(document).ready(function(){
     $(".owl-carousel").on('translated.owl.carousel', function() {
