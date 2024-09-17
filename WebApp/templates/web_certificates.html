@@ -1,0 +1,230 @@
+{% extends "website_base.html" %}
+{% block title %}Certificates - Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+{% block links %}
+
+{% endblock links %}
+
+.page-header {
+position: relative;
+background: url('/static/website/img/background-wave.png') ;
+<!-- background-color:green; -->
+background-position: center center;
+background-attachment: fixed;
+background-size: 100%;
+padding: 140px 0px 125px 0px;
+overflow: hidden; /* Hide overflowing animated shapes */
+}
+.page-header::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(61, 61, 61, 0.753);
+z-index: 1;
+}
+.page-header > * {
+position: relative;
+z-index:2;
+}
+
+/* Shape container */
+.shape-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+pointer-events: none; /* So the shapes don't interfere with clicks */
+}
+
+/* Basic shape styling */
+.shape {
+position: absolute;
+width: 50px;
+height: 50px;
+opacity: 0.8;
+animation: moveRandom 20s infinite ease-in-out;
+}
+
+/* Specific shape styling */
+
+.circle {
+border-radius: 50%;
+background-color: #ffffff56;
+}
+
+
+/* Random movement animation */
+@keyframes moveRandom {
+0% {
+transform: translate(0, 0) rotate(0deg);
+}
+25% {
+transform: translate(100px, 200px) rotate(45deg);
+}
+50% {
+transform: translate(-150px, 50px) rotate(90deg);
+}
+75% {
+transform: translate(200px, -100px) rotate(135deg);
+}
+100% {
+transform: translate(0, 0) rotate(180deg);
+}
+}
+ 
+
+
+
+.heading-title{
+  font-size: 70px;
+}
+
+@media (max-width: 990px) {
+  .heading-title{
+      font-size: 60px;
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .heading-title{
+      font-size: 30px;
+  }
+  
+}
+
+
+
+
+
+
+{% endblock style %}
+{% block content %} 
+
+
+<link rel="stylesheet" href="{% static 'website/css/uikit.css' %}" />
+
+<style>
+ 
+h4 {
+  display: block;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+
+/* Optional: Customize caption styles */
+.uk-lightbox .uk-lightbox-caption {
+    font-size: 16px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px; 
+    bottom: 40px;
+}
+ 
+
+</style>
+
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light heading-title heading-text" style="font-weight:700; ">Latest <span class="text-primary">Certificates</span> </h1>
+            </div>
+        </div>
+    </div>
+    <!-- Shapes for animation -->
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+ 
+
+<!-- Gallery Start-->
+
+<div class="container shadow bg-light" id="certificate-head-carousel" style="border-radius: 15px; margin-top: -70px; z-index: 3;">
+   
+    <div class="owl-carousel gallery-carousel">
+        <div class="item"><img
+                src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                alt="" loading="lazy" /></div>
+        <div class="item" loading="lazy"><img
+                src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                alt="" /></div>
+        <div class="item" loading="lazy"><img
+                src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                alt="" />
+            </div>
+    </div>
+</div>
+
+<!-- Gallery Stop-->
+
+
+<div class="container">
+    <div class="row"> 
+        <div class="col-sm-4 mt-3">
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/group-cute-cats-background-ai-generate_539191-4570.jpg" alt="">
+            </div>
+        </div> 
+        <div class="col-sm-4 mt-3">
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/group-cute-cats-background-ai-generate_539191-4570.jpg" alt="">
+            </div>
+        </div> 
+        <div class="col-sm-4 mt-3">
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/group-cute-cats-background-ai-generate_539191-4570.jpg" alt="">
+            </div>
+        </div> 
+        <div class="col-sm-4 mt-3">
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/group-cute-cats-background-ai-generate_539191-4570.jpg" alt="">
+            </div>
+        </div> 
+        <div class="col-sm-4 mt-3">
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/group-cute-cats-background-ai-generate_539191-4570.jpg" alt="">
+            </div>
+        </div> 
+    </div>
+</div>
+
+
+
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+
+        // Function to create random shapes
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+
+        // Create multiple shapes
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+
+</script>
+{% endblock content %}

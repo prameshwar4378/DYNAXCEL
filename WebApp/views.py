@@ -31,4 +31,10 @@ def career_apply_job(request):
 def sustainability(request):
     return render(request,"sustainability.html")
 
+def certificates(request):
+    return render(request,"web_certificates.html")
+
+def web_photos_gallary(request):
+    return render(request,"web_photos_gallary.html")
+
 

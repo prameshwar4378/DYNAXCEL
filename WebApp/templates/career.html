@@ -94,6 +94,11 @@ font-size: 30px;
 
 }
 
+
+.card{
+  border-radius:20px;
+  box-shadow:10px 10px 30px -10px;
+}
 {% endblock style %}
 {% block content %}
 
@@ -111,12 +116,15 @@ font-size: 30px;
     </div>
 </section>
 
-<div class="container mt-4">
-  <h1 class="mb-4">Current Job Openings</h1>
+<div class="container mt-4 mb-4">
+  <div style="width: 100%; text-align: center; margin-bottom: 40px;">
+    <h2 class="mb-1">Current Job <span class="text-primary">Openings</span></h1>
+      <p>Explore our current job openings and discover exciting opportunities to advance your career with us. Apply today!</p>
+    </div>
   <div class="row g-4">
     <!-- Job Card 1 -->
     <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">
             <i class="bi bi-laptop"></i> Software Engineer
@@ -138,7 +146,7 @@ font-size: 30px;
     </div>
     <!-- Job Card 2 -->
     <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100  ">
         <div class="card-body">
           <h5 class="card-title">
             <i class="bi bi-bar-chart-line"></i> Product Manager
@@ -160,7 +168,7 @@ font-size: 30px;
     </div>
     <!-- Job Card 3 -->
     <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 ">
         <div class="card-body">
           <h5 class="card-title">
             <i class="bi bi-palette"></i> UX Designer

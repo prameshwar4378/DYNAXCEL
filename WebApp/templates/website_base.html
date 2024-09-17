@@ -100,10 +100,10 @@
     <div class="container-fluid">
         <div class="row v-center" >
             <div class="header-item item-left">
-                <div class="logo">
-                    <a href="#">
+                <div  >
+                    <a href="logo">
                         <center>
-                         <img src="{% static 'website/img/logo.png' %}" alt="">  
+                         <img src="{% static 'website/img/logo.png' %}" alt=""  style="width:140px;">  
 
                         </center>
                        <!-- <h3>MoneyTrust</h3>-->
@@ -175,14 +175,14 @@
                         </li>
 
                         <li>
-                            <a href="#">Certificates</a>
+                            <a href="{% url "web_certificates" %}">Certificates</a>
                         </li>
 
                         <li class="menu-item-has-children">
                             <a href="#">Gallery <i class="bi bi-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
-                                    <li><a href="#">Photos</a></li>
+                                    <li><a href="{% url 'web_photos_gallary' %}">Photos</a></li>
                                     <li><a href="#">counters</a></li>
                                 </ul>
                             </div>
@@ -223,36 +223,39 @@
         <footer class="  " style="padding-top: 70px; padding-bottom: 0px;" >
             <div class="row">
                 <div class="col-sm-3 mb-3">
-                    <h5 class="text-primary">Section</h5>
+                    <h5 class="text-primary">Links</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About us</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Infrastructure</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Sustainability</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">News</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Certificates</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Career</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Contact us</a></li>
                     </ul>
                 </div>
 
                 <div class="col-sm-3 mb-3">
-                    <h5 class="text-primary">Section</h5>
+                    <h5 class="text-primary">Our Services</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">
-                                Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About</a></li>
+
+                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Stainless Steel &#038; Exotic Fabrication.</a></li>
+                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">ASME &#038; PED Vessels</a></li>
+                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Railways &#038; Metro Components</a></li>
+                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Defence Equipment</a></li>
+                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Food &#038; Pharma</a></li>
+                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">PSA Based Oxygen Generator</a></li>
                     </ul>
                 </div>
 
                 <div class="col-sm-3 mb-3">
-                    <h5 class="text-primary">Section</h5>
+                    <h5 class="text-primary">Industry Equipment’s</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Mining</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Paper</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Power</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Textile</a></li>
                     </ul>
                 </div>
 
@@ -293,6 +296,8 @@
 
 
     <!-- JavaScript Libraries -->
+     <!-- UIkit JS -->
+   
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
     <script src="{% static 'website/js/wow.min.js' %}"></script>  
     <script src="{% static 'website/js/counterup.min.js' %}"></script>

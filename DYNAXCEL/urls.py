@@ -21,6 +21,6 @@ from WebApp import urls as WebUrls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', WebView.index, name="index"),
-    path('web', include(WebUrls)),
+    path('web/', include(WebUrls)),
 
 ]
