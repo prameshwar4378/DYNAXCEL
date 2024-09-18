@@ -244,3 +244,37 @@ $(document).ready(function(){
 
  
 
+
+
+$(document).ready(function(){
+  $(".certificate-head-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    stagePadding: 50,  // Adjust this value to control the visible portion of adjacent items
+    autoplay: true,
+    smartSpeed: 3000,
+    autoplayHoverPause: false, 
+    dots: true,
+    center: true,
+    responsive: {
+      0: {
+        items: 1,
+        stagePadding: 30
+      },
+      600: {
+        items: 2,
+        stagePadding: 20
+      },
+      1000: {
+        items: 3,
+        stagePadding: 30
+      },
+      1200: {
+        items: 4,
+        stagePadding: 50
+      }
+    }
+  });
+});
+
+

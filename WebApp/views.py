@@ -31,8 +31,11 @@ def career_apply_job(request):
 def sustainability(request):
     return render(request,"sustainability.html")
 
-def stainless_steel(request):
-    return render(request,"services_stainless_steel.html")
+def certificates(request):
+    return render(request,"web_certificates.html")
+
+def web_photos_gallary(request):
+    return render(request,"web_photos_gallary.html")
 
 def services_ASME_PED_Vessels(request):
     return render(request,"services_ASME_PED_Vessels.html")
@@ -48,3 +51,6 @@ def services_psa_based(request):
 
 def services_defence_equipements(request):
     return render(request,"services_defence_equipements.html")
+
+def stainless_steel(request):
+    return render(request,"services_stainless_steel.html")

@@ -1,0 +1,265 @@
+{% extends "website_base.html" %}
+{% block title %}Photos - Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+{% block links %}
+
+{% endblock links %}
+
+.page-header {
+position: relative;
+background: url('/static/website/img/background-wave.png') ;
+<!-- background-color:green; -->
+background-position: center center;
+background-attachment: fixed;
+background-size: 100%;
+padding: 140px 0px 125px 0px;
+overflow: hidden; /* Hide overflowing animated shapes */
+}
+.page-header::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(61, 61, 61, 0.753);
+z-index: 1;
+}
+.page-header > * {
+position: relative;
+z-index: 2;
+}
+
+/* Shape container */
+.shape-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+pointer-events: none; /* So the shapes don't interfere with clicks */
+}
+
+/* Basic shape styling */
+.shape {
+position: absolute;
+width: 50px;
+height: 50px;
+opacity: 0.8;
+animation: moveRandom 20s infinite ease-in-out;
+}
+
+/* Specific shape styling */
+
+.circle {
+border-radius: 50%;
+background-color: #ffffff56;
+}
+
+
+/* Random movement animation */
+@keyframes moveRandom {
+0% {
+transform: translate(0, 0) rotate(0deg);
+}
+25% {
+transform: translate(100px, 200px) rotate(45deg);
+}
+50% {
+transform: translate(-150px, 50px) rotate(90deg);
+}
+75% {
+transform: translate(200px, -100px) rotate(135deg);
+}
+100% {
+transform: translate(0, 0) rotate(180deg);
+}
+}
+ 
+
+
+
+.heading-title{
+  font-size: 70px;
+}
+
+@media (max-width: 990px) {
+  .heading-title{
+      font-size: 60px;
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .heading-title{
+      font-size: 30px;
+  }
+  
+}
+
+
+
+
+
+
+{% endblock style %}
+{% block content %} 
+
+
+<link rel="stylesheet" href="{% static 'website/css/uikit.css' %}" />
+
+<style>
+ 
+h4 {
+  display: block;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+
+/* Optional: Customize caption styles */
+.uk-lightbox .uk-lightbox-caption {
+    font-size: 16px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px; 
+    bottom: 40px;
+}
+ 
+
+</style>
+
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light heading-title heading-text" style="font-weight:700; ">Organization <span class="text-primary">Images</span> </h1>
+            </div>
+        </div>
+    </div>
+    <!-- Shapes for animation -->
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+
+<!-- ======= Blog Single Section ======= -->
+<section id="blog" class="blog mt-3">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+        <div class="blog-author d-flex align-items-center">
+            <div class="container text-center ">
+                <div class="uk-child-width-1-4@m" uk-grid uk-lightbox="animation: scale">
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
+                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
+                        </a>
+                    </div>
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
+                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="">
+                        </a>
+                    </div> 
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
+                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
+                        </a>
+                    </div>
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
+                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="">
+                        </a>
+                    </div> 
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
+                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
+                        </a>
+                    </div>
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
+                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="">
+                        </a>
+                    </div> 
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
+                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
+                        </a>
+                    </div>
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
+                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="">
+                        </a>
+                    </div> 
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
+                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
+                        </a>
+                    </div>
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
+                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="">
+                        </a>
+                    </div> 
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
+                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
+                        </a>
+                    </div>
+                    <div class="image-wrapper">
+                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
+                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="">
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div><!-- End blog author bio -->
+    </div>
+ 
+    
+
+    <br><br>
+    
+
+    </div>
+  </section><!-- End Blog Single Section -->
+  
+    
+</div>
+
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.7/dist/js/uikit-icons.min.js"></script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+
+        // Function to create random shapes
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+
+        // Create multiple shapes
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+
+</script>
+{% endblock content %}
