@@ -1,0 +1,283 @@
+{% extends "website_base.html" %}
+{% block title %}Services | Sustainability{% endblock title %}
+{% load static %}
+{% block style %}
+
+.page-header {
+    position: relative;
+    background: url('/static/website/img/background-wave.png');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100%;
+    padding: 140px 0px 125px 0px;
+    overflow: hidden;
+}
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(61, 61, 61, 0.753);
+    z-index: 1;
+}
+.page-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Shape container */
+.shape-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+.shape {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+    animation: moveRandom 20s infinite ease-in-out;
+}
+.circle {
+    border-radius: 50%;
+    background-color: #ffffff56;
+}
+
+@keyframes moveRandom {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(100px, 200px) rotate(45deg);
+    }
+    50% {
+        transform: translate(-150px, 50px) rotate(90deg);
+    }
+    75% {
+        transform: translate(200px, -100px) rotate(135deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(180deg);
+    }
+}
+
+h1 {
+    font-size: 70px;
+}
+@media (max-width: 990px) {
+    h1 {
+        font-size: 60px;
+    }
+}
+@media (max-width: 500px) {
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/* Carousel Styling */
+.carousel-inner img {
+    border-radius: 15px; /* Rounded corners for carousel images */
+    height: 350px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fits the fixed height */
+}
+
+.carousel-caption h5 {
+    color: #f8f9fa; /* Bright white for visibility */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Adding text shadow for contrast */
+}
+.carousel-caption p {
+    color: #f8f9fa; /* Bright white for paragraph text */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Adding text shadow */
+}
+
+.why-choose-us-img {
+    width: 100%; /* Ensures the image is responsive */
+    height: 350px; /* Fixes the height to 350px */
+    object-fit: cover; /* Ensures the image scales properly and covers the entire area without distortion */
+    border-radius: 10px; /* Optional: Adds a slight rounded corner for a modern look */
+}
+{% endblock style %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light">Stainless Steel & Exotic Fabrication</h1>
+            </div>
+        </div>
+    </div>
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+
+<section class="fabrication-overview py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Description on the left with delay -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="text-primary">Stainless Steel & Exotic Fabrication</h2>
+                <p>We specialize in processing stainless steel. Specially trained workforce to handle stainless steel
+                    takes care of material by having dedicated areas, spotless handling, and dedicated toolset.</p>
+                <p>Exotic material is primarily cut by water-jet cutting since it is thermal sensitive metallurgy. Water
+                    Jet Cutting avoids any thermal impact on it.</p>
+                <p>For most of the equipment, we protect SS surface with PVC film to avoid contamination & the final
+                    surface treatment is done either by glass bead cleaning or pressure-wash cleaning.</p>
+            </div>
+
+            <!-- Slider on the right with delay -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                <div id="fabricationCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <img src="{% static 'website/img/stainlesssteel1.png' %}" class="d-block w-100" alt="Slide 1">
+                            <div class="carousel-caption">
+                                <h5>Precision Engineering</h5>
+                                <p>High-quality stainless steel and exotic material fabrication.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <img src="{% static 'website/img/stainlesssteel2.png' %}" class="d-block w-100" alt="Slide 2">
+                            <div class="carousel-caption">
+                                <h5>Water Jet Cutting</h5>
+                                <p>Exotic materials are cut with water jets to maintain integrity.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <img src="{% static 'website/img/stainlesssteel3.png' %}" class="d-block w-100" alt="Slide 3">
+                            <div class="carousel-caption">
+                                <h5>Surface Protection</h5>
+                                <p>We use PVC films to protect stainless steel from contamination.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-item">
+                            <img src="{% static 'website/img/stainlesssteel4.png' %}" class="d-block w-100" alt="Slide 4">
+                            <div class="carousel-caption">
+                                <h5>Glass Bead Cleaning</h5>
+                                <p>Final treatment using glass bead cleaning for a pristine finish.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#fabricationCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#fabricationCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-overview py-5">
+    <div class="container" data-aos="fade-up" data-aos-delay="200">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="mb-4" style="color: #0e76a8">Stainless Steel & Exotic Fabrication</h2>
+                <p class="lead">High precision and expertise in stainless steel and exotic materials fabrication, catering to various industries like aerospace, defense, and more.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-features py-5 bg-light">
+    <div class="container" data-aos="fade-left" data-aos-delay="400">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-gear h1 text-primary"></i>
+                <h3>Custom Fabrication</h3>
+                <p>Tailor-made solutions for complex projects using high-grade materials.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-speedometer h1 text-primary"></i>
+                <h3>Precision Engineering</h3>
+                <p>Advanced technology to deliver high-quality, precise fabrication.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-building h1 text-primary"></i>
+                <h3>Industry Expertise</h3>
+                <p>Years of experience serving industries like aerospace, energy, and defense.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-choose-us py-5 bg-light">
+    <div class="container" data-aos="zoom-in" data-aos-delay="1000">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{% static 'website/img/sus1.jpg' %}" class="img-fluid why-choose-us-img" alt="Fabrication">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="text-primary">Why Choose Us</h2>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check-circle text-primary"></i> Expertise in handling exotic materials</li>
+                    <li><i class="bi bi-check-circle text-primary"></i> State-of-the-art fabrication technologies</li>
+                    <li><i class="bi bi-check-circle text-primary"></i> Quality assurance with international standards</li>
+                    <li><i class="bi bi-check-circle text-primary"></i> Cost-effective and timely delivery</li>
+                    <!-- Added Points -->
+                    <li><i class="bi bi-check-circle text-primary"></i> Custom solutions tailored to your needs</li>
+                    <li><i class="bi bi-check-circle text-primary"></i> Dedicated customer support throughout the project</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta py-5">
+    <div class="container text-center" data-aos="fade-up" data-aos-delay="300">
+        <h2 class="mb-4 text-primary" >Get a Quote Today</h2>
+        <p>Contact us for more information or to get a custom quote for your stainless steel fabrication needs.</p>
+        <a href="{% url 'website_contact_us' %}" class="btn btn-primary btn-lg">Contact Us</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+
+        // Function to create random shapes
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+
+        // Create multiple shapes
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+
+    AOS.init({
+        offset: 200,  // Trigger animations after scrolling past this pixel amount (can be adjusted)
+        duration: 1200,  // Animation duration (in milliseconds)
+        easing: 'ease-in-out',  // Easing type for animations
+        once: true,  // Only animate elements once (prevents re-triggering on scroll up)
+        mirror: false  // Elements do not animate when scrolling past them again
+    });
+</script>
+
+{% endblock content %}

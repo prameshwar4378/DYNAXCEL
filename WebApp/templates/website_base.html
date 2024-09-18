@@ -90,7 +90,6 @@
     }
 }
  
- 
 {% block style %}{% endblock style %}
  </style>
 <body> 
@@ -136,12 +135,12 @@
                                 <div class="list-item">
                                     <h4 class="title text-primary">Services</h4>
                                     <ul> 
-                                        <li><a href="#">Stainless Steel &#038; Exotic Fabrication.</a></li>
-                                        <li><a href="#">ASME &#038; PED Vessels</a></li>
-                                        <li><a href="#">Railways &#038; Metro Components</a></li>
-                                        <li><a href="#">Defence Equipment</a></li>
-                                        <li><a href="#">Food &#038; Pharma</a></li>
-                                        <li><a href="#">PSA Based Oxygen Generator</a></li>
+                                        <li><a href="{% url 'stainless_steel' %}">Stainless Steel &#038; Exotic Fabrication</a></li>
+                                        <li><a href="{% url 'services_ASME_PED_Vessels' %}">ASME &#038; PED Vessels</a></li>
+                                        <li><a href="{% url 'services_railway_metro' %}">Railways &#038; Metro Components</a></li>
+                                        <li><a href="{% url 'services_defence_equipements' %}">Defence Equipment</a></li>
+                                        <li><a href="{% url 'services_food_farma' %}">Food &#038; Pharma</a></li>
+                                        <li><a href="{% url 'services_psa_based' %}">PSA Based Oxygen Generator</a></li>
                                     </ul>
                                      
                                 </div>
@@ -329,7 +328,6 @@ $(document).ready(function(){
 
 </script>
  
-
 
 <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
