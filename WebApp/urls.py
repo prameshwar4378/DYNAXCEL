@@ -14,12 +14,12 @@ urlpatterns = [
     path('certificates', certificates, name="web_certificates"),
     path('photos_gallary', web_photos_gallary, name="web_photos_gallary"),
 
-    path('/services_stainless_steel', stainless_steel, name="stainless_steel"),
-    path('/services_ASME_PED_Vessels', services_ASME_PED_Vessels, name="services_ASME_PED_Vessels"),
-    path('/services_railway_metro', services_railway_metro, name="services_railway_metro"),
-    path('/services_food_farma', services_food_farma, name="services_food_farma"),
-    path('/services_psa_based', services_psa_based, name="services_psa_based"),
-    path('/services_defence_equipements', services_defence_equipements, name="services_defence_equipements"),
+    path('services_stainless_steel', stainless_steel, name="stainless_steel"),
+    path('services_ASME_PED_Vessels', services_ASME_PED_Vessels, name="services_ASME_PED_Vessels"),
+    path('services_railway_metro', services_railway_metro, name="services_railway_metro"),
+    path('services_food_farma', services_food_farma, name="services_food_farma"),
+    path('services_psa_based', services_psa_based, name="services_psa_based"),
+    path('services_defence_equipements', services_defence_equipements, name="services_defence_equipements"),
 
 
 
