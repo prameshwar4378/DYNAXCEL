@@ -21,6 +21,10 @@ urlpatterns = [
     path('services_psa_based', services_psa_based, name="services_psa_based"),
     path('services_defence_equipements', services_defence_equipements, name="services_defence_equipements"),
 
+    path('services_mining', services_mining, name="services_mining"),
+    path('services_paper', services_paper, name="services_paper"),
+    path('services_power', services_power, name="services_power"),
+    path('services_textiles', services_textiles, name="services_textiles"),
 
 
 ]

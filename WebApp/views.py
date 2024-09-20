@@ -54,3 +54,15 @@ def services_defence_equipements(request):
 
 def stainless_steel(request):
     return render(request,"services_stainless_steel.html")
+
+def services_mining(request):
+    return render(request,"services_mining.html")
+
+def services_paper(request):
+    return render(request,"services_paper.html")
+
+def services_power(request):
+    return render(request,"services_power.html")
+
+def services_textiles(request):
+    return render(request,"services_textiles.html")

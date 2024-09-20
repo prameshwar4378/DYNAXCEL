@@ -147,10 +147,10 @@
                                 <div class="list-item">
                                     <h4 class="title text-primary">Industry Equipment’s</h4>
                                     <ul>
-                                        <li><a href="#">Mining</a></li>
-                                        <li><a href="#">Paper</a></li> 
-                                        <li><a href="#">Power</a></li> 
-                                        <li><a href="#">Textile</a></li> 
+                                        <li><a href="{% url 'services_mining' %}">Mining</a></li>
+                                        <li><a href="{% url 'services_paper' %}">Paper</a></li> 
+                                        <li><a href="{% url 'services_power' %}">Power</a></li> 
+                                        <li><a href="{% url 'services_textiles' %}">Textile</a></li> 
                                     </ul>
                                 </div> 
                                 
@@ -182,7 +182,7 @@
                             <div class="sub-menu single-column-menu">
                                 <ul>
                                     <li><a href="{% url 'web_photos_gallary' %}">Photos</a></li>
-                                    <li><a href="#">counters</a></li>
+                                    <li><a href="#">Videos</a></li>
                                 </ul>
                             </div>
                         </li>
