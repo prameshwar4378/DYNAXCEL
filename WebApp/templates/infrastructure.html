@@ -6,235 +6,70 @@
 {% endblock links %}
 
 .page-header {
-    position: relative;
-    background: url('/static/website/img/infrastructure-background.jpg');
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    padding: 140px 0px 125px 0px;
-    overflow: hidden;
+position: relative;
+background: url('/static/website/img/infrastructure-background.jpg');
+background-position: center center;
+background-attachment: fixed;
+background-size: cover;
+padding: 140px 0px 125px 0px;
+overflow: hidden;
 }
 .page-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(61, 61, 61, 0.753);
-    z-index: 1;
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(61, 61, 61, 0.753);
+z-index: 1;
 }
 .page-header > * {
-    position: relative;
-    z-index: 2;
+position: relative;
+z-index: 2;
 }
 .shape-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+pointer-events: none;
 }
 .shape {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    opacity: 0.8;
-    animation: moveRandom 20s infinite ease-in-out;
+position: absolute;
+width: 50px;
+height: 50px;
+opacity: 0.8;
+animation: moveRandom 20s infinite ease-in-out;
 }
 .circle {
-    border-radius: 50%;
-    background-color: #ffffff56;
+border-radius: 50%;
+background-color: #ffffff56;
 }
 @keyframes moveRandom {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(100px, 200px) rotate(45deg); }
-    50% { transform: translate(-150px, 50px) rotate(90deg); }
-    75% { transform: translate(200px, -100px) rotate(135deg); }
-    100% { transform: translate(0, 0) rotate(180deg); }
+0% { transform: translate(0, 0) rotate(0deg); }
+25% { transform: translate(100px, 200px) rotate(45deg); }
+50% { transform: translate(-150px, 50px) rotate(90deg); }
+75% { transform: translate(200px, -100px) rotate(135deg); }
+100% { transform: translate(0, 0) rotate(180deg); }
 }
 h1 { font-size: 70px; }
 @media (max-width: 990px) { h1 { font-size: 60px; } }
 @media (max-width: 500px) { h1 { font-size: 30px; } }
 
-.carousel-item {
-    height: 100vh; /* Full height of the viewport */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden; /* Prevent content from spilling out */
-}
-
-.floating-card {
-    position: absolute;
-    bottom: 10%; /* Adjust this value to make sure it's properly visible */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    color: #fff;
-    border-radius: 15px; /* Rounded corners */
-    text-align: center;
-    width: 70%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Add shadow for floating effect */
-    opacity: 0;
-    animation: slideIn 2s ease-in-out 1s forwards; /* Delay added for animation */
-    z-index: 10; /* Ensure it's on top of the carousel */
-}
-
-@keyframes slideIn {
-    from {
-        bottom: -30%; /* Start well below the carousel item */
-        opacity: 0;
-    }
-    to {
-        bottom: 10%; /* End with part of the card visible */
-        opacity: 1;
-    }
-}
-
-.key-features {
-    padding: 60px 0;
-    background: #f9f9f9;
-}
-.key-features .feature {
-    margin-bottom: 30px;
-}
-.key-features .feature i {
-    font-size: 40px;
-    color: #007bff;
-    margin-bottom: 15px;
-}
-.key-features .feature h4 {
-    margin-bottom: 10px;
-    font-size: 24px;
-}
-
-.testimonials {
-    padding: 60px 0;
-    background: #fff;
-}
-.testimonials .testimonial {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 30px;
-}
-.testimonials .testimonial p {
-    font-style: italic;
-}
-.testimonials .testimonial h5 {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.infographics {
-    padding: 60px 0;
-    background: #f1f1f1;
-}
-.infographics .chart {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 10px solid #007bff;
-    position: relative;
-    margin: 0 auto;
-    animation: grow 2s ease-out forwards;
-}
-.infographics .chart .percent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-}
-.infographics .chart[data-percent="75"] {
-    border-color: #007bff;
-}
-.infographics .chart[data-percent="50"] {
-    border-color: #28a745;
-}
-.infographics .chart[data-percent="25"] {
-    border-color: #dc3545;
-}
-@keyframes grow {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
-}
-
-.cta {
-    padding: 60px 0;
-    background: #007bff;
-    color: #fff;
-}
-.cta h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-}
-.cta p {
-    margin-bottom: 30px;
-    font-size: 18px;
-}
-.cta .btn-primary {
-    font-size: 18px;
-}
-
-.project-gallery {
-    padding: 60px 0;
-}
-.project-gallery .project {
-    margin-bottom: 30px;
-}
-.project-gallery .project img {
-    border-radius: 10px;
-}
-.project-gallery .project h4 {
-    margin-top: 15px;
-    font-size: 24px;
-}
-.project-gallery .project p {
-    font-size: 16px;
-}
-
-/* Add AOS styles for animations */
-[data-aos] {
-    opacity: 0;
-    transition: opacity 0.6s ease-out;
-}
-
-[data-aos].aos-animate {
-    opacity: 1;
-}
-
-<!-- style to project cards -->
-.project-gallery .project-card {
-    border-radius: 10px; /* Optional: For rounded corners */
-    overflow: hidden; /* Ensure content does not spill out */
-}
-
-.project-gallery .project-card img {
-    width: 100%; /* Ensure image fills the width of its container */
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover; /* Ensure image covers the area without distortion */
-    border-radius: 10px; /* Rounded corners for images */
-}
-
-.project-gallery .project-content {
-    padding: 15px;
-}
-
 {% endblock style %}
 {% block content %}
 
- 
+
 <section class="page-header">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 text-center text-light">
                 <h1 class="text-light" style="font-size: 40;">Our <span class="text-primary">Infrastructure</span></h1>
-                <p class="fs-5 text-white">World-class facilities driving innovation and excellence in equipment manufacturing.</p>
+                <p class="fs-5 text-white">World-class facilities driving innovation and excellence in equipment
+                    manufacturing.</p>
             </div>
         </div>
     </div>
@@ -243,188 +78,616 @@ h1 { font-size: 70px; }
         <div class="shape circle"></div>
     </div>
 </section>
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        <div class="col-sm-6 mt-2">
+            <div class="rounded " style="background-color: rgb(240, 255, 240);">
+                <div class="owl-carousel about-gallery-carousel">
+                    <div class="item"><img
+                            src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                            alt="Image 1" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                            alt="Image 2" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                            alt="Image 3" loading="lazy"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+            <div class="row pt-5">
+
+                <h2><b>Infrastructure</b></h2>
+                <div class="col-sm-4 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">11800</span>
+                            <span class="h1 fw-bold text-primary">+</span>
+                        </div>
+                        <h5 class="mb-0 text-dark">Sq M land</h5>
+                    </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">5625</span>
+                            <span class="h1 fw-bold text-primary">+</span>
+                        </div>
+                        <h5 class="mb-0 text-dark">Sq M Shed
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">1000</span>
+                            <span class="h1 fw-bold text-primary">+</span>
+                        </div>
+                        <h5 class="mb-0 text-dark">Sq M Office
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="row pt-5">
+
+                <center>
+                    <h2><b>MANUFACTURING BAY</b></h2>
+                </center>
+                <div class="col-sm-6 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">BAY - I</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>18 M x 75 M (Project Eqpt, assly)
+                                </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>30+10 tons cranes </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>Levelled clamping floor 323Sq M
+                                </h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">BAY - II</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>12.5 M × 75 M (Batch comp.) </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>5+5 Tons cranes. </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>Consumables Store </h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">BAY - III</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>18 M × 75 M (SS & Exotic) </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>10+5 Tons cranes.</h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>Clean Room 200 Sq M. </h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">BAY - IV</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>18 M × 75 M (RM store & Prep) X
+                                </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>10+5 Tons cranes</h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>CNC Machines </h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        <div class="col-sm-6 mt-2">
+            <div class="row ">
+
+                <h2><b>LASER CUTTING MACHINE</b></h2>
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: #defaff;">
+                        <div class="counter-counting">
+                            <span class=" fs-3 fw-bold" data-toggle="counter-up" style="color: #3cbcc9;">CO2 LASER</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check fs-5 me-3"  style="color: #3cbcc9;"></i>PLATINO 4 KW 2*4 M </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check fs-5 me-3"  style="color: #3cbcc9;"></i>SS-16 MM, MS-24 MM, AL-10 MM</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: #defaff;">
+                        <div class="counter-counting">
+                            <span class=" fs-3 fw-bold" data-toggle="counter-up" style="color: #3cbcc9;">FIBRE LASER</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check fs-5 me-3"  style="color: #3cbcc9;"></i>PLATINO 3 KW 1.5*3 M </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check fs-5 me-3"  style="color: #3cbcc9;"></i>SS-8 MM, MS-14 MM, AL-5 MM</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 mt-2">
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        <div class="col-sm-6 mt-2">
+
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mt-2">
+            <div class="row ">
+                <h2><b>TURRET PUNCH PRESS</b></h2>
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: #ffdeff;">
+                        <div class="counter-counting">
+                            <span class=" fs-3 fw-bold" data-toggle="counter-up" style="color: #a73cc9;">23 TONS FINN-POWER
+                                TTP</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #a73cc9;"></i>1250*2500 mm </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #a73cc9;"></i>3MM SS, 6 MM SS</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        <div class="col-sm-6 mt-2">
+            <div class="row ">
+                <h2><b>WATER JET CUTTING MACHINE</b></h2>
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: #fff2de;">
+                        <div class="counter-counting">
+                            <span class="  fs-3 fw-bold" data-toggle="counter-up"  style="color: #c9a03c;">FLOW INC-MACH 4020</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #c9a03c;"></i>2000*4000 mm </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #c9a03c;"></i>120MM</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        <div class="col-sm-6 mt-2"> 
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+            <div class="row ">
+                <h2><b>PRESS BRAKE MACHINE</b></h2>
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>220 TONE YAWEL </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>1420 MM</h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>5 AXIS CONTROL</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        
+        <div class="col-sm-6 mt-2">
+            <div class="row ">
+                <h2><b>PRESS BRAKE MACHINE</b></h2>
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: rgb(240, 255, 240);">
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>600 TONE YAWEL </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>6300 MM</h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>4 AXIS CONTROL</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col-sm-6 mt-2"> 
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        
+        <div class="col-sm-6 mt-2"> 
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mt-2">
+            <div class="row ">
+                <h2><b>PLATE BENDING MACHINE</b></h2>
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: #ffdede;">
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #c93c4b;"></i>AKYAPAK 4 ROLLER PBM </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #c93c4b;"></i>2000 MM</h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #c93c4b;"></i>25 MM SS</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="container bg-light p-3 mt-4" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+    <div class="row">
+        
+        <div class="col-sm-6 mt-2">
+            <div class="row ">
+                <h2><b>SURFACE TREATMENT</b></h2>
+                <div class="col-sm-12 mt-2">
+                    <div class="counter-item rounded p-3 h-100" style="background-color: #dedfff;">
+                        <ul>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #3c76c9;"></i>SS WASHING BAY TREATMENT PLATE</h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #3c76c9;"></i>6M * 12M</h6>
+                            </li>
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check  fs-5 me-3" style="color: #3c76c9;"></i>Mechanical Polishing</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-sm-6 mt-2"> 
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
  
-<div class="container p-5 mt-3 mb-3 text-center">
-    <center>
-        <h2>Comming soon....!</h2>
-    </center>
 
+
+
+<div class="container-fluid bg-light p-3 mt-3 mb-3" style="box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px; border-radius: 20px;">
+           
+        <div class="row">
+            <div class="col-sm-4 mt-2"> 
+                <div class="owl-carousel about-gallery-carousel">
+                    <div class="item"><img
+                            src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                            alt="Image 1" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                            alt="Image 2" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                            alt="Image 3" loading="lazy"></div>
+                </div>
+                <center>
+                    <div class="counter-item rounded p-3 " style="background-color: rgb(240, 255, 240); width: 70%; position: relative; margin-top: -40px; z-index: 1;">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-3 fw-bold" data-toggle="counter-up">GLASS BD CL/NG CHAMBER</span>
+                        </div>
+                        <ul> 
+                            <li>
+                                <h6 class="text-secondary" style="font-size: 15px;"><i
+                                        class="bi bi-check text-primary fs-5 me-3"></i>2.5 M * 6 M</h6>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </center>
+            </div>
+
+            <div class="col-sm-4 mt-2"> 
+                <div class="owl-carousel about-gallery-carousel">
+                    <div class="item"><img
+                            src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                            alt="Image 1" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                            alt="Image 2" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                            alt="Image 3" loading="lazy"></div>
+                </div>
+                <center> 
+                    <div class="counter-item rounded p-3 " style="background-color: rgb(240, 255, 240); width: 70%; position: relative; margin-top: -40px; z-index: 1;">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-3 fw-bold" data-toggle="counter-up">FITMENT AND WELD AUTOMATION</span>
+                        </div>
+                    </div>
+                </center>
+            </div>
+
+            <div class="col-sm-4 mt-2"> 
+                <div class="owl-carousel about-gallery-carousel">
+                    <div class="item"><img
+                            src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                            alt="Image 1" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                            alt="Image 2" loading="lazy"></div>
+                    <div class="item"><img
+                            src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                            alt="Image 3" loading="lazy"></div>
+                </div>
+                <center> 
+                    <div class="counter-item rounded p-3 " style="background-color: rgb(240, 255, 240); width: 70%; position: relative; margin-top: -40px; z-index: 1;">
+                        <div class="counter-counting">
+                            <span class="text-primary fs-3 fw-bold" data-toggle="counter-up">MACHINING VENDORBASE</span>
+                        </div>
+                    </div>
+                </center>
+            </div>
+            
+        </div>
+    </div>
 </div>
-{% comment %} <!-- Carousel Start -->
-<div id="infrastructureCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url('{% static 'website/img/carousel-1.png' %}');">
-            <div class="carousel-caption d-none d-md-block"></div>
-            <div class="floating-card">
-                <p>Our world-class manufacturing facility is equipped with advanced machinery to ensure top-notch precision.</p>
-            </div>
-        </div>
 
-        <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url('{% static 'website/img/carousel-2.png' %}');">
-            <div class="carousel-caption d-none d-md-block"></div>
-            <div class="floating-card">
-                <p>We offer unmatched accuracy and quality through our precision engineering and high-end technology.</p>
-            </div>
-        </div>
 
-        <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url('{% static 'website/img/carousel-3.png' %}');">
-            <div class="carousel-caption d-none d-md-block"></div>
-            <div class="floating-card">
-                <p>Our optimized workflows allow us to meet deadlines and deliver top-quality results efficiently.</p>
-            </div>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#infrastructureCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#infrastructureCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-<!-- Carousel End -->
 
-<!-- Key Features Section -->
-<section class="key-features" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container text-center">
-        <h2 class="mb-5">Key Features</h2>
-        <div class="row">
-            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
-                <div class="feature">
-                    <i class="bi bi-cpu"></i>
-                    <h4>Advanced Technology</h4>
-                    <p>Cutting-edge machinery and equipment for superior manufacturing.</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
-                <div class="feature">
-                    <i class="bi bi-gear"></i>
-                    <h4>Precision Engineering</h4>
-                    <p>Unmatched accuracy and quality in every component we produce.</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
-                <div class="feature">
-                    <i class="bi bi-speedometer"></i>
-                    <h4>Efficient Processes</h4>
-                    <p>Optimized workflows to ensure timely delivery and high-quality results.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Testimonials Section -->
-<section class="testimonials" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container text-center">
-        <h2 class="mb-5">What Our Clients Say</h2>
-        <div class="row">
-            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
-                <div class="testimonial">
-                    <p>"The quality and precision of the equipment are unmatched. Highly recommend!"</p>
-                    <h5>John Doe</h5>
-                    <p>CEO, TechCorp</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
-                <div class="testimonial">
-                    <p>"Exceptional service and cutting-edge technology. A true leader in the industry."</p>
-                    <h5>Jane Smith</h5>
-                    <p>Director, Innovate Ltd.</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
-                <div class="testimonial">
-                    <p>"Their infrastructure and expertise have significantly enhanced our production capabilities."</p>
-                    <h5>Emily Johnson</h5>
-                    <p>Operations Manager, Manufacturing Inc.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Infographics Section -->
-<section class="infographics" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container text-center">
-        <h2 class="mb-5">Our Impact</h2>
-        <div class="row">
-            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
-                <div class="infographic">
-                    <h4>Production Capacity</h4>
-                    <div class="chart" data-percent="75">
-                        <span class="percent">75%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
-                <div class="infographic">
-                    <h4>Quality Assurance</h4>
-                    <div class="chart" data-percent="50">
-                        <span class="percent">50%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
-                <div class="infographic">
-                    <h4>Innovation Index</h4>
-                    <div class="chart" data-percent="25">
-                        <span class="percent">25%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action -->
-<section class="cta" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container text-center">
-        <h2>Ready to Experience Excellence?</h2>
-        <p>Contact us today to learn more about our world-class infrastructure and how it can benefit your operations.</p>
-        <a href="{% url 'website_contact_us' %}" class="btn btn-primary">Get in Touch</a>
-    </div>
-</section>
-
-<!-- Project Gallery -->
-<section class="project-gallery" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container text-center">
-        <h2 class="mb-5">Our Projects</h2>
-        <div class="row">
-            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
-                <div class="project-card animate__animated animate__fadeInUp">
-                    <img src="{% static 'website/img/sus1.jpg' %}" alt="Project 1">
-                    <div class="project-content">
-                        <h3>Project Title 1</h3>
-                        <p>Brief description of the project.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <div class="project-card animate__animated animate__fadeInUp">
-                    <img src="{% static 'website/img/sus2.jpg' %}" alt="Project 2">
-                    <div class="project-content">
-                        <h3>Project Name 2</h3>
-                        <p>Brief description of Project 2. Emphasizing efficiency and effectiveness in execution.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
-                <div class="project-card animate__animated animate__fadeInUp">
-                    <img src="{% static 'website/img/sus3.jpg' %}" alt="Project 3">
-                    <div class="project-content">
-                        <h3>Project Name 3</h3>
-                        <p>Brief description of Project 3. Showcasing cutting-edge technology and successful implementation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> {% endcomment %}
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -442,7 +705,7 @@ h1 { font-size: 70px; }
             createShape(randomShape);
         }
     });
-    
+
     // Initialize AOS
     AOS.init();
 </script>

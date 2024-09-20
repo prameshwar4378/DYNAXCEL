@@ -95,123 +95,190 @@ font-size: 30px;
 }
 
 
-.card{
-  border-radius:20px;
-  box-shadow:10px 10px 30px -10px;
+
+.job-card {
+border: 1px solid #e3e6f0;
+border-radius: 8px;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.job-icon {
+background-color: #f3f5f9;
+padding: 10px;
+border-radius: 50%;
+margin-right: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.job-title {
+font-size: 18px;
+font-weight: 600;
+}
+.job-details {
+display: flex;
+gap: 15px;
+font-size: 14px;
+color: #5b6579;
+}
+.job-details span {
+background-color: #f3f5f9;
+padding: 10px 10px;
+border-radius: 20px;
+}
+.apply-btn {
+background-color: #28a745;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 8px;
+font-weight: 600;
+}
+.apply-btn:hover {
+background-color: #218838;
 }
 {% endblock style %}
 {% block content %}
 
 <section class="page-header">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 text-center text-light">
-                <h1 class="text-light" style="font-size: 40;">Career</h1>
-            </div>
-        </div>
-    </div>
-    <!-- Shapes for animation -->
-    <div class="shape-container">
-        <div class="shape circle"></div>
-    </div>
-</section>
-
-<div class="container mt-4 mb-4">
-  <div style="width: 100%; text-align: center; margin-bottom: 40px;">
-    <h2 class="mb-1">Current Job <span class="text-primary">Openings</span></h1>
-      <p>Explore our current job openings and discover exciting opportunities to advance your career with us. Apply today!</p>
-    </div>
-  <div class="row g-4">
-    <!-- Job Card 1 -->
-    <div class="col-12 col-md-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-laptop"></i> Software Engineer
-          </h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            <i class="bi bi-geo-alt"></i> Location: San Francisco, CA
-          </h6>
-          <p class="card-text">Join our dynamic team as a Software Engineer. Work on cutting-edge projects and make a significant impact on our product development.</p>
-          <a href="{% url 'career_apply_job' %}" class="btn btn-primary">
-            <i class="bi bi-envelope"></i> Apply
-          </a>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <small class="text-muted">
-            <i class="bi bi-clock"></i> Posted 3 days ago
-          </small>
-        </div>
-      </div>
-    </div>
-    <!-- Job Card 2 -->
-    <div class="col-12 col-md-4">
-      <div class="card h-100  ">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-bar-chart-line"></i> Product Manager
-          </h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            <i class="bi bi-geo-alt"></i> Location: New York, NY
-          </h6>
-          <p class="card-text">We are looking for an experienced Product Manager to lead our product strategy and work closely with cross-functional teams to drive innovation.</p>
-          <a href="{% url 'career_apply_job' %}" class="btn btn-primary">
-            <i class="bi bi-envelope"></i> Apply
-          </a>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <small class="text-muted">
-            <i class="bi bi-clock"></i> Posted 1 week ago
-          </small>
-        </div>
-      </div>
-    </div>
-    <!-- Job Card 3 -->
-    <div class="col-12 col-md-4">
-      <div class="card h-100 ">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-palette"></i> UX Designer
-          </h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            <i class="bi bi-geo-alt"></i> Location: Remote
-          </h6>
-          <p class="card-text">We need a creative UX Designer to enhance the user experience of our products. If you're passionate about design and user-centric solutions, apply now!</p>
-          <a href="{% url 'career_apply_job' %}" class="btn btn-primary">
-            <i class="bi bi-envelope"></i> Apply
-          </a>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <small class="text-muted">
-            <i class="bi bi-clock"></i> Posted 2 days ago
-          </small>
-        </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 text-center text-light">
+        <h1 class="text-light" style="font-size: 40;">Career</h1>
       </div>
     </div>
   </div>
+  <!-- Shapes for animation -->
+  <div class="shape-container">
+    <div class="shape circle"></div>
+  </div>
+</section>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-sm-6 mt-3">
+      <div class="job-card  align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="job-icon" style="padding: 10px 14px;">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <div>
+            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
+            <div class="job-details  mt-2">
+              <span><i class="bi bi-geo-alt"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; Pune</span>
+              <span><i class="bi bi-calendar2-check"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; 12-02-2024</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="mt-4 text-center">
+          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-3">
+      <div class="job-card  align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="job-icon" style="padding: 10px 14px;">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <div>
+            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
+            <div class="job-details  mt-2">
+              <span><i class="bi bi-geo-alt"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; Pune</span>
+              <span><i class="bi bi-calendar2-check"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; 12-02-2024</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="mt-4 text-center">
+          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mt-3">
+      <div class="job-card  align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="job-icon" style="padding: 10px 14px;">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <div>
+            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
+            <div class="job-details  mt-2">
+              <span><i class="bi bi-geo-alt"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; Pune</span>
+              <span><i class="bi bi-calendar2-check"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; 12-02-2024</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="mt-4 text-center">
+          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mt-3">
+      <div class="job-card  align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="job-icon" style="padding: 10px 14px;">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <div>
+            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
+            <div class="job-details  mt-2">
+              <span><i class="bi bi-geo-alt"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; Pune</span>
+              <span><i class="bi bi-calendar2-check"
+                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
+                &nbsp; 12-02-2024</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="mt-4 text-center">
+          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
-
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const shapeContainer = document.querySelector('.shape-container');
+  document.addEventListener('DOMContentLoaded', function () {
+    const shapeContainer = document.querySelector('.shape-container');
 
-        // Function to create random shapes
-        function createShape(type) {
-            const shape = document.createElement('div');
-            shape.classList.add('shape', type);
-            shape.style.top = Math.random() * 100 + '%';
-            shape.style.left = Math.random() * 100 + '%';
-            shapeContainer.appendChild(shape);
-        }
+    // Function to create random shapes
+    function createShape(type) {
+      const shape = document.createElement('div');
+      shape.classList.add('shape', type);
+      shape.style.top = Math.random() * 100 + '%';
+      shape.style.left = Math.random() * 100 + '%';
+      shapeContainer.appendChild(shape);
+    }
 
-        // Create multiple shapes
-        const shapes = ['circle'];
-        for (let i = 0; i < 5; i++) {
-            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-            createShape(randomShape);
-        }
-    });
+    // Create multiple shapes
+    const shapes = ['circle'];
+    for (let i = 0; i < 5; i++) {
+      const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+      createShape(randomShape);
+    }
+  });
 
 </script>
 {% endblock content %}
