@@ -158,66 +158,13 @@ h4 {
         <div class="blog-author d-flex align-items-center">
             <div class="container text-center ">
                 <div class="uk-child-width-1-4@m" uk-grid uk-lightbox="animation: scale">
+                    {% for photo in data %}
                     <div class="image-wrapper">
-                        <a class="uk-inline" href="https://dynaxcel.com/wp-content/uploads/2021/05/BN-XS123_2YZUp_OR_20180301193511-1024x683-1.jpeg" data-caption="Caption for Image 1" >
-                            <img src="https://dynaxcel.com/wp-content/uploads/2021/05/BN-XS123_2YZUp_OR_20180301193511-1024x683-1.jpeg" width="1800" height="1200" alt="" style="width: 100%;" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://dynaxcel.com/wp-content/uploads/2021/05/12-1-1024x765.jpeg" data-caption="Caption for Image 2">
-                            <img src="https://dynaxcel.com/wp-content/uploads/2021/05/12-1-1024x765.jpeg" style="width: 100%;" width="1800" height="1200" alt="" loading="lazy">
+                        <a class="uk-inline" href="{{photo.image.url}}" {% if photo.caption %} data-caption="{{photo.caption}}"{% endif %} >
+                            <img src="{{photo.image.url}}" width="1800" height="1200" alt="" style="width: 100%;" loading="lazy">
                         </a>
                     </div> 
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://dynaxcel.com/wp-content/uploads/2021/06/asme1-300x300.png" data-caption="Caption for Image 1" >
-                            <img src="https://dynaxcel.com/wp-content/uploads/2021/06/asme1-300x300.png" width="1800" height="1200" alt="" style="width: 100%;" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://dynaxcel.com/wp-content/uploads/2021/06/food4.png" data-caption="Caption for Image 2">
-                            <img src="https://dynaxcel.com/wp-content/uploads/2021/06/food4.png" style="width: 100%;" width="1800" height="1200" alt="" loading="lazy">
-                        </a>
-                    </div> 
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
-                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
-                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="" loading="lazy">
-                        </a>
-                    </div> 
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
-                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
-                        </a>
-                    </div>
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
-                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="" loading="lazy">
-                        </a>
-                    </div> 
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
-                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
-                        </a>
-                    </div>
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
-                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="" loading="lazy">
-                        </a>
-                    </div> 
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" data-caption="Caption for Image 1" >
-                            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" width="1800" height="1200" alt="" style="width: 100%;">
-                        </a>
-                    </div>
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" data-caption="Caption for Image 2">
-                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" style="width: 100%;" width="1800" height="1200" alt="" loading="lazy">
-                        </a>
-                    </div> 
+                    {% endfor %}
                 </div>
             </div>
         </div><!-- End blog author bio -->

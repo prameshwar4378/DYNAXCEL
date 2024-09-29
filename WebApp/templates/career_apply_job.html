@@ -141,6 +141,21 @@ font-size: 30px;
     color: #7ff17f;
     margin-right: 5px;
 }
+
+
+
+.job-details {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: #5b6579;
+    }
+    .job-details span {
+    background-color: #f3f5f9;
+    padding: 10px 10px;
+    border-radius: 20px;
+    }
+
 {% endblock style %}
 {% block content %}
 
@@ -164,42 +179,51 @@ font-size: 30px;
         <div class="col-12 col-md-8">
             <div class="card mb-4 job-card">
                 <div class="card-body">
-                    <h2 class="card-title">Trainee Production Planning Engineer</h2>
+
+                    <h2 class="card-title">{{job_details.title}}</h2>
                     <hr>
-                    <h5 class="card-subtitle mb-3 text-muted">
-                        <i class="bi bi-geo-alt card-icon"></i> Pune
-                    </h5>
-                    <p class="card-text">
-                        <strong><i class="bi bi-file-text card-icon"></i> Job Description:</strong>
-                        Join our dynamic team as a Software Engineer. Work on cutting-edge projects and make a significant impact on our product development. Collaborate with a team of engineers and designers to build innovative software solutions.
-                    </p>
-                    <p class="card-text">
-                        <strong><i class="bi bi-star card-icon"></i> Job Features:</strong>
-                    </p>
-                    <ul>
-                        <li>Competitive salary and benefits</li>
-                        <li>Flexible working hours</li>
-                        <li>Opportunity for professional growth</li>
-                        <li>Work on exciting projects with the latest technologies</li>
-                    </ul>
                     <p class="card-text mt-3">
-                        <strong><i class="bi bi-people card-icon"></i> Number of Vacancies:</strong> 3
+                        <strong><i class="bi bi-people card-icon"></i> Location:</strong> {{job_details.location}}
                     </p>
-                    <p class="card-text">
-                        <strong><i class="bi bi-calendar card-icon"></i> Application Deadline:</strong> December 31, 2024
+                     
+                    <p class="card-text mt-3">
+                        <strong><i class="bi bi-people card-icon"></i> Posted:</strong> {{job_details.posted_on}}
                     </p>
+                     
+                    <p class="card-text mt-3">
+                        <strong><i class="bi bi-people card-icon"></i> Vacancy:</strong> {{job_details.vacancy}}
+                    </p> 
+                    <hr style="color: #adadad;"> 
                     <p class="card-text">
-                        <strong><i class="bi bi-briefcase card-icon"></i> Job Location:</strong> Pune
+                        <strong><i class="bi bi-star card-icon"></i> Desired Qualification:</strong>
                     </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.desired_qualification|safe}}  
+                    </ul> 
                     <p class="card-text">
-                        <strong><i class="bi bi-lightbulb card-icon"></i> Required Skills:</strong>
+                        <strong><i class="bi bi-star card-icon"></i> Experiance Required:</strong>
+                    </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.experience_required|safe}} 
+                    </ul> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i> Job Description:</strong>
+                    </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.career_description|safe}} 
+                    </ul> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i> Roles & Responsibility:</strong>
+                    </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.roles_responsibility|safe}} 
+                    </ul> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i>Skills Required</strong>
                     </p>
                     <ul>
-                        <li>Proficiency in JavaScript and Python</li>
-                        <li>Experience with React and Node.js</li>
-                        <li>Strong problem-solving skills</li>
-                        <li>Excellent communication and teamwork abilities</li>
-                    </ul>
+                         {{job_details.skills_required|safe}} 
+                    </ul> 
                 </div>
             </div>
         </div>
@@ -210,23 +234,25 @@ font-size: 30px;
                 <div class="card mb-4 p-2">
                     <div class="card-body">
                         <h5 class="card-title">Apply for This Job</h5>
-                        <form>
+                        <form  method="POST" enctype="multipart/form-data" action="{% url "create_career_application" %}">
+                            {% csrf_token %}
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="name" required>
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" required>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
                             </div>
                             <div class="mb-3">
                                 <label for="resume" class="form-label">Upload Resume</label>
-                                <input class="form-control" type="file" id="resume" required>
+                                <input class="form-control" type="file" id="resume" name="resume" required>
                             </div>
+                            <input type="hidden" name="career_id" id="career_id" value="{{job_details.id}}">
                             <button type="submit" class="btn btn-primary">Submit Application</button>
                         </form>
                     </div>
@@ -271,4 +297,6 @@ font-size: 30px;
     });
 
 </script>
+
+
 {% endblock content %}

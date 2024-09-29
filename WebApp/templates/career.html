@@ -157,6 +157,7 @@ background-color: #218838;
 
 <div class="container my-5">
   <div class="row">
+    {% for i in career_list %}
     <div class="col-sm-6 mt-3">
       <div class="job-card  align-items-center">
         <div class="d-flex align-items-center">
@@ -164,96 +165,25 @@ background-color: #218838;
             <i class="bi bi-briefcase-fill"></i>
           </div>
           <div>
-            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
+            <div class="job-title text-secondary">{{i.title}}</div>
             <div class="job-details  mt-2">
               <span><i class="bi bi-geo-alt"
                   style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; Pune</span>
+                &nbsp; {{i.location}}</span>
               <span><i class="bi bi-calendar2-check"
                   style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; 12-02-2024</span>
+                &nbsp; {{i.posted_on}}</span>
             </div>
           </div>
         </div>
         <hr>
         <div class="mt-4 text-center">
-          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
+          <a href="{% url 'career_apply_job' i.id %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
         </div>
       </div>
     </div>
-
-    <div class="col-sm-6 mt-3">
-      <div class="job-card  align-items-center">
-        <div class="d-flex align-items-center">
-          <div class="job-icon" style="padding: 10px 14px;">
-            <i class="bi bi-briefcase-fill"></i>
-          </div>
-          <div>
-            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
-            <div class="job-details  mt-2">
-              <span><i class="bi bi-geo-alt"
-                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; Pune</span>
-              <span><i class="bi bi-calendar2-check"
-                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; 12-02-2024</span>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="mt-4 text-center">
-          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 mt-3">
-      <div class="job-card  align-items-center">
-        <div class="d-flex align-items-center">
-          <div class="job-icon" style="padding: 10px 14px;">
-            <i class="bi bi-briefcase-fill"></i>
-          </div>
-          <div>
-            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
-            <div class="job-details  mt-2">
-              <span><i class="bi bi-geo-alt"
-                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; Pune</span>
-              <span><i class="bi bi-calendar2-check"
-                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; 12-02-2024</span>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="mt-4 text-center">
-          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 mt-3">
-      <div class="job-card  align-items-center">
-        <div class="d-flex align-items-center">
-          <div class="job-icon" style="padding: 10px 14px;">
-            <i class="bi bi-briefcase-fill"></i>
-          </div>
-          <div>
-            <div class="job-title text-secondary">Trainee Production Planning Engineer</div>
-            <div class="job-details  mt-2">
-              <span><i class="bi bi-geo-alt"
-                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; Pune</span>
-              <span><i class="bi bi-calendar2-check"
-                  style="background-color: white; border-radius: 50%; padding: 5px; width: 20px; height: 20px;"></i>
-                &nbsp; 12-02-2024</span>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="mt-4 text-center">
-          <a href="{% url 'career_apply_job' %}" class="apply-btn mt-3 mt-md-0 text-light">Apply Now</a>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
+     
 
   </div>
 

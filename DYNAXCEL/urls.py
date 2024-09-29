@@ -18,9 +18,18 @@ from django.contrib import admin
 from django.urls import path,include
 from WebApp import views as WebView
 from WebApp import urls as WebUrls
+from WebAdmin import urls as WebAdminUrls
+
+
+from django.conf import settings
+from django.conf.urls.static import static 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('default-admin/', admin.site.urls),
     path('', WebView.index, name="index"),
     path('web/', include(WebUrls)),
+    path('admin/', include(WebAdminUrls)),
+    path('accounts/login/', WebAdminUrls.login, name="login"),
+    path('logout/', WebAdminUrls.logout, name="logout"),
 
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

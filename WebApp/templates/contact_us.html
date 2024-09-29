@@ -176,22 +176,23 @@ h1{
 
         </div>
         <div class="col-sm-8 mt-3 px-4 form-section">
-            <form>
+            <form method="POST" >
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-sm-6 mt-2">
-                        <input type="text" class="contact-us-form" id="name" placeholder="Your Name" required>
+                        <input type="text" class="contact-us-form" id="name" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="col-sm-6 mt-2">
-                        <input type="text" class="contact-us-form" id="mobile" placeholder="Your Mobile" required>
+                        <input type="text" class="contact-us-form" id="mobile" name="mobile" placeholder="Your Mobile" required>
                     </div>
                     <div class="col-sm-12 mt-2">
-                        <input type="email" class="contact-us-form" id="email" placeholder="Your Email" required>
+                        <input type="email" class="contact-us-form" id="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="col-sm-12 mt-2">
-                        <input type="text" class="contact-us-form" id="subject" placeholder="Subject" required>
+                        <input type="text" class="contact-us-form" id="subject" name="subject" placeholder="Subject" required>
                     </div>
                     <div class="col-sm-12 mt-2">
-                        <textarea class="contact-us-form" id="message" rows="4" placeholder="Your Message" required></textarea>
+                        <textarea class="contact-us-form" id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
                     </div> 
                     <div class="col-sm-12 text-center">
                         <button type="submit" class="btn btn-primary" style="width: 200px;">Send Message</button>

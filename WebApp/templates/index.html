@@ -151,7 +151,7 @@
                     Certified</p>
                 <p data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="550"><i
                         class="bi bi-arrow-right-circle-fill text-primary me-3"></i>Focus on Safety & Sustainability</p>
-                <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Explore More</a>
+                <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="{% url "website_about_us" %}">Explore More</a>
             </div>
         </div>
     </div>
@@ -495,18 +495,15 @@
     </div>
 
     <div class="owl-carousel gallery-carousel">
-        <div class="item"><img
-                src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
-                alt="" loading="lazy" /></div>
-        <div class="item" loading="lazy"><img
-                src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
-                alt="" /></div>
-        <div class="item" loading="lazy"><img
-                src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
-                alt="" /></div>
+        {% for image in gallery_images %}
+        <div class="item">
+            <img src="{{image.image.url}}" alt="" loading="lazy" />
+        </div>
+        {% endfor %}
     </div>
+
     <center>
-        <a class="btn btn-primary rounded-pill py-2 px-5 mt-3" href="">More Images</a>
+        <a class="btn btn-primary rounded-pill py-2 px-5 mt-3" href="{% url "web_photos_gallary" %}">More Images</a>
     </center>
 
 </div>
@@ -646,29 +643,29 @@
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="bg-light rounded h-100 d-flex align-items-center shadow-sm p-2">
-                    <form>
+                    <form method="post">{% csrf_token %}
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-1 rounded" placeholder="Your Name"
+                                <input type="text" class="form-control border-1 rounded" id="name" name="name" placeholder="Your Name"
                                     style="height: 55px;" style="">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-1 rounded" placeholder="Your Mobile"
+                                <input type="number" class="form-control border-1 rounded" id="mobile" name="mobile" placeholder="Your Mobile"
                                     style="height: 55px;" style="">
                             </div>
                             <div class="col-12 col-sm-12">
-                                <input type="email" class="form-control border-1 rounded" placeholder="Your Email"
+                                <input type="email" class="form-control border-1 rounded" id="email" name="email" placeholder="Your Email"
                                     style="height: 55px;" style="">
                             </div>
 
                             <div class="col-12 col-sm-12">
-                                <input type="email" class="form-control border-1 " placeholder="Subject"
+                                <input type="text" class="form-control border-1 " id="subject" name="subject" placeholder="Subject"
                                     style="height: 55px;" style="">
                             </div>
 
                             <div class="col-12">
                                 <textarea class="form-control border-1 rounded" rows="5"
-                                    placeholder="Describe your problem" style=""></textarea>
+                                    placeholder="Describe your problem" id="message" name="message" style=""></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>

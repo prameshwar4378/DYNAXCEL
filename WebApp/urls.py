@@ -9,7 +9,9 @@ urlpatterns = [
     path('infrastructure', infrastructure, name="website_infra"),
     path('web_news', web_news, name="web_news"),
     path('career', career, name="website_career"),
-    path('career_apply_job', career_apply_job, name="career_apply_job"),
+    path('create_career_application', create_career_application, name="create_career_application"),
+
+    path('career_apply_job/<int:id>', career_apply_job, name="career_apply_job"),
     path('sustainability', sustainability, name="sustainability"),
     path('certificates', certificates, name="web_certificates"),
     path('photos_gallary', web_photos_gallary, name="web_photos_gallary"),
