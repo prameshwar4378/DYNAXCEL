@@ -5,10 +5,11 @@ from django.contrib import messages
 # Create your views here.
 from django.contrib.auth import login as authlogin, authenticate,logout as DeleteSession
 from django.contrib.auth.decorators import login_required 
+from django.views.decorators.cache import cache_control
 
 
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def login(request): 
     lg_form=login_form() 
     if request.method=='POST': 
@@ -28,7 +29,7 @@ def login(request):
 
     return render(request,'login.html',{'form':lg_form})
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def logout(request):
     DeleteSession(request)
     return redirect('/accounts/login')
@@ -134,6 +135,47 @@ def create_photo_for_gallery(request):
 def delete_photo_from_gallery(request,id):
     PhotoGallery.objects.get(id=id).delete()
     return redirect("/admin/photo_gallery_list")
+
+
+
+@login_required
+def video_gallery_list(request): 
+    data = VideoGallery.objects.all()
+    form = VideoGalleryForm()
+    return render(request, 'admin_video_gallary_list.html', {'form': form, "data":data})
+
+
+def create_video_for_gallery(request):
+    if request.method == 'POST':
+        form = VideoGalleryForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Video Added Success")
+            return redirect('/admin/video_gallery_list') 
+        else:
+            messages.error(request,"Form is not valid")
+            return redirect('/admin/video_gallery_list') 
+             # Assuming you have a URL named 'list' for listing events
+    else: 
+            messages.error(request,"Invalid request method")
+            return redirect('/admin/video_gallery_list')  # Assuming you have a URL named 'list' for listing events
+
+ 
+def delete_video_from_gallery(request, id):
+    # Get the video object or return a 404 error if not found
+    video = get_object_or_404(VideoGallery, id=id)
+
+    # Check if the video file exists and delete it
+    if video.video:
+        video.video.delete(save=False)  # This deletes the file from the filesystem
+
+    # Now delete the video object from the database
+    video.delete()
+
+    # Redirect to the video gallery list
+    return redirect("/admin/video_gallery_list")
+
 
 @login_required
 def enquiry_list(request):

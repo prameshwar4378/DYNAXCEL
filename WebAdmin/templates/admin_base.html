@@ -14016,7 +14016,7 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
                         <h6>{{user.username}}</h6>
-                        <span>CEO</span>
+                        <span>Admin</span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -14043,7 +14043,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="">
+            <a class="nav-link " href="{% url 'admin_dashboard' %}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -14081,7 +14081,7 @@
           </a>
         </li>
         <li>
-          <a href="" style="text-decoration:none;">
+          <a href="{% url 'video_gallery_list' %}" style="text-decoration:none;">
               <i class="bi bi-play-circle" style="font-size:15px;"></i><span>Videos</span>
           </a>
         </li>
@@ -17794,6 +17794,30 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
+</script>
+
+
+<!-- disabling back button action after logout -->
+<script type="text/javascript">
+    // Check if the user navigates back to the page
+    window.addEventListener("pageshow", function(event) {
+        var historyTraversal = event.persisted || 
+            (typeof window.performance != "undefined" && window.performance.navigation.type === 2);
+        if (historyTraversal) {
+            // Close the modal if back button is pressed
+            document.querySelector('#logout_model').classList.remove('show');
+            document.body.classList.remove('modal-open');
+            document.querySelector('.modal-backdrop').remove();
+            window.location.href = '/accounts/login';
+        }
+    });
+</script><script type="text/javascript">
+    // Disable the back button
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function() {
+        window.history.pushState(null, null, window.location.href);
+        window.location.href = '/accounts/login';
+    };
 </script>
 
 

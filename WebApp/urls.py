@@ -15,6 +15,8 @@ urlpatterns = [
     path('sustainability', sustainability, name="sustainability"),
     path('certificates', certificates, name="web_certificates"),
     path('photos_gallary', web_photos_gallary, name="web_photos_gallary"),
+    path('videos_gallary', web_videos_gallary, name="web_videos_gallary"),
+
 
     path('services_stainless_steel', stainless_steel, name="stainless_steel"),
     path('services_ASME_PED_Vessels', services_ASME_PED_Vessels, name="services_ASME_PED_Vessels"),

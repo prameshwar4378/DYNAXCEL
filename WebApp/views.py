@@ -110,6 +110,11 @@ def web_photos_gallary(request):
     data=PhotoGallery.objects.all().select_related()
     return render(request,"web_photos_gallary.html",{'data':data})
 
+def web_videos_gallary(request):
+    data=VideoGallery.objects.all().select_related()
+    return render(request,"web_video_gallary.html", {'data':data})
+
+
 def services_ASME_PED_Vessels(request):
     return render(request,"services_ASME_PED_Vessels.html")
 
