@@ -22,17 +22,6 @@ class PhotoGalleryForm(forms.ModelForm):
             }),
         }
 
-class VideoGalleryForm(forms.ModelForm):
-    class Meta:
-        model = VideoGallery
-        fields = ['caption', 'description', 'video', 'is_show_on_home_page']
-        widgets = {
-            'description': forms.Textarea(attrs={
-                'class': 'form-control',  # Optional Bootstrap class for styling
-                'rows': 4,  # Set the height to 4 lines
-                'placeholder': 'Enter a short description...',
-            }),
-        }
 
 class CareerForm(forms.ModelForm):
     class Meta:

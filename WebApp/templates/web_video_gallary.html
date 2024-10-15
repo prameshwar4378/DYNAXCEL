@@ -133,33 +133,6 @@ border-radius: 5px;
     </div>
 </section>
 
-<!-- ======= Video Gallery Section ======= -->
-<section id="video-gallery" class="video-gallery mt-3">
-    <div class="container" data-aos="fade-up">
-        <div class="row">
-            <div class="blog-author d-flex align-items-center">
-                <div class="container text-center">
-                    <div class="uk-child-width-1-3@m" uk-grid uk-lightbox="animation: scale">
-                        {% for video in data %}
-                        {% if video.video %}
-                        <div class="video-wrapper" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:2 }}00">
-                            <a class="uk-inline" href="{{ video.video.url }}" {% if video.caption %}
-                                data-caption="{{ video.caption }}" {% endif %}>
-                                <video width="480" height="360" controls style="width: 100%;" loading="lazy">
-                                    <source src="{{ video.video.url }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </a>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div><!-- End blog author bio -->
-        </div>
-        <br><br>
-    </div>
-</section><!-- End Video Gallery Section -->
 
 <!-- UIkit JS -->
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.7/dist/js/uikit.min.js"></script>
