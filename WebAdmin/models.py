@@ -19,6 +19,10 @@ class PhotoGallery(models.Model):
     def __str__(self):
         return f"{self.caption} Image"
 
+class VideoGallery(models.Model): 
+    caption = models.CharField(max_length=255, blank=True, null=True)
+    video_link = models.CharField(blank=True, null=True, help_text="Enter YouTube video link", max_length=255)
+  
 
  
 class Career(models.Model):

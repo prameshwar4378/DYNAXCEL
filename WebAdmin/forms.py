@@ -22,6 +22,13 @@ class PhotoGalleryForm(forms.ModelForm):
             }),
         }
 
+class VideoGalleryForm(forms.ModelForm):
+    class Meta:
+        model = VideoGallery
+        fields = ['caption', 'video_link']
+
+
+
 
 class CareerForm(forms.ModelForm):
     class Meta:
