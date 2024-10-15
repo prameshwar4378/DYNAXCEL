@@ -109,9 +109,32 @@ def certificates(request):
 def web_photos_gallary(request):
     data=PhotoGallery.objects.all().select_related()
     return render(request,"web_photos_gallary.html",{'data':data})
+ 
+import re
 
-def web_videos_gallary(request):
-    return render(request,"web_video_gallary.html")
+def extract_video_id(embed_url):
+    match = re.search(r"embed/([a-zA-Z0-9_-]+)", embed_url)
+    if match:
+        return match.group(1)
+    return None
+
+
+def web_videos_gallary(request): 
+    data = VideoGallery.objects.all()
+    video_data=[]
+    for embed_link in data:
+        embed_url= embed_link.video_link
+        if embed_url:
+            video_id=extract_video_id(embed_url)
+        
+            if video_id:
+                video_data.append(
+                    {"thumbnail_url":f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg",
+                    "video_url":f"https://www.youtube.com/embed/{video_id}",
+                    "id":embed_link.id} 
+                )
+  
+    return render(request, 'web_video_gallary.html', {"video_data":video_data})
 
 
 def services_ASME_PED_Vessels(request):

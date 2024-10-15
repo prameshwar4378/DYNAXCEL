@@ -138,7 +138,7 @@ def delete_photo_from_gallery(request,id):
 
 
 
-
+import re
 
 def extract_video_id(embed_url):
     match = re.search(r"embed/([a-zA-Z0-9_-]+)", embed_url)
@@ -157,14 +157,14 @@ def video_gallery_list(request):
         if embed_url:
             video_id=extract_video_id(embed_url)
         
-        if video_id:
-            video_data.append(
-                {"thumbnail_url":f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg",
-                "video_url":f"https://www.youtube.com/embed/{video_id}",
-                "id":embed_link.id} 
-            )
+            if video_id:
+                video_data.append(
+                    {"thumbnail_url":f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg",
+                    "video_url":f"https://www.youtube.com/embed/{video_id}",
+                    "id":embed_link.id} 
+                )
     form = VideoGalleryForm()
-    return render(request, 'admin_video_gallery_list.html', {'form': form, "video_data":video_data})
+    return render(request, 'admin_video_gallary_list.html', {'form': form, "video_data":video_data})
 
 
 def create_video_for_gallery(request):

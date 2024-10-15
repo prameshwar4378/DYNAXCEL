@@ -1,20 +1,21 @@
 {% extends "website_base.html" %}
-{% block title %}Photos - Dynaxcel{% endblock title %}
+{% block title %}Videos - Dynaxcel{% endblock title %}
 {% load static %}
 {% block style %}
 {% block links %}
+
 {% endblock links %}
 
 .page-header {
 position: relative;
-background: url('/static/website/img/background-wave.png');
+background: url('/static/website/img/background-wave.png') ;
+<!-- background-color:green; -->
 background-position: center center;
 background-attachment: fixed;
 background-size: 100%;
 padding: 140px 0px 125px 0px;
 overflow: hidden; /* Hide overflowing animated shapes */
 }
-
 .page-header::before {
 content: '';
 position: absolute;
@@ -25,7 +26,6 @@ bottom: 0;
 background-color: rgba(61, 61, 61, 0.753);
 z-index: 1;
 }
-
 .page-header > * {
 position: relative;
 z-index: 2;
@@ -52,10 +52,12 @@ animation: moveRandom 20s infinite ease-in-out;
 }
 
 /* Specific shape styling */
+
 .circle {
 border-radius: 50%;
 background-color: #ffffff56;
 }
+
 
 /* Random movement animation */
 @keyframes moveRandom {
@@ -75,55 +77,93 @@ transform: translate(200px, -100px) rotate(135deg);
 transform: translate(0, 0) rotate(180deg);
 }
 }
+ 
 
-.heading-title {
-font-size: 70px;
+
+
+.heading-title{
+  font-size: 70px;
 }
 
 @media (max-width: 990px) {
-.heading-title {
-font-size: 60px;
-}
+  .heading-title{
+      font-size: 60px;
+  }
+  
 }
 
 @media (max-width: 500px) {
-.heading-title {
-font-size: 30px;
-}
-}
-
-.video-wrapper {
-margin: 15px;
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-transition: transform 0.3s ease;
+  .heading-title{
+      font-size: 30px;
+  }
+  
 }
 
-.video-wrapper:hover {
-transform: scale(1.05);
-}
 
-/* Optional: Customize caption styles */
-.uk-lightbox .uk-lightbox-caption {
-font-size: 16px;
-color: #fff;
-background-color: rgba(0, 0, 0, 0.5);
-padding: 10px;
-border-radius: 5px;
-}
+
+
+
 
 {% endblock style %}
-{% block content %}
+{% block content %} 
+
 
 <link rel="stylesheet" href="{% static 'website/css/uikit.css' %}" />
+
+<style>
+ 
+h4 {
+  display: block;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Transparent overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly dark overlay with transparency */
+    z-index: 1;
+}
+
+/* Play button styling */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px; /* Adjust size as needed */
+    color: white;
+    z-index: 2;
+    pointer-events: none; /* Allow clicks to pass through to the link */
+}
+
+.video-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+</style>
 
 <section class="page-header">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 text-center text-light">
-                <h1 class="text-light heading-title heading-text" style="font-weight:700;">Organization <span
-                        class="text-primary">Videos</span> </h1>
+                <h1 class="text-light heading-title heading-text" style="font-weight:700; ">Organization <span class="text-primary">Images</span> </h1>
             </div>
         </div>
     </div>
@@ -133,10 +173,53 @@ border-radius: 5px;
     </div>
 </section>
 
+<!-- ======= Blog Single Section ======= -->
+<section id="blog" class="blog mt-3">
+    <div class="container" data-aos="fade-up">
 
-<!-- UIkit JS -->
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.7/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.7/dist/js/uikit-icons.min.js"></script>
+      <div class="row">
+        <div class="blog-author d-flex align-items-center">
+            <div class="container text-center ">
+ 
+
+                <div class="row">
+                    {% for video in video_data %}
+                    <div class="col-sm-3 mt-3 ">
+                        <div class="video-container" style="position: relative;"  >
+                            <a href="{{video.video_url}}" target="_blank">
+                                <img src="{{video.thumbnail_url}}" alt="" style="width: 100%;" loading="lazy" >
+                                <!-- Transparent layer -->
+                                <div class="overlay"></div>
+                                <!-- Play button overlay -->
+                                <div class="play-button">
+                                    &#9658; <!-- This is a triangle play icon, you can replace it with a custom icon -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div><!-- End blog author bio -->
+    </div>
+ 
+    
+
+    <br><br>
+    
+
+    </div>
+  </section><!-- End Blog Single Section -->
+  
+    
+</div>
+
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.7/dist/js/uikit-icons.min.js"></script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -158,5 +241,6 @@ border-radius: 5px;
             createShape(randomShape);
         }
     });
+
 </script>
 {% endblock content %}
