@@ -90,7 +90,8 @@
         transform: scaleX(1.5);
     }
 }
- 
+
+
 {% block style %}{% endblock style %}
  </style>
 <body> 
@@ -101,7 +102,7 @@
         <div class="row v-center" >
             <div class="header-item item-left">
                 <div  >
-                    <a href="logo">
+                    <a href="{% url 'index' %}">
                         <center>
                          <img src="{% static 'website/img/logo.png' %}" alt=""  style="width:140px;"  loading="lazy">  
 

@@ -1,6 +1,10 @@
 {% extends "website_base.html" %}
 {% load static %}
 {% block title %}Dynaxcel Engineers Pvt Ltd. - Home{% endblock title %}
+{% block style %}
+
+{% endblock style %}
+
 {% block content %}
 <!-- Carousel Start -->
 <div class="container-fluid p-0 pb-5">
@@ -237,7 +241,7 @@
                 <i class="bi bi-gear-wide-connected"></i> <br>
             </div>
             <center>
-                <p class="textdifferent text-center">This is all about services</p>
+                <p class="textdifferent text-center">We Offer a Diverse Range of Services</p>
             </center>
             <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
                 <div class="service-box  " style="width: 100%;">
@@ -250,7 +254,7 @@
                     <p>We specialize in processing stainless steel. Specially trained
                         workforce to handle stainless steel takes care of material by
                         having dedicated area, spotless handling and dedicated toolset. </p>
-                    <a href="" class="btn btn-primary mb-2">Explore More</a>
+                    <a href="{%url 'stainless_steel'%}" class="btn btn-primary mb-2">Explore More</a>
                 </div>
             </div>
             <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
@@ -260,11 +264,10 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="" loading="lazy">
                         </center>
                     </div>
-                    <h4 class="text-success text-center">Stainless Steel & Exotic Fabrication</h4>
-                    <p>We specialize in processing stainless steel. Specially trained
-                        workforce to handle stainless steel takes care of material by
-                        having dedicated area, spotless handling and dedicated toolset. </p>
-                    <a href="" class="btn btn-primary mb-2">Explore More</a>
+                    <h4 class="text-success text-center">ASME & PED Vessels</h4>
+                    <p>We are certified by Lloyds Register for ‘U’ stamp vessels and produce ‘PED’ vessels under the supervision of leading agencies like Bureau Veritas and TUV Rheinland. 
+                        </p>
+                    <a href="{%url 'services_ASME_PED_Vessels'%}" class="btn btn-primary mb-2">Explore More</a>
                 </div>
             </div>
             <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50"
@@ -275,11 +278,9 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="" loading="lazy">
                         </center>
                     </div>
-                    <h4 class="text-success text-center">Stainless Steel & Exotic Fabrication</h4>
-                    <p>We specialize in processing stainless steel. Specially trained
-                        workforce to handle stainless steel takes care of material by
-                        having dedicated area, spotless handling and dedicated toolset. </p>
-                    <a href="" class="btn btn-primary mb-2">Explore More</a>
+                    <h4 class="text-success text-center">Railway & Metro Components</h4>
+                    <p>We have accreditations as per ISO3834-2 for welding and EN 15085-2 CL 1 for manufacturing metro components. We deal in steel, stainless steel, and aluminum metallurgy. </p>
+                    <a href="{%url 'services_railway_metro'%}" class="btn btn-primary mb-2">Explore More</a>
                 </div>
             </div>
             <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50"
@@ -290,11 +291,9 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="" loading="lazy">
                         </center>
                     </div>
-                    <h4 class="text-success text-center">Stainless Steel & Exotic Fabrication</h4>
-                    <p>We specialize in processing stainless steel. Specially trained
-                        workforce to handle stainless steel takes care of material by
-                        having dedicated area, spotless handling and dedicated toolset. </p>
-                    <a href="" class="btn btn-primary mb-2">Explore More</a>
+                    <h4 class="text-success text-center">Defence Equipment</h4>
+                    <p>We collaborate with leading equipment manufacturers in the defense sector, providing sub-assemblies for missile launch pad systems, missile cassette structures, and deflectors.</p>
+                    <a href="{%url 'services_defence_equipements'%}" class="btn btn-primary mb-2">Explore More</a>
                 </div>
             </div>
             <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
@@ -304,11 +303,9 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="" loading="lazy">
                         </center>
                     </div>
-                    <h4 class="text-success text-center">Stainless Steel & Exotic Fabrication</h4>
-                    <p>We specialize in processing stainless steel. Specially trained
-                        workforce to handle stainless steel takes care of material by
-                        having dedicated area, spotless handling and dedicated toolset. </p>
-                    <a href="" class="btn btn-primary mb-2">Explore More</a>
+                    <h4 class="text-success text-center">Food & Farma</h4>
+                    <p>Our equipment is produced in a dedicated stainless steel clean room to prevent contamination, and we achieve a polished finish of up to 0.4 Ra in-house, with Electro-Polishing performed by specialized vendors. </p>
+                    <a href="{%url 'services_food_farma'%}" class="btn btn-primary mb-2">Explore More</a>
                 </div>
             </div>
             <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
@@ -318,11 +315,10 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="" loading="lazy">
                         </center>
                     </div>
-                    <h4 class="text-success text-center">Stainless Steel & Exotic Fabrication</h4>
-                    <p>We specialize in processing stainless steel. Specially trained
-                        workforce to handle stainless steel takes care of material by
-                        having dedicated area, spotless handling and dedicated toolset. </p>
-                    <a href="" class="btn btn-primary mb-2">Explore More</a>
+                    <h4 class="text-success text-center">PSA Based Oxygen Generator</h4>
+                    <p>The PSA plant employs Zeolite molecular sieves to separate oxygen from the air. 
+                        The PSA process comprises two vessels filled with molecular sieves and activated alumina.</p>
+                    <a href="{%url 'services_psa_based'%}" class="btn btn-primary mb-2">Explore More</a>
                 </div>
             </div>
 
