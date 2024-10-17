@@ -8,6 +8,7 @@ urlpatterns = [
     path('career_apply_job', career_apply_job, name="career_apply_job"),
     path('infrastructure', infrastructure, name="website_infra"),
     path('web_news', web_news, name="web_news"),
+    path('web_news_details/<int:id>', web_news_details, name="web_news_details"),
     path('career', career, name="website_career"),
     path('create_career_application', create_career_application, name="create_career_application"),
 

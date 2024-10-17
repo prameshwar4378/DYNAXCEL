@@ -204,3 +204,129 @@ def delete_enquiry(request,id):
     Enquiry.objects.get(id=id).delete()
     return redirect("/admin/enquiry_list")
 
+
+
+
+
+def news_list(request):
+    news_form = NewsForm()
+    news_data = News.objects.all().order_by("-id")
+    context = {
+        "news_form": news_form,
+        "news_data": news_data,
+    }
+    return render(request, 'admin_news_list.html', context)
+
+def create_news(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "News Created Successfully")
+            return redirect('/admin/news_list')
+        else:
+            messages.warning(request, "Error Creating News")
+    return redirect('/admin/news_list')
+
+def update_news(request, id):
+    news_data = get_object_or_404(News, id=id)
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES, instance=news_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "News Updated Successfully")
+        else:
+            messages.error(request, "Error Updating News")
+            return render(request, 'admin_update_news.html', {'form': form})
+    else:
+        form = NewsForm(instance=news_data)
+    return render(request, 'admin_update_news.html', {'form': form})
+
+def delete_news(request, id):
+    News.objects.get(id=id).delete()
+    messages.success(request, "News Deleted Successfully")
+    return redirect('/admin/news_list')
+
+
+def news_details(request, id):
+    news = get_object_or_404(News, id=id)
+    photos_videos = NewsPhotosVideos.objects.filter(news=news) 
+    video_data=[]
+    for embed_link in photos_videos:
+        embed_url= embed_link.video_link
+        if embed_url:
+            video_id=extract_video_id(embed_url)
+            if video_id:
+                video_data.append(
+                    {"thumbnail_url":f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg",
+                    "video_url":f"https://www.youtube.com/embed/{video_id}",
+                    "id":embed_link.id} 
+                )
+    form = NewsPhotosVideosForm()
+ 
+    return render(request, 'admin_news_details.html', {
+        'news': news,
+        'photos_videos': photos_videos,
+        'form': form,
+        'video_data': video_data,
+    })
+
+
+def extract_video_id(embed_url):
+    match = re.search(r"embed/([a-zA-Z0-9_-]+)", embed_url)
+    if match:
+        return match.group(1)
+    return None
+
+def create_news_photos_videos(request):
+    if request.method == 'POST':
+        form = NewsPhotosVideosForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.cleaned_data.get('image')
+            video_link = form.cleaned_data.get('video_link')
+            if video_link:
+                video_id=extract_video_id(video_link)
+            if not image and not video_link:
+                messages.warning(request, "At least one of the fields (image or video) is required.")
+                return redirect(f'/admin/news_details/{request.POST.get("news")}')
+ 
+            if video_link:
+                video_id=extract_video_id(video_link)
+                if not video_id:
+                    messages.warning(request, "Enter only embeded code")
+                    return redirect(f'/admin/news_details/{request.POST.get("news")}')
+                else:
+                    form.save()
+                    messages.success(request, "Photo/Video Added Successfully")
+                    return redirect(f"/admin/news_details/{request.POST.get('news')}")
+
+            form.save()
+            messages.success(request, "Photo/Video Added Successfully")
+        else:
+            messages.error(request, "Error Adding Photo/Video")
+        return redirect(f"/admin/news_details/{request.POST.get('news')}")
+    else:
+        messages.warning(request, "Only POST method is allowed for this operation.")
+        return redirect("/admin/news_list")
+
+
+
+
+def delete_news_photos(request,id):
+    news_image = NewsPhotosVideos.objects.filter(id=id).first()
+    news_id=news_image.news.id
+    if news_image.video_link:
+       NewsPhotosVideos.objects.filter(id=id).update(image="")
+    else:
+        news_image.delete()
+    return redirect(f"/admin/news_details/{news_id}")
+
+
+def delete_news_video(request,id):
+    news = NewsPhotosVideos.objects.filter(id=id).first()
+    news_id=news.news.id
+    if news.image:
+       NewsPhotosVideos.objects.filter(id=id).update(video_link="")
+    else:
+        news.delete()
+    return redirect(f"/admin/news_details/{news_id}")

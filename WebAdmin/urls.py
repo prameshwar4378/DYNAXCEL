@@ -23,4 +23,13 @@ urlpatterns = [
     path('enquiry_list', enquiry_list, name="admin_enquiry_list"), 
     path('delete_enquiry/<int:id>', delete_enquiry, name="admin_delete_enquiry"), 
 
+    path('news_list/', news_list, name='admin_news_list'),
+    path('create_news/', create_news, name='admin_create_news'),
+    path('update_news/<int:id>/', update_news, name='admin_update_news'),
+    path('delete_news/<int:id>/', delete_news, name='admin_delete_news'),
+    path('create_news_photos_videos/', create_news_photos_videos, name='admin_create_news_photos_videos'),
+    path('news_details/<int:id>/', news_details, name='admin_news_details'),
+    path('delete_news_photos/<int:id>/', delete_news_photos, name='admin_delete_news_photos'),
+    path('delete_news_video/<int:id>/', delete_news_video, name='admin_delete_news_video'),
+
 ]

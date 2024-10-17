@@ -51,3 +51,19 @@ class CareerForm(forms.ModelForm):
             'is_publish': forms.CheckboxInput(attrs={'class': 'form-check-input', 'style': 'margin-left:10px;'}),
 
         }
+
+    
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = ['title', 'content', 'thumbnail','date', 'is_active']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+            'content': forms.Textarea(attrs={'class': 'summernote form-control', 'data-height': '100'}),
+        } 
+
+class NewsPhotosVideosForm(forms.ModelForm):
+    class Meta:
+        model = NewsPhotosVideos
+        fields = ['news', 'image','video_link']
+        

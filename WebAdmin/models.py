@@ -61,3 +61,40 @@ class Enquiry(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject}"
+    
+class News(models.Model):
+    title=models.CharField(max_length=200) 
+    content=models.TextField()
+    thumbnail = models.ImageField(upload_to="news_thumbnail/",  help_text="Recommended Size 1280 x 720 (landscape)", blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+    date=models.DateField(null=True, auto_now=False, auto_now_add=False)
+    def __str__(self):
+        return self.title
+    
+    
+class NewsPhotosVideos(models.Model):
+    news = models.ForeignKey(News, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="news_photos/", blank=True, null=True)
+    video_link = models.CharField(blank=True, null=True, help_text="Enter YouTube video link", max_length=255)
+    def __str__(self):
+        return f"{self.news.title} Photos and Videos"
+
+    def get_youtube_embed_url(self):
+        if self.video_link:
+            video_id = self.get_video_id()
+            print(video_id)
+            return f"https://www.youtube.com/embed/{video_id}"
+        return None
+
+    def get_video_id(self):
+        if self.video_link:
+            return self.video_link.split('v=')[-1]
+        return None
+
+    def video_thumbnail(self):
+        if self.video_link:
+            video_id = self.get_video_id()
+            return f"https://img.youtube.com/vi/{video_id}/0.jpg"
+        return None
+
+    

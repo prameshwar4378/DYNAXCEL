@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from WebAdmin.models import *
 # Create your views here.
 from django.contrib import messages
@@ -66,8 +66,41 @@ def career_apply_job(request):
 
 def infrastructure(request):
     return render(request,"infrastructure.html")
+
+ 
 def web_news(request):
-    return render(request,"web_news.html")
+    news=News.objects.select_related().order_by('-id')
+    return render(request,"web_news.html",{'news':news})
+
+def web_news_details(request,id):
+    # try:
+        latest_news = News.objects.select_related().order_by('-id')[:10]
+        news_details = get_object_or_404(News, id=id)
+        
+        photos_videos = NewsPhotosVideos.objects.filter(news=news_details) 
+        news_photos=NewsPhotosVideos.objects.filter(image__isnull=False,news=news_details)
+        video_data=[]
+        for embed_link in photos_videos:
+            embed_url= embed_link.video_link
+            if embed_url:
+                video_id=extract_video_id(embed_url)
+                if video_id:
+                    video_data.append(
+                        {"thumbnail_url":f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg",
+                        "video_url":f"https://www.youtube.com/embed/{video_id}",
+                        "id":embed_link.id} 
+                    )
+
+        data={"latest_news":latest_news,
+              "news_details": news_details,
+              "news_photos":news_photos,
+              'video_data': video_data,
+              
+              }
+        return render(request, "web_news_details.html", data)
+    # except Exception as e: 
+    #     return render(request, "404.html", status=404)
+
 
 def career(request):
     career_list=Career.objects.filter(is_publish=True).order_by('-id')
