@@ -5,8 +5,11 @@ from django.contrib import messages
 
 def index(request):
     gallery_images= PhotoGallery.objects.select_related().filter(is_show_on_home_page=True)
+    news = News.objects.select_related().order_by("-id")[:5]
+
     data={
         'gallery_images':gallery_images,
+        'news':news,
     }
     
     if request.method == "POST":

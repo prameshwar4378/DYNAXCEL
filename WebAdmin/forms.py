@@ -2,7 +2,9 @@ from django import forms
 from .models import *
 from django.contrib.auth.forms  import AuthenticationForm
 from django_summernote.widgets import SummernoteWidget
-
+from django.core.exceptions import ValidationError
+from PIL import Image
+import io
 
 
 class login_form(AuthenticationForm):
@@ -56,11 +58,13 @@ class CareerForm(forms.ModelForm):
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
-        fields = ['title', 'content', 'thumbnail','date', 'is_active']
+        fields = ['title', 'content', 'thumbnail', 'date', 'is_active']
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
             'content': forms.Textarea(attrs={'class': 'summernote form-control', 'data-height': '100'}),
-        } 
+        }
+ 
+    
 
 class NewsPhotosVideosForm(forms.ModelForm):
     class Meta:
