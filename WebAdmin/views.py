@@ -34,11 +34,18 @@ def logout(request):
     DeleteSession(request)
     return redirect('/accounts/login')
 
-
-
 def dashboard(request):
-    return render(request,"admin_dashboard.html")
- 
+    application_count = CareerApplication.objects.count()
+    enquiry_count = Enquiry.objects.count()
+
+    context = {
+        'application_count' : application_count,
+        'enquiry_count' : enquiry_count
+    }
+
+    return render(request,"admin_dashboard.html", context)
+
+
 @login_required
 def career_list(request):
     career_data = Career.objects.all()
