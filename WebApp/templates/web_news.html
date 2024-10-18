@@ -148,14 +148,14 @@ transition: transform 0.7s ease-in-out; /* Smooth image rotation */
     <div class="row g-3">
       {% for news in news %}
         
-      <div class="col-sm-4  px-3 py-3 " style="height: 100%;">
+      <div class="col-sm-4  px-3 py-3 "  >
         <div class="bg-light shadow p-2 news-card"  style="border-radius: 10px; height: 100%;" >
           <img src="{{news.thumbnail.url}}" alt="">
           <div style="color: rgb(126, 126, 126); font-size: 15px;"> <i class="bi bi-clock"></i> <a href=""  style="color: rgb(126, 126, 126); font-size: 15px;"> {{news.date}}</a></a></div>
           <h6 class="mt-2">{{news.title}}</h6>
           <p></p>
           <center>
-            <a href="{% url 'web_news_details' news.id %}" class="btn btn-primary mb-2 mt-2" style="border-radius: 10px;">Read More</a>
+            <a href="{% url 'web_news_details' news.id %}" class="btn btn-primary mb-2 mt-2" style="border-radius: 10px; position: relative; ">Read More</a>
           </center>
         </div> 
       </div>   

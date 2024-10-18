@@ -251,6 +251,7 @@ def delete_news(request, id):
 def news_details(request, id):
     news = get_object_or_404(News, id=id)
     photos_videos = NewsPhotosVideos.objects.filter(news=news) 
+ 
     video_data=[]
     for embed_link in photos_videos:
         embed_url= embed_link.video_link

@@ -76,9 +76,8 @@ def web_news_details(request,id):
     # try:
         latest_news = News.objects.select_related().order_by('-id')[:10]
         news_details = get_object_or_404(News, id=id)
-        
-        photos_videos = NewsPhotosVideos.objects.filter(news=news_details) 
-        news_photos=NewsPhotosVideos.objects.filter(image__isnull=False,news=news_details)
+        photos_videos = NewsPhotosVideos.objects.filter(news=news_details)   
+
         video_data=[]
         for embed_link in photos_videos:
             embed_url= embed_link.video_link
@@ -92,9 +91,9 @@ def web_news_details(request,id):
                     )
 
         data={"latest_news":latest_news,
-              "news_details": news_details,
-              "news_photos":news_photos,
+              "news_details": news_details, 
               'video_data': video_data,
+              'photos_videos':photos_videos
               
               }
         return render(request, "web_news_details.html", data)
