@@ -1,3 +1,5 @@
+from django.core.mail import EmailMessage
+from django.conf import settings
 from django.shortcuts import render,redirect,get_object_or_404
 from WebAdmin.models import *
 # Create your views here.
@@ -43,7 +45,6 @@ def contact_us(request):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
-        # Basic validation (you can customize this)
         if name and mobile and email and subject and message:
             Enquiry.objects.create(
                 name=name,
@@ -52,11 +53,43 @@ def contact_us(request):
                 subject=subject,
                 message=message
             )
-            messages.success(request,"Thank You...!") 
-            return redirect('/web/contact-us')
+            # Prepare email content
+            email_subject = f"New Enquiry from {name}: {subject}"
+            email_body = (
+                f"Dear Team,\n\n"
+                f"You have received a new enquiry from your website.\n\n"
+                f"Details:\n"
+                f"Name: {name}\n"
+                f"Mobile: {mobile}\n"
+                f"Email: {email}\n"
+                f"Subject: {subject}\n\n"
+                f"Message:\n"
+                f"{message}\n\n"
+                f"Regards,\n"
+                f"Website Enquiry System"
+            )
+
+            # Configure the email
+            email_message = EmailMessage(
+                subject=email_subject,
+                body=email_body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=['programmer.me220@gmail.com'],  # Replace with the appropriate email address -- sales@dynaxcel.com
+            )
+
+            # Send the email
+            try:
+                email_message.send()
+                messages.success(request, "Thank You! Your enquiry has been submitted successfully.")
+            except Exception as e:
+                messages.error(request, f"Error sending email: {e}")
         else:
-            messages.error(request,"All fields are required")
-    return render(request,"contact_us.html")
+            messages.error(request, "All fields are required")
+
+        return redirect('/web/contact-us')
+
+    return render(request, "contact_us.html")
+
 
 def about_us(request):
     return render(request,"about_us.html")
@@ -112,29 +145,82 @@ def career_apply_job(request,id):
     job_details=Career.objects.get(id=id)
     return render(request,"career_apply_job.html",{'job_details':job_details})
 
- 
 def create_career_application(request):
     if request.method == 'POST':
         career_id = request.POST.get('career_id')
         name = request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
-        resume = request.FILES['resume']
+        resume = request.FILES.get('resume')
 
-        career=Career.objects.get(id=career_id)
-        # Create a CareerApplication object and save the data
+        # Check if the resume was uploaded
+        if resume is None:
+            messages.error(request, "Error: No resume uploaded.")
+            return redirect(f'/web/career_apply_job/{career_id}')
+
+        career = Career.objects.get(id=career_id)
+        
+        # Create and save the CareerApplication object
         application = CareerApplication(
             career=career,
             name=name,
             email=email,
             phone=phone,
-            resume=resume  # File field will automatically handle the file path
+            resume=resume
         )
         application.save()
-        messages.success(request,f'Application successfuly submited...!') 
+
+        # Prepare email content
+        subject = f"Application For | {career.title}"
+        body = (
+            f"Dear HR,\n\n"
+            f"You have received a new job application.\n\n"
+            f"Details:\n"
+            f"Name: {name}\n"
+            f"Email: {email}\n"
+            f"Phone: {phone}\n"
+            f"Applied for: {career.title}\n"
+            f"Location: {career.location}\n\n"
+            f"Please find the attached resume for more details.\n\n"
+            f"Regards,\n"
+            f"Dynaxcel Careers"
+        )
+        
+        # Configure the email
+        email_message = EmailMessage(
+            subject=subject,
+            body=body,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=['programmer.me220@gmail.com'],  # Use your HR email
+        )
+
+        # Read resume content and attach to the email
+        try:
+            # Attach the resume with a check for size
+            if resume.size == 0:
+                messages.error(request, "Error: Resume is empty.")
+                return redirect(f'/web/career_apply_job/{career_id}')
+
+            # Attach the resume using 'with' to ensure the file is properly handled
+            with resume.open('rb') as resume_file:
+                email_message.attach(resume.name, resume_file.read(), resume.content_type)
+
+        except Exception as e:
+            print(f"Error reading resume: {e}")
+            messages.error(request, "Error reading the resume file.")
+            return redirect(f'/web/career_apply_job/{career_id}')
+
+        # Send the email
+        try:
+            email_message.send()
+            messages.success(request, 'Application submitted successfully!')
+        except Exception as e:
+            messages.error(request, f'Error sending email: {e}')
+
+        # Redirect to the job application page
         return redirect(f'/web/career_apply_job/{career_id}')
 
-
+ 
 def sustainability(request):
     return render(request,"sustainability.html")
 
@@ -201,5 +287,3 @@ def services_power(request):
 
 def services_textiles(request):
     return render(request,"services_textiles.html")
-
-

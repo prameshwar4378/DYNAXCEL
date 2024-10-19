@@ -37,10 +37,13 @@ def logout(request):
 def dashboard(request):
     application_count = CareerApplication.objects.count()
     enquiry_count = Enquiry.objects.count()
-
+    job_posted = Career.objects.count()
+    news_posted = News.objects.count()    
     context = {
         'application_count' : application_count,
-        'enquiry_count' : enquiry_count
+        'enquiry_count' : enquiry_count,
+        'job_posted' : job_posted,
+        'news_posted' : news_posted
     }
 
     return render(request,"admin_dashboard.html", context)
