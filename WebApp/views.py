@@ -4,6 +4,8 @@ from django.shortcuts import render,redirect,get_object_or_404
 from WebAdmin.models import *
 # Create your views here.
 from django.contrib import messages
+import threading
+
 
 def index(request):
     gallery_images= PhotoGallery.objects.select_related().filter(is_show_on_home_page=True)
@@ -37,6 +39,15 @@ def index(request):
 
     return render(request,"index.html",data)
 
+
+
+def send_email_in_background(email_message):
+    try:
+        email_message.send()
+    except Exception as e:
+        print(f"Error sending email: {e}")
+
+
 def contact_us(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -46,6 +57,7 @@ def contact_us(request):
         message = request.POST.get('message')
 
         if name and mobile and email and subject and message:
+            # Save the enquiry in the database
             Enquiry.objects.create(
                 name=name,
                 mobile=mobile,
@@ -53,6 +65,7 @@ def contact_us(request):
                 subject=subject,
                 message=message
             )
+
             # Prepare email content
             email_subject = f"New Enquiry from {name}: {subject}"
             email_body = (
@@ -74,21 +87,23 @@ def contact_us(request):
                 subject=email_subject,
                 body=email_body,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=['programmer.me220@gmail.com'],  # Replace with the appropriate email address -- sales@dynaxcel.com
+                to=['prameshwar4378@gmail.com'],  # Replace with the appropriate email address -- sales@dynaxcel.com
             )
 
-            # Send the email
-            try:
-                email_message.send()
-                messages.success(request, "Thank You! Your enquiry has been submitted successfully.")
-            except Exception as e:
-                messages.error(request, f"Error sending email: {e}")
+            # Send the email in a separate thread to avoid blocking
+            email_thread = threading.Thread(target=send_email_in_background, args=(email_message,))
+            email_thread.start()
+
+            # Success message to the user
+            messages.success(request, "Thank You! Your enquiry has been submitted successfully.")
         else:
             messages.error(request, "All fields are required")
 
         return redirect('/web/contact-us')
 
     return render(request, "contact_us.html")
+
+
 
 
 def about_us(request):
@@ -109,7 +124,7 @@ def web_news(request):
     return render(request,"web_news.html",{'news':news})
 
 def web_news_details(request,id):
-    # try:
+    try:
         latest_news = News.objects.select_related().order_by('-id')[:10]
         news_details = get_object_or_404(News, id=id)
         photos_videos = NewsPhotosVideos.objects.filter(news=news_details)   
@@ -125,7 +140,6 @@ def web_news_details(request,id):
                         "video_url":f"https://www.youtube.com/embed/{video_id}",
                         "id":embed_link.id} 
                     )
-
         data={"latest_news":latest_news,
               "news_details": news_details, 
               'video_data': video_data,
@@ -133,8 +147,8 @@ def web_news_details(request,id):
               
               }
         return render(request, "web_news_details.html", data)
-    # except Exception as e: 
-    #     return render(request, "404.html", status=404)
+    except Exception as e: 
+        return render(request, "404.html", status=404)
 
 
 def career(request):
@@ -144,6 +158,7 @@ def career(request):
 def career_apply_job(request,id):
     job_details=Career.objects.get(id=id)
     return render(request,"career_apply_job.html",{'job_details':job_details})
+
 
 def create_career_application(request):
     if request.method == 'POST':
@@ -159,7 +174,7 @@ def create_career_application(request):
             return redirect(f'/web/career_apply_job/{career_id}')
 
         career = Career.objects.get(id=career_id)
-        
+
         # Create and save the CareerApplication object
         application = CareerApplication(
             career=career,
@@ -185,7 +200,7 @@ def create_career_application(request):
             f"Regards,\n"
             f"Dynaxcel Careers"
         )
-        
+
         # Configure the email
         email_message = EmailMessage(
             subject=subject,
@@ -210,15 +225,15 @@ def create_career_application(request):
             messages.error(request, "Error reading the resume file.")
             return redirect(f'/web/career_apply_job/{career_id}')
 
-        # Send the email
-        try:
-            email_message.send()
-            messages.success(request, 'Application submitted successfully!')
-        except Exception as e:
-            messages.error(request, f'Error sending email: {e}')
+        # Send the email in a separate thread to avoid blocking
+        email_thread = threading.Thread(target=send_email_in_background, args=(email_message,))
+        email_thread.start()
+
+        messages.success(request, 'Application submitted successfully!')
 
         # Redirect to the job application page
         return redirect(f'/web/career_apply_job/{career_id}')
+
 
  
 def sustainability(request):
