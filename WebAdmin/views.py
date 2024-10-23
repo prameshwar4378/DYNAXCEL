@@ -34,6 +34,7 @@ def logout(request):
     DeleteSession(request)
     return redirect('/accounts/login')
 
+@login_required
 def dashboard(request):
     application_count = CareerApplication.objects.count()
     enquiry_count = Enquiry.objects.count()
@@ -89,7 +90,7 @@ def create_career(request):
 
         return redirect('/admin/career_list') 
 
-
+@login_required
 def update_career(request, id):
     career = get_object_or_404(Career, id=id)
     
@@ -125,6 +126,7 @@ def photo_gallery_list(request):
     return render(request, 'admin_photo_gallery_list.html', {'form': form, "data":data})
 
 
+@login_required
 def create_photo_for_gallery(request):
     if request.method == 'POST':
         form = PhotoGalleryForm(request.POST, request.FILES)
@@ -159,6 +161,7 @@ def extract_video_id(embed_url):
 
 
 
+@login_required
 def video_gallery_list(request): 
     data = VideoGallery.objects.all()
     video_data=[]
@@ -218,6 +221,7 @@ def delete_enquiry(request,id):
 
 
 
+@login_required
 def news_list(request):
     news_form = NewsForm()
     news_data = News.objects.all().order_by("-id")
@@ -258,6 +262,7 @@ def delete_news(request, id):
     return redirect('/admin/news_list')
 
 
+@login_required
 def news_details(request, id):
     news = get_object_or_404(News, id=id)
     photos_videos = NewsPhotosVideos.objects.filter(news=news) 
@@ -289,6 +294,7 @@ def extract_video_id(embed_url):
         return match.group(1)
     return None
 
+@login_required
 def create_news_photos_videos(request):
     if request.method == 'POST':
         form = NewsPhotosVideosForm(request.POST, request.FILES)

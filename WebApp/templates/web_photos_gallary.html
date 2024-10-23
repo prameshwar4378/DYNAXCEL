@@ -150,6 +150,7 @@ h4 {
     </div>
 </section>
 
+{% if data %}
 <!-- ======= Blog Single Section ======= -->
 <section id="blog" class="blog mt-3">
     <div class="container" data-aos="fade-up">
@@ -177,7 +178,15 @@ h4 {
 
     </div>
   </section><!-- End Blog Single Section -->
-  
+  {% else %}
+  <div class="container mt-4 mb-3">
+    <div class="row">
+      <div class="col-sm-12 text-center  ">
+        <h3 style="color: rgb(97, 97, 97);">No Images Found</h3>
+      </div>
+    </div>
+  </div>
+  {% endif %}
     
 </div>
 
