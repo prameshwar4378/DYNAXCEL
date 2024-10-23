@@ -1,0 +1,537 @@
+{% extends "website_base.html" %}
+{% block title %}About Us | Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+{% block links %}
+
+{% endblock links %}
+.page-header {
+position: relative;
+background: url('/static/website/img/background-wave.png') ;
+<!-- background-color:green; -->
+background-position: center center;
+background-attachment: fixed;
+background-size: 100%;
+padding: 140px 0px 125px 0px;
+overflow: hidden; /* Hide overflowing animated shapes */
+}
+.page-header::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(61, 61, 61, 0.753);
+z-index: 1;
+}
+.page-header > * {
+position: relative;
+z-index: 2;
+}
+
+/* Shape container */
+.shape-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+pointer-events: none; /* So the shapes don't interfere with clicks */
+}
+
+/* Basic shape styling */
+.shape {
+position: absolute;
+width: 50px;
+height: 50px;
+opacity: 0.8;
+animation: moveRandom 20s infinite ease-in-out;
+}
+
+/* Specific shape styling */
+
+.circle {
+border-radius: 50%;
+background-color: #ffffff56;
+}
+
+
+/* Random movement animation */
+@keyframes moveRandom {
+0% {
+transform: translate(0, 0) rotate(0deg);
+}
+25% {
+transform: translate(100px, 200px) rotate(45deg);
+}
+50% {
+transform: translate(-150px, 50px) rotate(90deg);
+}
+75% {
+transform: translate(200px, -100px) rotate(135deg);
+}
+100% {
+transform: translate(0, 0) rotate(180deg);
+}
+}
+
+
+h1{
+font-size: 70px;
+}
+
+@media (max-width: 990px) {
+h1{
+font-size: 60px;
+}
+
+}
+
+@media (max-width: 500px) {
+h1{
+font-size: 30px;
+}
+
+}
+
+
+
+
+
+
+.about-gallery-carousel .item {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px; /* Adjust padding if necessary */
+}
+
+.about-gallery-carousel .item img {
+display: block;
+width: 100%;
+border-radius: 10px; /* Optional: adds rounded corners to images */
+height: auto;
+}
+
+.about-gallery-carousel .owl-dots {
+margin-top: 24px;
+display: flex;
+justify-content: center;
+align-items: flex-end;
+}
+
+.about-gallery-carousel .owl-dot {
+position: relative;
+display: inline-block;
+margin: 0 5px;
+width: 15px;
+height: 15px;
+background: #afafaf;
+border: 5px solid #fff;
+border-radius: 50%;
+transition: background-color 0.5s;
+}
+
+.about-gallery-carousel .owl-dot.active {
+background-color: #4ae403;
+border-color: #4ae403;
+width: 15px;
+height: 15px;
+}
+
+.about-gallery-carousel .owl-dot:hover {
+background-color: #7ff17f;
+width: 15px;
+height: 15px;
+}
+
+
+.text-justify {
+text-align: justify;
+}
+
+
+
+.about-intro-card{
+width: 100%;
+background-color: aliceblue;
+padding: 20px;
+}
+
+
+
+<!-- experiance section start  -->
+
+<!-- experiance section stop  -->
+
+
+{% endblock style %}
+{% block content %}
+
+
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light" style="font-size: 40;">About <span class="text-primary">Dynaxcel</span> </h1>
+            </div>
+        </div>
+    </div>
+    <!-- Shapes for animation -->
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+
+<div class="container mt-3 mb-3">
+    <div class="row">
+        <div class="col-sm-6 ">
+            <h3>Dynaxcel: Pioneers in Critical Equipment Design and Manufacturing</h3>
+            <p class="text-justify">Dynaxcel is a company started by young entrepreneurs in 1995. Promotor Directors Mr.
+                Shailendra Mishra & Mr. Sandeep Deore are engineering graduates from renowned institutes with 29 years
+                of experience in critical equipment design & manufacturing. Their thorough metallurgical and production
+                expertise has led company to have strong engineering team and dedicated workforce, catering customers
+                across sectors. With a 3000 sq ft workshop to begin with, Dynaxcel today has grown to 120000 sq ft land
+                and 60500 sq ft area under the crane with modern facilities.</p>
+        </div>
+        <div class="col-sm-6">
+            <!-- owl carousal slider  -->
+            <div class="owl-carousel about-gallery-carousel">
+                <div class="item"><img
+                        src="https://img.freepik.com/free-photo/handsome-business-man-engineer-hard-hat-building_1303-21090.jpg"
+                        alt="Image 1" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://t4.ftcdn.net/jpg/03/32/07/13/360_F_332071317_Xs3vvGp5ZqtWRPBzq9l9zuucDdBE47ES.jpg"
+                        alt="Image 2" loading="lazy"></div>
+                <div class="item"><img
+                        src="https://st4.depositphotos.com/4259987/24254/i/450/depositphotos_242540222-stock-photo-close-architect-formal-wear-helmet.jpg"
+                        alt="Image 3" loading="lazy"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+
+        </div>
+
+
+    </div>
+</div>
+<br><br>
+<div class="container  ">
+    <center>
+        <p>enhances our capabilities to serve wide customer base world over. Along with this, we build a strong
+            foundation of trust and reliability by early involvement of customer’s design & development programs,
+            ‘Design To Cost’ Initiatives, ‘Lead time reduction’ drives.</p>
+        <h5>Our manufacturing revolves around expertise developed in grades of-</h5>
+    </center>
+
+    <div class="row">
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(179, 220, 255); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>Stainless steel.</p>
+            </div>
+        </div>
+
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(255, 228, 179); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>Duplex stainless steel, Super duplex stainless steel.</p>
+            </div>
+        </div>
+
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(182, 255, 179); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>Weather resistant steels, High temperature application steels.</p>
+            </div>
+        </div>
+
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(255, 179, 251); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>Exotic metals & Alloys.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="container mt-5">
+    <center>
+        <h5>Manufacturing certifications</h5>
+    </center>
+
+    <div class="row">
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(253, 200, 200); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>‘U’ & ‘R’ stamp</p>
+            </div>
+        </div>
+
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(241, 255, 179); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>‘PED’ job approval.</p>
+            </div>
+        </div>
+
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(179, 233, 255); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>EN15085-2 CL-1 for Metro car components.</p>
+            </div>
+        </div>
+
+        <div class="col-md   text-center mt-4" style="padding:15px;">
+            <div style=" background-color: rgb(218, 179, 255); padding-top: 15px; padding-bottom: 15px; height: 100%;">
+                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <p>ISO3834-2.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- experience section start  -->
+<div class="container-fluid py-5 mb-3  " loading="lazy" style="background-color: rgb(22, 22, 22);">
+    <div class="container text-light">
+        <center>
+            <h5 class=" text-light">Through years of experience, we have segregated customer base in verticals below
+            </h5>
+        </center>
+        <br>
+        <div class="row mt-3">
+            <div class="col-sm-6 mt-3">
+                <div class=""
+                    style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
+                    <h4 class="text-primary">Component Cell</h4>
+                    <p>Laser cut, bent, polished components.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-3">
+                <div class=""
+                    style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
+                    <h4 class="text-primary">Batch Production</h4>
+                    <p>Laser cut, bent, welded, machined, polished, glass bead cleaned product.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <div class=""
+                    style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
+                    <h4 class="text-primary">Projects</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <img src="{% static 'website/img/projects-about.png' %}" alt=""  loading="lazy"
+                                style="width: 200px; height: auto;">
+                        </div>
+
+                        <div class="col-sm-6 text-justify px-4 py-4">
+                            <p>Tailor made equipment and assemblies such as pressure vessels, tanks, heat exchangers,
+                                reactors, dosing systems, Paper machine frames, fabricated, machined & assembly
+                                equipment with hydraulic, pneumatic and electrical systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <div class=""
+                    style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
+                    <h4 class="text-primary">EPC contracts</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <img src="{% static 'website/img/smart-contract.png' %}" alt=""  loading="lazy"
+                                style="width: 300px; height: auto;">
+                        </div>
+
+                        <div class="col-sm-6 text-justify px-4 py-4">
+                            <p>Through a consortium of group companies, we are one stop solution for EPC contracts. Our
+                                strong manufacturing base coupled with expertise of allied companies offer
+                                cost-effective solutions to customers. Links below gives more insight about our sister
+                                concerns</p>
+                            <a href="www.aryaengineers.com">
+                                <div style=" padding: 15px; border: 1px solid light; background-color: bisque;">
+                                    <span style="font-weight: 500;  "><i class="bi bi-globe"></i> |</span>
+                                    www.aryaengineers.com
+                                </div>
+                            </a>
+                            <a href="www.spainstruments.com">
+                                <div
+                                    style=" padding: 15px; border: 1px solid light; background-color: bisque; margin-top: 8px;">
+                                    <span style="font-weight: 500;  "><i class="bi bi-globe"></i> |</span>
+                                    www.spainstruments.com
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <center>
+        <h4>Comprehensive Manufacturing Expertise</h4>
+        <p>As a manufacturer, we so cater to all sizes from 5 kg product to 300 tons of assembly in workshop. <br> We
+            welcome you to the world of Dynaxcel manufacturing.</p>
+    </center>
+    <div class="row">
+        <div class="col-sm-6 p-3">
+            <div class=" shadow p-2 text-center bg-light py-4" style="height: 100%; border-radius: 25px;">
+                <img src="{% static 'website/img/spa-logo.jpg' %}" alt=""  loading="lazy" style="height: 40px;">
+                <hr>
+                <h5>
+                    SPA Project Engineers Pvt. Ltd
+                </h5>
+                <p style="text-align: justify;">
+                    SPA Project Engineers Pvt. Ltd. is a leading Water/ Wastewater/ Sewage/ Effluent/ Industrial
+                    Water/Municipal Water Treatment Plant Manufacturers, Exporters, Suppliers in India, Nigeria, Egypt,
+                    Pune having a team of highly experienced professionals who are in constant touch with the customers
+                    to ensure that they get all the required information..
+                </p>
+                <p style="text-align: justify;">
+                    We are specialized in designing, manufacturing, and selling electrical and automation instruments.
+                    Our products are reliable, efficient, and durable.We have been in the industry since the year 1994
+                    and have been offering top-quality products to our customers at affordable prices.
+                    We provide a wide range of electrical and automation instruments that can be used for various
+                    purposes such as industrial automation, process control, power generation, and distribution, energy
+                    management, and many more.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-6 p-3">
+            <div class=" shadow p-2 text-center bg-light py-4" style="height: 100%; border-radius: 25px;">
+                <img src="{% static 'website/img/arya-logo.png' %}" alt=""  loading="lazy" style="height:40px;">
+                <hr>
+                <h5>
+                    Arya Engineers
+                </h5>
+                <p style="text-align: justify;">
+                    Arya Engineers is an ISO 9001-2008 certified company. We were established in 1997 as a Piping Design
+                    Engineering Company. Soon we branched out to other Services such as Process, Civil/Structural,
+                    Instrumentation, Mechanical Engineering.Today we have grown into a consultancy that offers complete
+                    solutions for all your Engineering needs. We offer services like FEED/Basic Engineering, LSTK
+                    (Turnkey), EPCM, Detailed Engineering, Site Assistance and so on. We are Official Channel Partners
+                    of Armstrong International Pvt. Ltd. for Hot Water System, Condensate Recovery System, Pressure /
+                    Temperature Regulations. We are based in India and offer worldwide services.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- experience section stop  -->
+
+
+
+
+<section class="vision-mission  mb-3 mt-2 py-3" style="background-color: beige;" >
+    <div class="container" style="max-width: 1600px;">
+
+        <div class="container">
+            <div class="row text-center mb-4"></div>
+            <div class="Heading-section">
+                <i class="bi bi-gear-wide-connected"></i>
+                <span class="line-text"> <span class="text-secondary">Our</span> Vision <span
+                        class="text-secondary">&</span> Mission </span>
+                <i class="bi bi-gear-wide-connected"></i> <br>
+            </div>
+
+            <div class="row text-center">
+                <p>
+                    Learn More About Us – Experts in Innovative Manufacturing Solutions.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4" style=" ">
+                <img src="{% static 'website/img/vision-mission.webp' %}" alt=""  loading="lazy" style="width: 100%;  ">
+            </div>
+            <div class="col-sm-4" >
+                <div class="shadow" style="height: 100%;margin-top:15px; padding: 20px 10px; background-color: rgb(248, 245, 230); border-radius: 20px; text-align: center;" >
+                     <h4>Vision</h4>
+                    <hr>
+                    <ul style="text-align: left; padding: 10px;">
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Ethical and transparent business practices</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Reliable and customer-centric approach</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Safe and healthy work environment</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Sustainable practices for a better future</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Commitment to social responsibility</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Compliance with local laws and regulations</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Stable and reliable company operations</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Resistance to corruption and undue favoritism</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4" > 
+                <div class="shadow" style="height: 100%;margin-top:15px; padding: 20px 0px; background-color: rgb(248, 245, 230); border-radius: 20px; text-align: center;" >
+                    <h4>Mission</h4>
+                    <hr>
+                    <ul style="text-align: left; padding: 10px;">
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Commitment to integrity and quality</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Safe, healthy, and transparent work environment</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Fair and non-discriminatory employment policy</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Compliance with wage laws and labor standards</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Equal growth opportunities and employee development</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Strict action against sexual harassment</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Transparent business and accounting practices</li>
+                        <li class="py-1"><i class="bi bi-arrow-right-circle-fill text-primary"></i> Efficient use of energy and natural resources</li>
+                    </ul>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+
+        // Function to create random shapes
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+
+        // Create multiple shapes
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+
+</script>
+{% endblock content %}

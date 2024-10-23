@@ -1,0 +1,263 @@
+{% extends "website_base.html" %}
+{% block title %}Sustainability - Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+
+.page-header {
+    position: relative; 
+    background: url('/static/website/img/background-wave.png');
+    background-position: center center;
+    background-attachment: fixed; 
+    background-size: 100%; 
+    padding: 140px 0px 125px 0px;
+    overflow: hidden;
+}
+.page-header::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(61, 61, 61, 0.753);
+    z-index: 1;
+}
+.page-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Shape container */
+.shape-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+.shape {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+    animation: moveRandom 20s infinite ease-in-out;
+}
+.circle {
+    border-radius: 50%;
+    background-color: #ffffff56;
+}
+
+@keyframes moveRandom {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(100px, 200px) rotate(45deg);
+    }
+    50% {
+        transform: translate(-150px, 50px) rotate(90deg);
+    }
+    75% {
+        transform: translate(200px, -100px) rotate(135deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(180deg);
+    }
+}
+
+h1 {
+    font-size: 70px;
+}
+@media (max-width: 990px) {
+    h1 {
+        font-size: 60px;
+    }
+}
+@media (max-width: 500px) {
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/* Sustainability Section Styling */
+.sustainability-section {
+    padding: 60px 0;
+}
+.sustainability-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #0e76a8;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.sustainability-info {
+    background-color: #f0f7f5;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.sustainability-info:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+.sustainability-info img {
+    width: 100px;
+    margin-bottom: 20px;
+    transition: transform 0.5s;
+}
+.sustainability-info:hover img {
+    transform: rotate(360deg);
+}
+
+{% endblock style %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light">Sustainability</h1>
+            </div>
+        </div>
+    </div>
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+
+<!-- Sustainability Section -->
+<section class="sustainability-section">
+    <div class="container">
+        <h2 class="sustainability-title" data-aos="fade-up" data-aos-duration="1000">Our Commitment to Sustainability</h2>
+        <div class="row">
+            <!-- Environment Impact -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="sustainability-info text-center p-4">
+                    <img src="{% static 'website/img/sus2.jpg' %}" alt="Environmental Impact"  loading="lazy">
+                    <h3>Environmental Impact</h3>
+                    <p>We are reducing our carbon footprint by incorporating renewable energy, eco-friendly materials, and sustainable production processes.</p>
+                </div>
+            </div>
+            <!-- Social Responsibility -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="sustainability-info text-center p-4">
+                    <img src="{% static 'website/img/sus3.jpg' %}" alt="Social Responsibility"  loading="lazy">
+                    <h3>Social Responsibility</h3>
+                    <p>Our commitment extends beyond the environment. We ensure ethical labor practices and community engagement in everything we do.</p>
+                </div>
+            </div>
+            <!-- Sustainable Products -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                <div class="sustainability-info text-center p-4">
+                    <img src="{% static 'website/img/sus2.jpg' %}" alt="Sustainable Products"  loading="lazy">
+                    <h3>Sustainable Products</h3>
+                    <p>Our products are designed with sustainability in mind, utilizing materials and processes that minimize environmental impact.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Environmental Responsibility Section -->
+<section class="container mt-5 mb-5">
+    <div class="row mb-5" data-aos="fade-left" data-aos-duration="1000">
+        <div class="col-md-6">
+            <img src="{% static 'website/img/sus4.jpg' %}" class="img-fluid rounded shadow" alt="Environmental Responsibility"  loading="lazy">
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+            <div>
+                <h2 class="text-primary">Environmental Responsibility</h2>
+                <p>At Dynaxcel, we are committed to reducing our carbon footprint and protecting the environment. Our facilities are designed to minimize waste, optimize energy efficiency, and adopt sustainable practices across all operations.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Renewable Energy Section -->
+    <div class="row mb-5" data-aos="fade-right" data-aos-duration="1000">
+        <div class="col-md-6 order-md-2">
+            <img src="{% static 'website/img/sus5.jpg' %}" class="img-fluid rounded shadow" alt="Renewable Energy"  loading="lazy">
+        </div>
+        <div class="col-md-6 order-md-1 d-flex align-items-center">
+            <div>
+                <h2 class="text-primary">Renewable Energy</h2>
+                <p>We are transitioning to renewable energy sources in our production processes, harnessing solar power and other clean energy alternatives to drive our machinery and facilities.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Impact Section -->
+    <div class="row mb-5" data-aos="fade-left" data-aos-duration="1000">
+        <div class="col-md-6">
+            <img src="{% static 'website/img/sus6.jpg' %}" class="img-fluid rounded shadow" alt="Community Impact"  loading="lazy">
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+            <div>
+                <h2 class="text-primary">Community Impact</h2>
+                <p>Our sustainability initiatives extend beyond our business to positively impact the communities around us. We engage in local projects, promoting environmental education and supporting green initiatives.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Statistics Section -->
+<section class="bg-light py-5">
+    <div class="container text-center">
+        <h2 class="mb-5" data-aos="fade-up" data-aos-duration="1000">Sustainability at a Glance</h2>
+        <div class="row">
+            <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="text-primary">50%</h3>
+                        <p>Reduction in Carbon Emissions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="text-primary">75%</h3>
+                        <p>Renewable Energy Usage</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="text-primary">100+</h3>
+                        <p>Green Projects Supported</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+
+        // Function to create random shapes
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+
+        // Create multiple shapes
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+
+    
+</script>
+
+{% endblock content %}

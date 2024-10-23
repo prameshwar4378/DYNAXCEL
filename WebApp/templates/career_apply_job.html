@@ -1,0 +1,302 @@
+{% extends "website_base.html" %}
+{% block title %}Career | Dynaxcel{% endblock title %}
+{% load static %}
+{% block style %}
+
+.page-header {
+position: relative;
+background: url('/static/website/img/background-wave.png') ;
+<!-- background-color:green; -->
+background-position: center center;
+background-attachment: fixed;
+background-size: 100%;
+padding: 140px 0px 125px 0px;
+overflow: hidden; /* Hide overflowing animated shapes */
+}
+.page-header::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(61, 61, 61, 0.753);
+z-index: 1;
+}
+.page-header > * {
+position: relative;
+z-index: 2;
+}
+
+/* Shape container */
+.shape-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+pointer-events: none; /* So the shapes don't interfere with clicks */
+}
+
+/* Basic shape styling */
+.shape {
+position: absolute;
+width: 50px;
+height: 50px;
+opacity: 0.8;
+animation: moveRandom 20s infinite ease-in-out;
+}
+
+/* Specific shape styling */
+
+.circle {
+border-radius: 50%;
+background-color: #ffffff56;
+}
+
+
+/* Random movement animation */
+@keyframes moveRandom {
+0% {
+transform: translate(0, 0) rotate(0deg);
+}
+25% {
+transform: translate(100px, 200px) rotate(45deg);
+}
+50% {
+transform: translate(-150px, 50px) rotate(90deg);
+}
+75% {
+transform: translate(200px, -100px) rotate(135deg);
+}
+100% {
+transform: translate(0, 0) rotate(180deg);
+}
+}
+
+
+h1{
+font-size: 70px;
+}
+
+@media (max-width: 990px) {
+h1{
+font-size: 60px;
+}
+
+}
+
+@media (max-width: 500px) {
+h1{
+font-size: 30px;
+}
+
+}
+
+
+
+.job-card {
+    border: 1px solid #e3e6f0;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+} 
+.job-card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #66a847;
+}
+.job-card h5 {
+    font-size: 16px;
+    color: red;
+}
+.job-card p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 1rem;
+}
+.job-card strong {
+    font-weight: 600;
+    color:#66a847;
+}
+.job-card ul {
+    padding-left: 20px;
+    margin-bottom: 1.5rem;
+}
+.job-card ul li {
+    font-size: 16px;
+    color: #444;
+}
+.job-card ul li::before {
+    content: "•";
+    color: #0d6efd;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+.card-icon {
+    color: #7ff17f;
+    margin-right: 5px;
+}
+
+
+
+.job-details {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: #5b6579;
+    }
+    .job-details span {
+    background-color: #f3f5f9;
+    padding: 10px 10px;
+    border-radius: 20px;
+    }
+
+{% endblock style %}
+{% block content %}
+
+<section class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center text-light">
+                <h1 class="text-light" style="font-size: 40;">Career</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Shapes for animation -->
+    <div class="shape-container">
+        <div class="shape circle"></div>
+    </div>
+</section>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Job Details Section -->
+        <div class="col-12 col-md-8">
+            <div class="card mb-4 job-card">
+                <div class="card-body">
+
+                    <h2 class="card-title">{{job_details.title}}</h2>
+                    <hr>
+                    <p class="card-text mt-3">
+                        <strong><i class="bi bi-people card-icon"></i> Location:</strong> {{job_details.location}}
+                    </p>
+                     
+                    <p class="card-text mt-3">
+                        <strong><i class="bi bi-people card-icon"></i> Posted:</strong> {{job_details.posted_on}}
+                    </p>
+                     
+                    <p class="card-text mt-3">
+                        <strong><i class="bi bi-people card-icon"></i> Vacancy:</strong> {{job_details.vacancy}}
+                    </p> 
+                    <hr style="color: #adadad;"> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i> Desired Qualification:</strong>
+                    </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.desired_qualification|safe}}  
+                    </ul> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i> Experiance Required:</strong>
+                    </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.experience_required|safe}} 
+                    </ul> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i> Job Description:</strong>
+                    </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.career_description|safe}} 
+                    </ul> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i> Roles & Responsibility:</strong>
+                    </p>
+                    <ul style="position: relative; top: -10px;">
+                         {{job_details.roles_responsibility|safe}} 
+                    </ul> 
+                    <p class="card-text">
+                        <strong><i class="bi bi-star card-icon"></i>Skills Required</strong>
+                    </p>
+                    <ul>
+                         {{job_details.skills_required|safe}} 
+                    </ul> 
+                </div>
+            </div>
+        </div>
+        <!-- Application Form and Contact Card Section -->
+        <div class="col-12 col-md-4">
+            <div class="d-flex flex-column justify-content-between" style="height: 100%;">
+                <!-- Application Form -->
+                <div class="card mb-4 p-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Apply for This Job</h5>
+                        <form  method="POST" enctype="multipart/form-data" action="{% url "create_career_application" %}">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="resume" class="form-label">Upload Resume</label>
+                                <input class="form-control" type="file" id="resume" name="resume" required>
+                            </div>
+                            <input type="hidden" name="career_id" id="career_id" value="{{job_details.id}}">
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </form>
+                    </div>
+
+                    
+                    <!-- Contact Card -->
+                    <div class="card mb-4 mt-4">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="bi bi-envelope" style="font-size: 24px; margin-right: 10px;"></i>
+                            <p class="mb-0">Mail Us At: <a href="mailto:hr@dynaxcel.com">hr@dynaxcel.com</a></p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const shapeContainer = document.querySelector('.shape-container');
+
+        // Function to create random shapes
+        function createShape(type) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape', type);
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shapeContainer.appendChild(shape);
+        }
+
+        // Create multiple shapes
+        const shapes = ['circle'];
+        for (let i = 0; i < 5; i++) {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            createShape(randomShape);
+        }
+    });
+
+</script>
+
+
+{% endblock content %}

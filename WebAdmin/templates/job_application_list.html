@@ -1,0 +1,284 @@
+{% extends "admin_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .btn {
+  clear:both;
+  white-space:nowrap;
+  font-size:.8em;
+  display:inline-block;
+  border-radius:5px; 
+  margin:2px;
+  -webkit-transition:all .5s;
+  -moz-transition:all .5s;
+  transition:all .5s;
+  overflow:hidden
+}
+
+.btn:hover {
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.219);
+}
+
+.btn:focus {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.219);
+}
+
+.btn > span,.btn-icon > i {
+  float:left;
+  padding:13px 20px;
+  -webkit-transition:all .5s;
+  -moz-transition:all .5s;
+  transition:all .5s;
+  line-height:1em
+}
+
+.btn > span {
+  padding:14px 18px 16px;
+  white-space:nowrap;
+  color:#FFF;
+  background:#b8b8b8
+}
+
+.btn:focus > span {
+  background:#9a9a9a
+}
+
+.btn-icon > i {
+  border-radius:5px 0 0 5px;
+  position:relative;
+  text-align:center;
+  font-size:1.25em;
+  color:#fff;
+  background:#212121
+}
+
+.btn-icon > i:after {
+  content:"";
+  border:8px solid;
+  border-color:transparent transparent transparent #222;
+  position:absolute;
+  top:13px;
+  right:-15px
+}
+
+.btn-icon:hover > i,.btn-icon:focus > i {
+  color:#FFF
+}
+
+.btn-icon > span {
+  border-radius:0 5px 5px 0
+}
+
+/*Facebook*/
+.btn-download:hover > i,.btn-download:focus > i {
+  color:#7294df
+}
+
+.btn-download > span {
+  background:#3b5998
+}
+
+/*Twitter*/
+.btn-preview:hover > i,.btn-preview:focus > i {
+  color:#55acee
+}
+</style>
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Job Applications List</h1>
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+    </div><!-- End Page Title -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="container" style="max-width:97%;">
+                    <div class="text-lg-end text-start">
+                        <!-- Use text-lg-end for right alignment in large screens -->
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#filter_data"><i
+                                class="mdi mdi-filter"></i> Filter</a>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+ 
+
+    <section class="section dashboard">
+        <div class="row">
+            <!-- Left side columns -->
+            <div class="col-lg-12">
+                <div style="padding:2%">
+                    <!-- Left side columns -->
+                    <div>
+                         <div class="" style="overflow:scroll;">
+                            <table id="example" class="table table-striped"
+                                style="overflow:scroll;  width:100%; min-width: max-content;">
+                                <thead>
+                                    <tr style="background:#02B4C3;">
+                                        <th scope="col" class="text-center text-white">Sr.No</th>
+                                        <th scope="col" class="text-center text-white">Applications Date</th> 
+                                        <th scope="col" class="text-center text-white">Name </th> 
+                                        <th scope="col" class="text-center text-white">Mobile</th>  
+                                        <th scope="col" class="text-center text-white">Resume</th> 
+                                        <th scope="col" class="text-center text-white">Action</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if data %}
+                                    {% for r in  data %}
+                                    <tr> 
+                                        <td class="text-center">{{ forloop.counter }}</td>
+                                        <td class="text-center">{{ r.date }}</td>
+                                        <td class="text-center">{{ r.name }}</td> 
+                                        <td class="text-center">{{ r.phone }}</td> 
+                                        <td class="text-center"><a href="{{ r.resume.url }}" class="btn btn-primary px-3" download><b><i class="bi bi-download"></i></b></a>
+                                        </td> 
+                                        <td>
+                                            <center>
+                                                <a href="#" class="btn btn-warning px-3" 
+                                                data-toggle="modal" 
+                                                data-target="#application_details" 
+                                                data-delete_url="{% url 'admin_delete_job_applicattion' r.id %}"
+                                                data-title="{{ r.career.title|escapejs }}"
+                                                data-name="{{ r.name|escapejs }}"
+                                                data-email="{{ r.email|escapejs }}"
+                                                data-phone="{{ r.phone|escapejs }}"
+                                                data-date="{{ r.date }}"
+                                                data-resume="{{ r.resume.url }}"
+                                                onclick="application_details(this)">
+                                                <i class="bi bi-eye"></i>
+                                             </a>
+                                                <a href="{% url 'admin_delete_job_applicattion' r.id %}" class="btn btn-danger px-3"><i class="bi bi-trash3"></i></a>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div><!-- End Left side columns -->
+
+
+            </div>
+        </div><!-- End Left side columns -->
+
+ 
+
+        
+
+
+    <div class="modal fade" id="application_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document"  style="max-width:1000px;">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-primary text-light ">
+                <h5 class="modal-title" id="exampleModalLongTitle">Application Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                        <div class="row mb-3">
+                            <div class="col-sm-12 px-2 py-2 mt-2"> 
+                                <div class=" px-2 py-2 rounded shadow-sm">
+                                    <p>Applied For :</p>
+                                    <h5  id="lbl_title"  style="margin-top: -10px;"> </h5>
+                                </div>
+                            </div>  
+                            <div class="col-sm-6 px-2 py-2 mt-2"> 
+                                <div class=" px-2 py-2 rounded shadow-sm">
+                                    <p>Name :</p>
+                                    <h5 id="lbl_name" style="margin-top: -10px;"> </h5>
+                                </div>
+                            </div>  
+                            <div class="col-sm-6 px-2 py-2 mt-2"> 
+                                <div class=" px-2 py-2 rounded shadow-sm">
+                                    <p>Mobile No :</p>
+                                    <h5  id="lbl_phone"  style="margin-top: -10px;"> </h5>
+                                </div>
+                            </div>  
+                            <div class="col-sm-6 px-2 py-2 mt-2"> 
+                                <div class=" px-2 py-2 rounded shadow-sm">
+                                    <p>Email Id :</p>
+                                    <h5 id="lbl_email" style="margin-top: -10px;"> </h5>
+                                </div>
+                            </div>  
+                            <div class="col-sm-6 px-2 py-2 mt-2"> 
+                                <div class=" px-2 py-2 rounded shadow-sm">
+                                    <p>Applicattion Date :</p>
+                                    <h5 id="lbl_date" style="margin-top: -10px;"> </h5>
+                                </div>
+                            </div>  
+                            
+                            <div class="col-sm-12   text-center px-2 py-2 mt-4" > 
+                                    <p>Attached Resume :</p>
+                                    <div style="margin-top: -10px;">
+                                        <a id="btn_download" class="btn btn-icon btn-download" href="#" download>
+                                            <i class="bi bi-cloud-download-fill"></i><span>Download</span>
+                                        </a>
+                                        <a id="btn_preview" class="btn btn-icon btn-preview" href="#" target="_blank">
+                                            <i class="bi bi-eye-fill"></i><span>Preview</span>
+                                        </a>
+                                        
+                                    </div>
+                            </div>  
+                            
+                        </div>
+                        <hr> 
+                            <div class="col-sm-12 text-lg-end">
+                                <a id="btn_delete" href="#" id="btnCreateSubmit" value="Close"
+                                class="btn btn-danger " style="width: 70px;">Delete</a>
+                             
+                                <input type="" id="btnCreateSubmit" value="Close"
+                                    class="btn btn-secondary "  data-dismiss="modal" style="width: 70px;"></input>
+                            </div>
+                                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</main><!-- End #main -->
+ 
+<script>
+    function application_details(element) {
+        const delete_url = element.getAttribute('data-delete_url');
+        const title = element.getAttribute('data-title');
+        const name = element.getAttribute('data-name');
+        const email = element.getAttribute('data-email');
+        const phone = element.getAttribute('data-phone');
+        const date = element.getAttribute('data-date');
+        const resume_url = element.getAttribute('data-resume');
+        
+        // Set the values in your modal or wherever needed
+        document.getElementById('lbl_title').innerHTML = `<b>${title}</b>`;
+        document.getElementById('lbl_name').innerHTML = `<b>${name}</b>`;
+        document.getElementById('lbl_email').innerHTML = `<b>${email}</b>`;
+        document.getElementById('lbl_phone').innerHTML = `<b>${phone}</b>`;
+        document.getElementById('lbl_date').innerHTML = `<b>${date}</b>`;
+         
+        // Set the download and preview URLs
+        document.getElementById('btn_download').href = resume_url;
+        document.getElementById('btn_preview').href = resume_url; // Adjust if needed
+        document.getElementById('btn_delete').href = delete_url; // Adjust if needed
+    }
+</script>
+
+
+{% endblock content %}
