@@ -341,8 +341,6 @@
 </section>
 <!-- Services Stop-->
 
-
-
 {% if news %}
   
 <!-- News Start-->
@@ -370,42 +368,35 @@
                 <div class="row">
                     <p>Join our community for regular updates and engineering insights that drive results</p>
                 </div>
-
-
                 <div class="owl-carousel news-carousel px-2" >
-
-                     
-         {% for i in news %}
-
-                    <div class="bg-light p-2 news-carousel-item mt-3 mb-3 " style="height: 500px; overflow: hidden; padding-bottom:20px ;">
-                        <div class="news-img">
-                            <img src="{{i.thumbnail.url}}"
-                            alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy" style="height: 200px;">
-                        </div>
-                        <div class="news-info mt-3">
-                            <p class="news-date-location">
-                            <div class="row text-left">
-                                <div class="col-sm-12 text-left">
-                                    <span class="badge bg-date mt-2"><i class="bi bi-calendar3"></i> {{i.date}}</span>
-                                </div>
-                                 <!-- <div class="col-sm-7">
-                                    <span class="badge bg-location mt-2"><i class="bi bi-geo-alt"></i> Delhi,
-                                        India</span>
-                                </div> 
-                                --> 
+                    {% for i in news %}
+                        <div class="bg-light p-2 news-carousel-item mt-3 mb-3 " style="height: 100%; overflow: hidden; padding-bottom:20px ;">
+                            <div class="news-img">
+                                <img src="{{i.thumbnail.url}}"
+                                alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy" style="height: 200px;">
                             </div>
-                            </p>
+                            <div class="news-info mt-3">
+                                <p class="news-date-location">
+                                <div class="row text-left">
+                                    <div class="col-sm-12 text-left">
+                                        <span class="badge bg-date mt-2"><i class="bi bi-calendar3"></i> {{i.date}}</span>
+                                    </div>
+                                    <!-- <div class="col-sm-7">
+                                        <span class="badge bg-location mt-2"><i class="bi bi-geo-alt"></i> Delhi,
+                                            India</span>
+                                    </div> 
+                                    --> 
+                                </div>
+                                </p>
+                            </div>
+                               <a href="{% url 'web_news_details' i.id %}"> <h5 class="mb-1 mt-2"  style="color: rgb(3, 184, 166);">{{i.title}}</h5></a>
+                            <p class="" style="text-align: justify;"> <div style=" background-color: #f7f7f7; padding: 5px; border-radius: 8px; height: 140px;">
+                                {{ i.content|safe|slice:":100" }}
+                            </div></p>
+                            <a href="{% url 'web_news_details' i.id %}" class="btn bg-white text-primary w-100  ">Read More<i
+                                    class="fa fa-arrow-right text-secondary ms-2"></i></a>
                         </div>
-                        <h5 class="mb-1 mt-2">{{i.title}}</h5>
-                        <p class="" style="text-align: justify;"> <div style=" background-color: #f7f7f7; padding: 5px; border-radius: 8px; height: 140px;">
-                            {{ i.content|safe|slice:":100" }}
-                        </div></p>
-
-                        <a href="" class="btn bg-white text-primary w-100  ">Read More<i
-                                class="fa fa-arrow-right text-secondary ms-2"></i></a>
-                    </div>
-                {% endfor %}
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -425,7 +416,7 @@
     <div class="row text-center mb-4">
         <div class="Heading-section">
             <i class="bi bi-gear-wide-connected"></i>
-            <span class="line-text"> <span class="text-secondary">Our</span> Gallery </span>
+            <span class="line-text"> <span class="text-secondary">Photo</span> Gallery </span>
             <i class="bi bi-gear-wide-connected"></i>
         </div>
     </div>

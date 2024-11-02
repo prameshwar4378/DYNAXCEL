@@ -223,14 +223,14 @@
                 <div class="col-sm-3 mb-3">
                     <h5 class="text-primary">Links</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">About us</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Infrastructure</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Sustainability</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Blogs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Certificates</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Career</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Contact us</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "index" %}" class="nav-link p-0 text-light">Home</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "website_about_us" %}" class="nav-link p-0 text-light">About us</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "website_infra" %}" class="nav-link p-0 text-light">Infrastructure</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "sustainability" %}" class="nav-link p-0 text-light">Sustainability</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "web_news" %}" class="nav-link p-0 text-light">Blogs</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "web_certificates" %}" class="nav-link p-0 text-light">Certificates</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "website_career" %}" class="nav-link p-0 text-light">Career</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "website_contact_us" %}" class="nav-link p-0 text-light">Contact us</a></li>
                     </ul>
                 </div>
 
@@ -238,22 +238,22 @@
                     <h5 class="text-primary">Our Services</h5>
                     <ul class="nav flex-column">
 
-                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Stainless Steel &#038; Exotic Fabrication.</a></li>
-                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">ASME &#038; PED Vessels</a></li>
-                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Railways &#038; Metro Components</a></li>
-                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Defence Equipment</a></li>
-                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">Food &#038; Pharma</a></li>
-                        <li  class="nav-item mb-2"><a href="#"  class="nav-link p-0 text-light">PSA Based Oxygen Generator</a></li>
+                        <li  class="nav-item mb-2"><a href="{% url "stainless_steel" %}"  class="nav-link p-0 text-light">Stainless Steel &#038; Exotic Fabrication.</a></li>
+                        <li  class="nav-item mb-2"><a href="{% url "services_ASME_PED_Vessels" %}"  class="nav-link p-0 text-light">ASME &#038; PED Vessels</a></li>
+                        <li  class="nav-item mb-2"><a href="{% url "services_railway_metro" %}"  class="nav-link p-0 text-light">Railways &#038; Metro Components</a></li>
+                        <li  class="nav-item mb-2"><a href="{% url "services_defence_equipements" %}"  class="nav-link p-0 text-light">Defence Equipment</a></li>
+                        <li  class="nav-item mb-2"><a href="{% url "services_food_farma" %}"  class="nav-link p-0 text-light">Food &#038; Pharma</a></li>
+                        <li  class="nav-item mb-2"><a href="{% url "services_psa_based" %}"  class="nav-link p-0 text-light">PSA Based Oxygen Generator</a></li>
                     </ul>
                 </div>
 
                 <div class="col-sm-3 mb-3">
                     <h5 class="text-primary">Industry Equipment’s</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Mining</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Paper</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Power</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Textile</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "services_mining" %}" class="nav-link p-0 text-light">Mining</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "services_paper" %}" class="nav-link p-0 text-light">Paper</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "services_power" %}" class="nav-link p-0 text-light">Power</a></li>
+                        <li class="nav-item mb-2"><a href="{% url "services_textiles" %}" class="nav-link p-0 text-light">Textile</a></li>
                     </ul>
                 </div>
 
