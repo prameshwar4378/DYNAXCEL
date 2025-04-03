@@ -10,7 +10,7 @@
 <div class="container-fluid p-0 pb-5">
     <div class="owl-carousel header-carousel position-relative">
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/carousel-6.jpg' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
+            <img class="img-fluid" src="{% static 'website/img/1.jpg' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                 style="background: rgba(53, 53, 53, .7);">
                 <div class="container">
@@ -33,7 +33,20 @@
         </div>
 
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/carousel-7.jpg' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
+            <img class="img-fluid" src="{% static 'website/img/2.png' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(53, 53, 53, .7);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8 text-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{% static 'website/img/8.png' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                 style="background: rgba(53, 53, 53, .7);">
                 <div class="container">
@@ -178,15 +191,15 @@
                             <div class="col-12">
                                 <div class="count-area-content percentage " data-aos="zoom-in" data-aos-duration="1500"
                                     data-aos-delay="50">
-                                    <div class="count-digit">94</div>
-                                    <div class="count-title">Succesed Projects</div>
+                                    <div class="count-digit">29</div>
+                                    <div class="count-title">YEARS OF SERVICE</div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="count-area-content" data-aos="zoom-in" data-aos-duration="1500"
                                     data-aos-delay="150">
-                                    <div class="count-digit">126</div>
-                                    <div class="count-title">Current Employees</div>
+                                    <div class="count-digit">200+</div>
+                                    <div class="count-title">PROFESSIONALS</div>
                                 </div>
                             </div>
                         </div>
@@ -196,8 +209,8 @@
                             <div class="col-12">
                                 <div class="count-area-content new-students" data-aos="zoom-in" data-aos-duration="1500"
                                     data-aos-delay="250">
-                                    <div class="count-digit">10</div>
-                                    <div class="count-title">New Projects</div>
+                                    <div class="count-digit">100+</div>
+                                    <div class="count-title">HAPPY CUSTOMERS</div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -342,7 +355,6 @@
 <!-- Services Stop-->
 
 {% if news %}
-  
 <!-- News Start-->
 <div class="container-fluid py-2 mt-5 px-lg-0">
 
@@ -402,8 +414,6 @@
         </div>
     </div>
 </div>
-
-
 <!-- News Stop-->
 {% endif %}
 
@@ -424,7 +434,7 @@
     <div class="owl-carousel gallery-carousel">
         {% for image in gallery_images %}
         <div class="item">
-            <img src="{{image.image.url}}"  alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy" />
+            <img src="{{image.image.url}}"  alt="Dynaxcel Engineers Pvt. Ltd." style="width: 100%; height: 150px; object-fit: cover;" loading="lazy" />
         </div>
         {% endfor %}
     </div>
