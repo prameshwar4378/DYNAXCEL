@@ -87,7 +87,7 @@ def contact_us(request):
                 subject=email_subject,
                 body=email_body,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=['prameshwar4378@gmail.com'],  # Replace with the appropriate email address -- sales@dynaxcel.com
+                to=['ims@dynaxcel.com'],  # Replace with the appropriate email address -- sales@dynaxcel.com
             )
 
             # Send the email in a separate thread to avoid blocking
@@ -206,7 +206,7 @@ def create_career_application(request):
             subject=subject,
             body=body,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            to=['programmer.me220@gmail.com'],  # Use your HR email
+            to=['hr@dynaxcel.com'],  # Use your HR email
         )
 
         # Read resume content and attach to the email

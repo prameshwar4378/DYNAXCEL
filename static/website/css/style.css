@@ -633,7 +633,7 @@ a{
 
 .our-facts {
 	position: relative; /* Ensure the pseudo-element is positioned correctly */
-	background-image: url('/static/website/img/parallex-1.jpg');
+	background-image: url('/static/website/img/fact.jpeg');
 	background-position: center center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
