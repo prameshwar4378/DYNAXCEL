@@ -161,102 +161,381 @@ padding: 20px;
 }
 
 
+@media screen and (max-width:1199px){
+	nav.navbar.bootsnav ul.nav > li > a { padding: 35px 8px;}
+	
+	.welcome-hero {height: 768px;}
 
-<!-- experiance section start  -->
+	.timeline-content span>i, .experience-time span>i {left: -15.5%;}
+}/*max-width:1199px*/
 
-<!-- experiance section stop  -->
 
+/*-------------------------------------
+        3.  Welcome-hero
+--------------------------------------*/
+.welcome-hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative; 
+    background:url('/static/website/img/about-hero.jpg')no-repeat;
+    background-size:cover;
+    background-position: center;
+    height:700px;
+}
+ 
+
+/*.header-text-area*/
+.header-text h2 {
+    color: #fff;
+    font-size: 74px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+
+@media screen and (max-width:600px){
+    /*.header-text-area*/
+    .header-text h2 {
+        color: #fff;
+        font-size: 44px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.5;
+    }
+    
+} 
+
+
+
+.header-text h2 span {color: #d92cf9;}
+.header-text p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 30px 0 60px;
+    letter-spacing: 1px;
+}
+.header-text a {
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 3px;
+    text-transform: capitalize;
+    color: #fff;
+    background: #b636ff;
+    border:1px solid #b636ff;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+    -webkit-transition: 0.3s linear; 
+    -moz-transition: 0.3s linear; 
+    -ms-transition: 0.3s linear; 
+    -o-transition: 0.3s linear; 
+    transition: 0.3s linear;
+}
+.header-text a:hover{ box-shadow: 0 5px 20px rgba(0,0,0,.4);background:#9f00ff;border: 1px solid #9f00ff;}
+/*.header-text-area*/
+
+
+
+
+
+ 
+
+
+.timeline-container {
+    background-color: #fff;
+    padding-bottom:40px;
+    padding-top:40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.timeline-header {
+    color: #2c3e50; /* Dark, professional header color */
+    font-size: 3em;
+    margin-bottom: 30px;
+    font-weight: 1000;
+}
+.timeline-wrapper {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.timeline {
+    position: relative;
+    background-color: black;
+    height: 28px; /* Increased timeline line height */
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timeline-points {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    justify-content: space-around;
+    padding: 0 30px;
+}
+.timeline-point-wrapper {
+    position: relative;
+    text-align: center;
+}
+.timeline-point {
+    width: 18px; /* Slightly larger active circle */
+    height: 18px; /* Slightly larger active circle */
+    background-color: #fff;
+    border: 3px solid #95a5a6; /* More visible border */
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.timeline-point:hover {
+    transform: scale(1.2);
+}
+.timeline-point.active {
+    background-color: #007bff; /* Clear active color */
+    border-color: #007bff;
+    transform: scale(1.4);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3); /* More prominent active indicator */
+}
+.timeline-year {
+    position: absolute;
+    top: 24px;
+    font-size: 1em; /* Slightly larger year font */
+    color: #555;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 400;
+}
+.year-label-container {
+    color: green;
+    text-align: center;
+}
+.year-label-container h2 {
+    font-size: 3em; /* Larger year label font */
+    font-weight: 1000; /* Bolder year label */
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+    color:#007bff;
+}
+.timeline-items-wrapper {
+    position: relative;
+    min-height: 300px;
+    padding-top: 0px;
+}
+.timeline-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(20px);
+}
+.timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.timeline-item img {
+    max-width: 40%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.timeline-item-details {
+    flex-grow: 1;
+    text-align: left;
+}
+.timeline-item-title {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+.timeline-item-description {
+    color: #666;
+    font-size: 1em;
+    line-height: 1.7;
+}
+ 
+.timeline-control-btn {
+    background: none;
+    border: 2px solid #007bff;
+    font-size: 1em;
+    cursor: pointer;
+    color: #007bff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-weight: 500;
+    position: relative;
+    z-index: 20; /* Ensure the buttons are above other content */
+}
+
+/* Hover effect for buttons */
+.timeline-control-btn:hover {
+    color: #fff;
+    background-color: #007bff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+    .timeline-item img {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+    .timeline-item-details {
+        text-align: center;
+    }
+    .timeline-points {
+        justify-content: space-between;
+    }
+    .year-label-container h2 {
+        font-size: 2em;
+    }
+    .timeline-control-btn {
+        padding: 10px 20px;
+    }
+}
+@media (max-width: 576px) {
+    .timeline-year {
+        font-size: 0.9em;
+        top: 22px;
+    }
+    .year-label-container h2 {
+        font-size: 1.8em;
+    }
+    .timeline-control-btn {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+    .timeline-points {
+        padding: 0 10px;
+    }
+}
 
 {% endblock style %}
 {% block content %}
 
+<!--welcome-hero start -->
+<section id="welcome-hero" class="welcome-hero"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
+    <div class="container">
+        <div class="row"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="500">
+            <div class="col-md-12 text-center">
+                <div class="header-text">
+                    <h2 style="color:rgb(255, 255, 255)">About Us </h2>
+                    <p>Dynaxcel, founded in 1995 by experienced engineers, is a pioneer in critical equipment design and manufacturing, committed to innovation and excellence across industries.</p>
+                </div><!--/.header-text-->
+            </div><!--/.col-->
+        </div><!-- /.row-->
+    </div> 
+</section> 
 
-<section class="page-header">
-    <div class="container-fluid">
+<div class="container-fluid"  style="background: rgb(0, 201, 0);">
+    
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center text-light">
-                <h1 class="text-light" style="font-size: 40;">About <span class="text-primary">Dynaxcel</span> </h1>
+            <div class="col-sm-12 text-center mt-5 mb-5"  style="color: rgb(255, 255, 255);">
+                <h2  style="color: rgb(251, 255, 0);"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Dynaxcel: Pioneers in Critical Equipment Design and Manufacturing</h2>
+                <p  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="250">
+                    Dynaxcel is a company started by young entrepreneurs in 1995. Promotor Directors Mr. Shailendra Mishra & Mr. Sandeep Deore are engineering graduates from renowned institutes with 29 years of experience in critical equipment design & manufacturing. Their thorough metallurgical and production expertise has led company to have strong engineering team and dedicated workforce, catering customers across sectors. With a 3000 sq ft workshop to begin with, Dynaxcel today has grown to 120000 sq ft land and 60500 sq ft area under the crane with modern facilities.
+                </p>
             </div>
         </div>
-    </div>
-    <!-- Shapes for animation -->
-    <div class="shape-container">
-        <div class="shape circle"></div>
-    </div>
-</section>
-
-<div class="container mt-3 mb-3">
-    <div class="row">
-        <div class="col-sm-6 ">
-            <h3>Dynaxcel: Pioneers in Critical Equipment Design and Manufacturing</h3>
-            <p class="text-justify">Dynaxcel is a company started by young entrepreneurs in 1995. Promotor Directors Mr.
-                Shailendra Mishra & Mr. Sandeep Deore are engineering graduates from renowned institutes with 29 years
-                of experience in critical equipment design & manufacturing. Their thorough metallurgical and production
-                expertise has led company to have strong engineering team and dedicated workforce, catering customers
-                across sectors. With a 3000 sq ft workshop to begin with, Dynaxcel today has grown to 120000 sq ft land
-                and 60500 sq ft area under the crane with modern facilities.</p>
-        </div>
-        <div class="col-sm-6">
-            <!-- owl carousal slider  -->
-            <div class="owl-carousel about-gallery-carousel">
-                <div class="item"><img
-                        src="{% static 'website/img/ab1.jpeg' %}"
-                        alt="Image 1" loading="lazy"></div>
-                <div class="item"><img
-                        src="{% static 'website/img/g1.png' %}"
-                        alt="Image 2" loading="lazy"></div>
-                <div class="item"><img
-                        src="{% static 'website/img/food3.png' %}"
-                        alt="Image 3" loading="lazy"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-
-        </div>
-
-
     </div>
 </div>
-<br><br>
+
+<!-- Timeline start  -->
+<div class="timeline-container">
+    <h2 class="timeline-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">OUR <span style="color: red;">JOURNEY</span></h2>
+    <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, red 50%, black 50%); margin-top: -15px;"></center>
+    <br>
+    <div class="timeline-wrapper">
+        <div class="timeline" id="timeline">
+            <div class="timeline-points" id="timelinePoints" role="tablist">
+            </div>
+        </div>
+    </div>
+    
+    <div class="year-label-container" id="year-label" >
+        <h2></h2>
+    </div>
+ 
+    <div class="container">
+        <div class="row">
+            <div class="timeline-items-wrapper">
+                <br><br><br>
+                <div id="timelineItemsContainer">
+                </div>
+            </div>
+        </div>
+    </div> 
+    <br>
+    <div class="timeline-controls">
+        <button class="timeline-control-btn" id="prevBtn" aria-label="Previous Slide">&lt;&lt; Previous </button>
+        <button class="timeline-control-btn" id="nextBtn" aria-label="Next Slide">Next &gt;&gt;</button>
+    </div>
+    
+</div>
+<!-- Timeline stop  -->
+
+
+
+ 
+<br><br><br>
 <div class="container  ">
     <center>
-        <p>enhances our capabilities to serve wide customer base world over. Along with this, we build a strong
+        <p   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">enhances our capabilities to serve wide customer base world over. Along with this, we build a strong
             foundation of trust and reliability by early involvement of customer’s design & development programs,
             ‘Design To Cost’ Initiatives, ‘Lead time reduction’ drives.</p>
-        <h5>Our manufacturing revolves around expertise developed in grades of-</h5>
+        <h5   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Our manufacturing revolves around expertise developed in grades of-</h5>
     </center>
 
     <div class="row">
-        <div class="col-md   text-center mt-4" style="padding:15px;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
             <div style=" background-color: rgb(179, 220, 255); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>Stainless steel.</p>
             </div>
         </div>
 
-        <div class="col-md   text-center mt-4" style="padding:15px;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="150">
             <div style=" background-color: rgb(255, 228, 179); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>Duplex stainless steel, Super duplex stainless steel.</p>
             </div>
         </div>
 
-        <div class="col-md   text-center mt-4" style="padding:15px;">
-            <div style=" background-color: rgb(182, 255, 179); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="250">
+            <div style=" background-color: rgb(182, 255, 179); padding-top: 15px; padding-bottom: 15px; height: 100%;" >
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>Weather resistant steels, High temperature application steels.</p>
             </div>
         </div>
 
-        <div class="col-md   text-center mt-4" style="padding:15px;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="350">
             <div style=" background-color: rgb(255, 179, 251); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>Exotic metals & Alloys.</p>
             </div>
         </div>
@@ -269,38 +548,38 @@ padding: 20px;
 
 <div class="container mt-5">
     <center>
-        <h5>Manufacturing certifications</h5>
+        <h5   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Manufacturing certifications</h5>
     </center>
 
     <div class="row">
-        <div class="col-md   text-center mt-4" style="padding:15px;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
             <div style=" background-color: rgb(253, 200, 200); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>‘U’ & ‘R’ stamp</p>
             </div>
         </div>
 
-        <div class="col-md   text-center mt-4" style="padding:15px;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="150">
             <div style=" background-color: rgb(241, 255, 179); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>‘PED’ job approval.</p>
             </div>
         </div>
 
-        <div class="col-md   text-center mt-4" style="padding:15px;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="250">
             <div style=" background-color: rgb(179, 233, 255); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>EN15085-2 CL-1 for Metro car components.</p>
             </div>
         </div>
 
-        <div class="col-md   text-center mt-4" style="padding:15px;">
+        <div class="col-md   text-center mt-4" style="padding:15px;"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="350">
             <div style=" background-color: rgb(218, 179, 255); padding-top: 15px; padding-bottom: 15px; height: 100%;">
-                <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
-                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;">
+                <!-- <img src="{% static 'website/img/icon-verified.gif' %}" alt=""  loading="lazy"
+                    style="height: 70px; width: auto; position: relative; top: -50px; margin-bottom: -30px; border-radius: 50%;"> -->
                 <p>ISO3834-2.</p>
             </div>
         </div>
@@ -310,7 +589,7 @@ padding: 20px;
 </div>
 
 <!-- experience section start  -->
-<div class="container-fluid py-5 mb-3  " loading="lazy" style="background-color: rgb(22, 22, 22);">
+<div class="container-fluid py-5 mb-3  " loading="lazy" style="background-color: rgb(19, 233, 0);">
     <div class="container text-light">
         <center>
             <h5 class=" text-light">Through years of experience, we have segregated customer base in verticals below
@@ -318,27 +597,29 @@ padding: 20px;
         </center>
         <br>
         <div class="row mt-3">
-            <div class="col-sm-6 mt-3">
+            <div class="col-sm-6 mt-3"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
                 <div class=""
                     style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
-                    <h4 class="text-primary">Component Cell</h4>
+                    <h4 class="text-light">Component Cell</h4>
+                    <hr>
                     <p>Laser cut, bent, polished components.</p>
                 </div>
             </div>
-            <div class="col-sm-6 mt-3">
+            <div class="col-sm-6 mt-3"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
                 <div class=""
                     style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
-                    <h4 class="text-primary">Batch Production</h4>
+                    <h4 class="text-light">Batch Production</h4>
+                    <hr>
                     <p>Laser cut, bent, welded, machined, polished, glass bead cleaned product.</p>
                 </div>
             </div>
         </div>
 
         <div class="row mt-3">
-            <div class="col-sm-12">
+            <div class="col-sm-12"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
                 <div class=""
                     style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
-                    <h4 class="text-primary">Projects</h4>
+                    <h4 class="text-light">Projects</h4>
                     <hr>
                     <div class="row">
                         <div class="col-sm-6 text-center">
@@ -357,10 +638,10 @@ padding: 20px;
         </div>
 
         <div class="row mt-3">
-            <div class="col-sm-12">
+            <div class="col-sm-12"   data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
                 <div class=""
                     style="height: 100%; width: 100%; border: 1px solid gray; border-radius: 10px; background-color: #8d959c80; text-align: center; padding: 20px 0px;">
-                    <h4 class="text-primary">EPC contracts</h4>
+                    <h4 class="text-light">EPC contracts</h4>
                     <hr>
                     <div class="row">
                         <div class="col-sm-6 text-center">
@@ -514,25 +795,151 @@ padding: 20px;
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const shapeContainer = document.querySelector('.shape-container');
+    const timelineData = [
+        { year: 1990, imageUrl: "https://www.enproindustries.in/wp-content/uploads/2023/07/Timeline-2017.jpg", title: "Foundation Year", description: "The company was established with a core vision." },
+        { year: 1992, imageUrl: "https://www.enproindustries.in/wp-content/uploads/2023/06/4.jpg", title: "Early Innovations", description: "Initial steps in research and development led to key innovations." },
+        { year: 1994, imageUrl: "https://www.enproindustries.in/wp-content/uploads/2023/07/Timeline-2017.jpg", title: "Market Entry", description: "Successfully entered the market with our first line of products." },
+        { year: 1997, imageUrl: "https://www.enproindustries.in/wp-content/uploads/2023/06/4.jpg", title: "DOMESTIC GROWTH", description: "Secured significant domestic contracts, including the Jamnagar Phase 1 project." },
+        { year: 2000, imageUrl: "https://www.enproindustries.in/wp-content/uploads/2023/07/Timeline-2017.jpg", title: "Technological Breakthrough", description: "A major technological advancement propelled our growth." },
+        { year: 2002, imageUrl: "https://www.enproindustries.in/wp-content/uploads/2023/06/4.jpg", title: "Industry Leadership", description: "Recognized as a leader in our sector, setting new standards." },
+        { year: 2008, imageUrl: "https://www.enproindustries.in/wp-content/uploads/2023/07/Timeline-2017.jpg", title: "Global Expansion", description: "Expanded our operations internationally, reaching new markets." }
+    ];
 
-        // Function to create random shapes
-        function createShape(type) {
-            const shape = document.createElement('div');
-            shape.classList.add('shape', type);
-            shape.style.top = Math.random() * 100 + '%';
-            shape.style.left = Math.random() * 100 + '%';
-            shapeContainer.appendChild(shape);
-        }
+    const timeline = document.getElementById('timeline');
+    const timelinePointsContainer = document.getElementById('timelinePoints');
+    const timelineItemsContainer = document.getElementById('timelineItemsContainer');
+    const yearLabelContainer = document.getElementById('year-label');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+    let intervalId;
+    const intervalDuration = 3500;
 
-        // Create multiple shapes
-        const shapes = ['circle'];
-        for (let i = 0; i < 5; i++) {
-            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-            createShape(randomShape);
-        }
-    });
+    function createTimelinePoints() {
+        timelinePointsContainer.innerHTML = '';
+        timelineData.forEach((item, index) => {
+            const pointWrapper = document.createElement('div');
+            pointWrapper.classList.add('timeline-point-wrapper');
 
+            const point = document.createElement('button');
+            point.classList.add('timeline-point');
+            point.dataset.index = index;
+            point.setAttribute('aria-label', `Go to year ${item.year}`);
+            point.setAttribute('role', 'tab');
+            point.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+            point.addEventListener('click', () => goToSlide(index));
+
+            const yearLabel = document.createElement('span');
+            yearLabel.classList.add('timeline-year');
+            yearLabel.textContent = item.year;
+
+            pointWrapper.appendChild(point);
+            pointWrapper.appendChild(yearLabel);
+            timelinePointsContainer.appendChild(pointWrapper);
+        });
+        updateActivePoint();
+        updateYearLabel();
+    }
+
+    function createTimelineItems() {
+        timelineItemsContainer.innerHTML = '';
+        timelineData.forEach((item, index) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.classList.add('timeline-item');
+            timelineItem.dataset.year = item.year;
+            timelineItem.setAttribute('role', 'tabpanel');
+            timelineItem.setAttribute('aria-labelledby', `year-${item.year}`);
+            timelineItem.innerHTML = `
+
+                <img src="${item.imageUrl}" alt="${item.title}" style="height:300px; width:100%;  ">
+                <div class="timeline-item-details" >
+                    <h3 class="timeline-item-title" id="year-${item.year}">${item.title}</h3>
+                    <p class="timeline-item-description">${item.description}</p>
+                </div>
+                
+            `;
+            timelineItemsContainer.appendChild(timelineItem);
+        });
+        updateActiveSlide();
+    }
+
+    function updateActivePoint() {
+        const points = document.querySelectorAll('.timeline-point');
+        points.forEach((point, index) => {
+            if (index === currentIndex) {
+                point.classList.add('active');
+                point.setAttribute('aria-selected', 'true');
+            } else {
+                point.classList.remove('active');
+                point.setAttribute('aria-selected', 'false');
+            }
+        });
+    }
+
+    function updateActiveSlide() {
+        const slides = document.querySelectorAll('.timeline-item');
+        slides.forEach((slide, index) => {
+            if (index === currentIndex) {
+                slide.classList.add('active');
+                slide.style.display = 'flex';
+            } else {
+                slide.classList.remove('active');
+                slide.style.display = 'none';
+            }
+        });
+        updateActivePoint();
+        updateYearLabel();
+    }
+
+    function updateYearLabel() {
+        yearLabelContainer.querySelector('h2').textContent = timelineData[currentIndex].year;
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateActiveSlide();
+        resetInterval();
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % timelineData.length;
+        updateActiveSlide();
+        resetInterval();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + timelineData.length) % timelineData.length;
+        updateActiveSlide();
+        resetInterval();
+    }
+
+    function startInterval() {
+        intervalId = setInterval(nextSlide, intervalDuration);
+    }
+
+    function resetInterval() {
+        clearInterval(intervalId);
+        startInterval();
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Initialization
+    createTimelinePoints();
+    createTimelineItems();
+    startInterval();
+
+    // Set initial active state (optional)
+    const initialActiveYear = 1994;
+    const initialIndex = timelineData.findIndex(item => item.year === initialActiveYear);
+    if (initialIndex !== -1) {
+        goToSlide(initialIndex);
+    } else if (timelineData.length > 0) {
+        updateYearLabel(); // Ensure initial year is displayed if no match
+    }
 </script>
+
+
 {% endblock content %}

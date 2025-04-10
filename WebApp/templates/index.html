@@ -356,7 +356,7 @@
 
 {% if news %}
 <!-- News Start-->
-<div class="container-fluid py-2 mt-5 px-lg-0">
+<div class="container-fluid p-2" style="margin: 0px;">
 
     <div class="row text-center mb-4">
         <div class="Heading-section">
@@ -366,26 +366,20 @@
         </div>
     </div>
 
-    <div class="row g-0">
-        <div class="col-lg-3 d-none d-lg-flex">
-            <div class="d-flex align-items-center justify-content-center  w-100 h-100"
-                style="background: linear-gradient(90deg, #85e676 6.14%, #91db86 83.37%); ">
-                <h3 class="display-3 text-white m-0 fs-1" style="transform: rotate(-90deg); ">Innovation, Insights, and
-                    Industry Updates</h3>
-            </div>
-        </div>
-
-        <div class="col-md-12 col-lg-9  ">
-            <div class="ms-lg-5 ps-lg-5 ">
-                <div class="row">
+    <div class="row " >  
+                <div class="row text-center">
                     <p>Join our community for regular updates and engineering insights that drive results</p>
                 </div>
-                <div class="owl-carousel news-carousel px-2" >
+
+                <div class="row">
+                    
                     {% for i in news %}
-                        <div class="bg-light p-2 news-carousel-item mt-3 mb-3 " style="height: 100%; overflow: hidden; padding-bottom:20px ;">
+                    <div class="col-md-3 mb-4 " data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
+                        <div class="bg-light d-flex flex-column " style="height: 100%; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); border-radius: 20px;">
+
                             <div class="news-img">
                                 <img src="{{i.thumbnail.url}}"
-                                alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy" style="height: 200px;">
+                                alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy" style="height: 200px; width: 100%;">
                             </div>
                             <div class="news-info mt-3">
                                 <p class="news-date-location">
@@ -401,17 +395,33 @@
                                 </div>
                                 </p>
                             </div>
-                               <a href="{% url 'web_news_details' i.id %}"> <h5 class="mb-1 mt-2"  style="color: rgb(3, 184, 166);">{{i.title}}</h5></a>
-                            <p class="" style="text-align: justify;"> <div style=" background-color: #f7f7f7; padding: 5px; border-radius: 8px; height: 140px;">
+                            <hr>
+                            <div class="row p-2">
+                                <div class="col-sm-12">
+                                    <a href="{% url 'web_news_details' i.id %}"> <h5 class="mb-1 mt-2"  style="color: rgb(3, 184, 166);">{{i.title}}</h5></a>
+                                </div>
+                            </div>
+                            <!-- <p class="" style="text-align: justify;"> <div style=" background-color: #f7f7f7; padding: 5px; border-radius: 8px; height: 140px;">
                                 {{ i.content|safe|slice:":100" }}
-                            </div></p>
-                            <a href="{% url 'web_news_details' i.id %}" class="btn bg-white text-primary w-100  ">Read More<i
-                                    class="fa fa-arrow-right text-secondary ms-2"></i></a>
+                            </div></p> -->
+                            <br>
+                            <div class="row text-center mt-auto ">
+                                <div class="col-sm-12 text-center"> 
+                                    <a href="{% url 'web_news_details' i.id %}" class="btn btn-primary" style="position: relative; bottom: 10px;">
+                                        Read More <i class="fa fa-arrow-right text-secondary ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
                         </div>
+                    </div>
                     {% endfor %}
+
+ 
+ 
                 </div>
-            </div>
-        </div>
+
+                 
     </div>
 </div>
 <!-- News Stop-->
