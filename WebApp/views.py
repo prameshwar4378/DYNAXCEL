@@ -243,8 +243,9 @@ def certificates(request):
     return render(request,"web_certificates.html")
 
 def web_photos_gallary(request):
-    data=PhotoGallery.objects.all().select_related()
-    return render(request,"web_photos_gallary.html",{'data':data})
+    categories = PhotoGalleryCategories.objects.prefetch_related('photos').all()
+    return render(request, "web_photos_gallary.html", {'categories': categories})
+
  
 import re
 

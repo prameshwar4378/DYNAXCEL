@@ -3,7 +3,14 @@ import os
 
 # Create your models here.
 
+class PhotoGalleryCategories(models.Model):
+    category_name = models.CharField(max_length=255) 
+ 
+    def __str__(self):
+        return f"{self.category_name}"
+
 class PhotoGallery(models.Model):
+    category = models.ForeignKey(PhotoGalleryCategories, on_delete=models.CASCADE, related_name='photos')
     caption = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="photo_gallery/")

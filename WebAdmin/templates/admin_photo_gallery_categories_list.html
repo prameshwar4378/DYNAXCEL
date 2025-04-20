@@ -6,25 +6,21 @@
 </style>
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Photos</h1>
+        <h1>Photos Categories</h1>
         <div class="row">
             <div class="col">
             </div>
         </div>
     </div><!-- End Page Title -->
+  
 
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
                 <div class="container" style="max-width:97%;">
-                    <div class="text-lg-end text-start">
-                        <!-- Use text-lg-end for right alignment in large screens -->
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#filter_data"><i
-                                class="mdi mdi-filter"></i> Filter</a>
-                        
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#add_new_photo"><i
-                                class="mdi mdi-file-pdf"></i> Add New</a>
- 
+                    <div class="text-lg-end text-start"> 
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#model_new_category"><i
+                                class="mdi mdi-file-pdf"></i> New Category</a>
                     </div>
                 </div>
             </div>
@@ -34,39 +30,26 @@
 
 
 
-    <div class="modal fade" id="add_new_photo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    <div class="modal fade" id="model_new_category" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-primary text-light ">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add Images</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">New Category</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form method="post" id="student_creation_form" action="{% url "create_photo_for_gallery" %}"
+                        <form method="post" id="student_creation_form" action="{% url "create_photo_category_for_gallery" %}"
                             enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="row">
                                 
                                 <div class="col-sm-12">
-                                    {{form.category|as_crispy_field}}
-                                </div>
-                                <div class="col-sm-12">
-                                    {{form.image|as_crispy_field}}
-                                </div>
-                                 
-                                <div class="col-sm-12">
-                                    {{form.caption|as_crispy_field}}
-                                </div>
-                                <div class="col-sm-12">
-                                    {{form.description|as_crispy_field}}
-                                </div>
-                                <div class="col-sm-12">
-                                    {{form.is_show_on_home_page|as_crispy_field}}
-                                </div>
+                                    {{form.category_name|as_crispy_field}}
+                                </div> 
                             </div>
                             <center>
                                 <input type="submit" id="btnCreateSubmit" value="Submit"
@@ -94,10 +77,7 @@
                                 <thead>
                                     <tr style="background:#02B4C3;">
                                         <th scope="col" class="text-center text-white">Sr.No</th>
-                                        <th scope="col" class="text-center text-white">Category</th> 
-                                        <th scope="col" class="text-center text-white">Caption</th> 
-                                        <th scope="col" class="text-center text-white">Photo</th> 
-                                        <th scope="col" class="text-center text-white">Show on Main Page</th> 
+                                        <th scope="col" class="text-center text-white">Category Title</th>  
                                         <th scope="col" class="text-center text-white">Action</th> 
                                     </tr>
                                 </thead>
@@ -105,22 +85,12 @@
                                     {% if data %}
                                     {% for r in data %}
                                     <tr>
-
                                         <td class="text-center">{{ forloop.counter }}</td>
-                                        <td class="text-center">{{ r.category }}</td>
-                                        <td class="text-center">{{ r.caption }}</td>
-                                        <td class="text-center"><img src="/media/{{r.image}}" alt="" style="height:50px;"></td> 
-                                        <td class="text-center">
-                                            {% if r.is_show_on_home_page %}
-                                            <span class="badge badge-success bg-success">Yes</span>
-                                            {% else %}
-                                            <span class="badge badge-success bg-danger">No</span>
-                                            {% endif %}
-                                        </td>
+                                        <td class="text-center">{{ r.category_name }}</td>  
                                         <td>
                                             <center>
-                                                <a href="" class="btn btn-warning px-3"><i class="bi bi-eye"></i></a>
-                                                <a href="{% url "delete_photo_from_gallery" r.id %}" class="btn btn-danger px-3"><i class="bi bi-trash3"></i></a>
+                                                {% comment %} <a href="" class="btn btn-warning px-3"><i class="bi bi-eye"></i></a> {% endcomment %}
+                                                <a href="{% url "delete_category" r.id %}" class="btn btn-danger px-3"><i class="bi bi-trash3"></i></a>
                                             </center>
                                         </td>
                                     </tr>

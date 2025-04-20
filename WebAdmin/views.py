@@ -120,6 +120,38 @@ def delete_job_applicattion(request,id):
 
 
 @login_required
+def photo_gallery_category_list(request): 
+    data = PhotoGalleryCategories.objects.all()
+    form = PhotoGalleryCategoriesForm()
+    return render(request, 'admin_photo_gallery_categories_list.html', {'form': form, "data":data})
+
+
+@login_required
+def create_photo_category_for_gallery(request):
+    if request.method == 'POST':
+        form = PhotoGalleryCategoriesForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Category Added Success")
+            return redirect('/admin/photo_gallery_category_list') 
+        else:
+            messages.error(request,"Form is not valid")
+            return redirect('/admin/photo_gallery_category_list') 
+             # Assuming you have a URL named 'list' for listing events
+    else: 
+            messages.error(request,"Form is not valid")
+            return redirect('/admin/photo_gallery_category_list')  # Assuming you have a URL named 'list' for listing events
+
+
+def delete_category(request,id):
+    PhotoGalleryCategories.objects.get(id=id).delete()
+    messages.success(request,"Category Deleted Success")
+    return redirect("/admin/photo_gallery_category_list")
+
+
+
+@login_required
 def photo_gallery_list(request): 
     data = PhotoGallery.objects.all()
     form = PhotoGalleryForm()

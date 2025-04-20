@@ -150,45 +150,48 @@ h4 {
     </div>
 </section>
 
-{% if data %}
 <!-- ======= Blog Single Section ======= -->
 <section id="blog" class="blog mt-3">
-    <div class="container" data-aos="fade-up">
 
-      <div class="row">
-        <div class="blog-author d-flex align-items-center">
-            <div class="container text-center ">
-                <div class="uk-child-width-1-4@m" uk-grid uk-lightbox="animation: scale">
-                    {% for photo in data %}
-                    <div class="image-wrapper">
-                        <a class="uk-inline" href="{{photo.image.url}}" {% if photo.caption %} data-caption="{{photo.caption}}"{% endif %} >
-                            <img src="{{photo.image.url}}" width="1800" height="1200" alt="" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy">
-                        </a>
-                    </div> 
-                    {% endfor %}
-                </div>
-            </div>
-        </div><!-- End blog author bio -->
-    </div>
+    
  
-    
-
-    <br><br>
-    
-
+{% if categories %}
+<div class="container" data-aos="fade-up">
+  {% for category in categories %}
+    <h2 class="my-4">{{ category.category_name }}</h2>
+    <div class="row uk-child-width-1-4@m" uk-grid uk-lightbox="animation: scale">
+      {% for photo in category.photos.all %}
+        <div class="image-wrapper">
+          <a class="uk-inline" href="{{ photo.image.url }}" {% if photo.caption %} data-caption="{{ photo.caption }}"{% endif %}>
+            <img src="{{ photo.image.url }}" alt="" style="width: 100%; height: 250px; object-fit: cover; border-radius:10px;" loading="lazy">
+          </a>
+        </div>
+      {% empty %}
+        <p>No photos in this category yet.</p>
+      {% endfor %}
     </div>
-  </section><!-- End Blog Single Section -->
-  {% else %}
-  <div class="container mt-4 mb-3">
-    <div class="row">
-      <div class="col-sm-12 text-center  ">
-        <h3 style="color: rgb(97, 97, 97);">No Images Found</h3>
-      </div>
+    <br> 
+    
+    <br> 
+  {% endfor %}
+</div>
+
+{% else %}
+<div class="container mt-4 mb-3">
+  <div class="row">
+    <div class="col-sm-12 text-center  ">
+      <h3 style="color: rgb(97, 97, 97);">No Images Found</h3>
     </div>
   </div>
-  {% endif %}
-    
 </div>
+{% endif %}
+  
+
+
+    
+ 
+  </section><!-- End Blog Single Section -->
+ 
 
 
     <!-- UIkit JS -->

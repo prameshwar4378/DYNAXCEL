@@ -12,6 +12,10 @@ urlpatterns = [
     path('job_application_list/', job_application_list, name="admin_job_application_list"), 
     path('delete_job_applicattion/<int:id>', delete_job_applicattion, name="admin_delete_job_applicattion"), 
 
+    path('photo_gallery_category_list', photo_gallery_category_list, name="photo_gallery_category_list"), 
+    path('create_photo_category_for_gallery', create_photo_category_for_gallery, name="create_photo_category_for_gallery"), 
+    path('delete_category/<int:id>', delete_category, name="delete_category"), 
+
     path('photo_gallery_list', photo_gallery_list, name="photo_gallery_list"), 
     path('create_photo_for_gallery', create_photo_for_gallery, name="create_photo_for_gallery"), 
     path('delete_photo_from_gallery/<int:id>', delete_photo_from_gallery, name="delete_photo_from_gallery"), 

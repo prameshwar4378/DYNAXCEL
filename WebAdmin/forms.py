@@ -12,10 +12,16 @@ class login_form(AuthenticationForm):
     password=forms.CharField(label='Password',widget=forms.PasswordInput(attrs={'class':'username','placeholder':'Enter Password'}))
 
 
+class PhotoGalleryCategoriesForm(forms.ModelForm):
+    class Meta:
+        model = PhotoGalleryCategories
+        fields = ['category_name'] 
+
+
 class PhotoGalleryForm(forms.ModelForm):
     class Meta:
         model = PhotoGallery
-        fields = ['caption', 'image','description','is_show_on_home_page']
+        fields = ['category','caption', 'image','description','is_show_on_home_page']
         widgets = {
             'description': forms.Textarea(attrs={
                 'class': 'form-control',  # Optional Bootstrap class for styling
@@ -23,6 +29,7 @@ class PhotoGalleryForm(forms.ModelForm):
                 'placeholder': 'Enter a short description...',  # Optional placeholder
             }),
         }
+
 
 class VideoGalleryForm(forms.ModelForm):
     class Meta:
