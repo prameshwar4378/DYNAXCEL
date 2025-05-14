@@ -871,7 +871,7 @@ padding: 20px;
     </div>
 </div>
 
-<section class="team-section">
+<!--<section class="team-section">
   <div class="container-fluid">
     <div class="text-center mb-5">
       
@@ -881,7 +881,7 @@ padding: 20px;
         <br>
     </div>
     <div class="row g-4" id="team-cards">
-      <!-- Team Member -->
+       
       <div class="col-md-6 col-lg-4"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
         <div class="team-card">
           <img src="https://media.istockphoto.com/id/1306068811/photo/businessman-standing-on-top-of-a-high-rise-rooftop-looking-at-the-city-view-at-sunset.jpg?s=612x612&w=0&k=20&c=uXtNP7tSwZTK3bZ0fned-PvGLcaCVP4Z0CYNsIUzHds=" alt="Profile Photo" class="profile-img" loading="lazy">
@@ -897,8 +897,7 @@ padding: 20px;
           </div>
         </div>
       </div>
-
-      <!-- More Members -->
+ 
       <div class="col-md-6 col-lg-4"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="250">
         <div class="team-card">
           <img src="https://t3.ftcdn.net/jpg/02/75/71/82/360_F_275718208_oVTnvznqT0qDcI25Wd1ZhSsuBz3BEkms.jpg" alt="Profile Photo" class="profile-img" loading="lazy">
@@ -932,7 +931,7 @@ padding: 20px;
       </div>
     </div>
   </div>
-</section>
+</section>-->
 
 
 
@@ -1076,48 +1075,61 @@ padding: 20px;
 
 <script>
 const timelineData = [
-    { 
-        year: 1990, 
-        imageUrl: "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D", 
-        title: "Foundation Year", 
-        description: "The company was established with a core vision to innovate and create sustainable solutions for the evolving needs of industries worldwide. From the very start, the goal was to build a foundation of excellence and integrity, setting the stage for a future focused on growth and leadership in the sector."
-    },
-    { 
-        year: 1992, 
-        imageUrl: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D", 
-        title: "Early Innovations", 
-        description: "Initial steps in research and development laid the groundwork for groundbreaking innovations in the industry. The company's focus on technological advancement and market research allowed it to introduce solutions that would ultimately redefine industry standards and customer expectations."
-    },
-    { 
-        year: 1994, 
-        imageUrl: "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg", 
-        title: "Market Entry", 
-        description: "Successfully entered the market with our first line of products, which gained rapid traction due to their quality and design. This was a pivotal moment in our journey, as we moved from the concept phase to actual product deployment, achieving notable success in early market testing."
-    },
-    { 
-        year: 1997, 
-        imageUrl: "https://www.bigfootdigital.co.uk/wp-content/uploads/2020/07/image-optimisation-scaled.jpg", 
-        title: "DOMESTIC GROWTH", 
-        description: "Secured significant domestic contracts, including the Jamnagar Phase 1 project, which propelled the company into the spotlight. This period marked a phase of intense domestic growth, where we established ourselves as a reliable partner for major infrastructure and technology projects across the country."
-    },
-    { 
-        year: 2000, 
-        imageUrl: "https://gratisography.com/wp-content/uploads/2025/01/gratisography-dog-vacation-800x525.jpg", 
-        title: "Technological Breakthrough", 
-        description: "A major technological advancement, which we developed in-house, propelled our growth and positioned us as industry leaders. This breakthrough not only enhanced our product offerings but also allowed us to create more efficient, cost-effective solutions for our clients, accelerating our global expansion."
-    },
-    { 
-        year: 2002, 
-        imageUrl: "https://media.istockphoto.com/id/157681198/photo/dandelion-seed.jpg?s=612x612&w=0&k=20&c=TfhCtc_Y1oSpdlL7o6yo7BTfgnD0RCy6yF1SgvQO0Jk=", 
-        title: "Industry Leadership", 
-        description: "Recognized as a leader in our sector, setting new standards in product quality, innovation, and customer satisfaction. This milestone was the result of consistent effort in research and development, a commitment to quality, and a deep understanding of market needs. The company became synonymous with reliability and excellence."
-    },
-    { 
-        year: 2008, 
-        imageUrl: "https://st.depositphotos.com/6914396/51368/i/450/depositphotos_513689330-stock-photo-dandelion-background-sun.jpg", 
-        title: "Global Expansion", 
-        description: "Expanded our operations internationally, reaching new markets across Asia, Europe, and North America. This phase marked our transition from a regional player to a globally recognized brand, as we established offices, factories, and partnerships in key international locations, driving both revenue growth and brand recognition."
-    }
+{
+    year: 1995,
+    imageUrl: "{% static 'website/img/1995.png' %}",
+    title: "The Beginning of Dynaxcel",
+    description: "Dynaxcel was founded in Pimpri-Chinchwad in 1995 with a turnover of ₹16 lakhs. With Alfa Laval as its first client, the company took its first step into the world of critical equipment manufacturing."
+},
+{
+    year: 1999,
+    imageUrl: "{% static 'website/img/1999.png' %}",
+    title: "First Land Acquisition",
+    description: "In 1999, Dynaxcel made its first land purchase, marking a major step toward building long-term infrastructure and scaling operations."
+},
+{
+    year: 2000,
+    imageUrl: "{% static 'website/img/2000.png' %}",
+    title: "Achieved ₹1 Crore Turnover",
+    description: "By the year 2000, Dynaxcel crossed a key financial milestone with an annual turnover of ₹1 crore, reflecting steady growth and expanding client trust."
+},
+{
+    year: 2004,
+    imageUrl: "{% static 'website/img/2004.png' %}",
+    title: "Turnover Reached ₹25 Crores",
+    description: "In 2004, Dynaxcel scaled new heights by achieving a turnover of ₹25 crores, establishing its position as a fast-growing force in engineering and manufacturing."
+},
+{
+    year: 2010,
+    imageUrl: "{% static 'website/img/2010.png' %}",
+    title: "Commissioning of Large-Scale Plant",
+    description: "In 2010, Dynaxcel expanded its capabilities by starting a major manufacturing plant, strengthening its infrastructure for large and complex projects."
+},
+{
+    year: 2014,
+    imageUrl: "{% static 'website/img/2014.png' %}",
+    title: "Launch of Arya and SPA",
+    description: "In 2014, Dynaxcel expanded its business footprint by establishing two new ventures — Arya and SPA — to diversify offerings and explore new markets."
+}, 
+{
+    year: 2015,
+    imageUrl: "{% static 'website/img/2015.png' %}",
+    title: "Global Expansion & ₹50 Crore Milestone",
+    description: "In 2015, Dynaxcel achieved ₹50 crores in turnover and marked its global presence by establishing its first international office."
+},
+{
+    year: 2017,
+    imageUrl: "{% static 'website/img/2017.png' %}",
+    title: "Launch of Vedadhara School",
+    description: "In 2017, Dynaxcel extended its impact by establishing Vedadhara School in Himachal Pradesh, aiming to provide quality education and contribute to community development."
+},
+{
+    year: 2024,
+    imageUrl: "{% static 'website/img/2024.png' %}",
+    title: "₹100 Crore Turnover Achievement",
+    description: "In 2024, Dynaxcel reached a major milestone, achieving ₹100 crores in turnover, solidifying its leadership in the critical equipment manufacturing industry."
+},
+ 
 ];
 
 
@@ -1247,7 +1259,7 @@ const timelineData = [
     startInterval();
 
     // Set initial active state (optional)
-    const initialActiveYear = 1994;
+    const initialActiveYear = 1995;
     const initialIndex = timelineData.findIndex(item => item.year === initialActiveYear);
     if (initialIndex !== -1) {
         goToSlide(initialIndex);
