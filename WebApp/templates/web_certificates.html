@@ -135,16 +135,10 @@ font-size: 30px;
     <div class="cert-blur cert-blur-1"></div>
     <div class="cert-blur cert-blur-2"></div>
     <div class="cert-blur cert-blur-3"></div>
-    <div class="row text-center mb-4"></div>
-    <div class="Heading-section mb-2">
-        <span class="line-text">
-            <span class="text-secondary">Recognized </span> Excellence
-        </span>
-    </div>
-    <center>
-        <p class="mb-4 text-dark fs-5">This is short description about certificate</p>
-    </center>
+    <div class="row text-center mb-4"></div>  
+
     <div class="row mb-4 justify-content-center">
+        {% if certificates %}
         {% for cert in certificates %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch mb-4">
             <div class="card cert-card shadow-sm w-100 position-relative" data-aos="zoom-in-down" data-aos-duration="1200" data-aos-delay="50">
@@ -175,7 +169,7 @@ font-size: 30px;
                                 <p style="text-align: justify;">{{ cert.description }}</p>
                             </div>
                             <div class="col-md-6 text-center">
-                                <img src="{{ cert.image.url }}" alt="Certificate Image" style="max-height: 310px; width: auto; border-radius: 12px; box-shadow: 0 4px 22px #8ce4b855;" loading="lazy">
+                                <img src="{{ cert.image.url }}" alt="Certificate Image" style="max-height: 170px; width: auto; border-radius: 12px; box-shadow: 0 4px 22px #8ce4b855;" loading="lazy">
                                 <div class="mt-3">
                                     {% if cert.pdf %}
                                         <a href="{{ cert.pdf.url }}" class="btn btn-outline-success me-2" download>
@@ -196,6 +190,9 @@ font-size: 30px;
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <center> No Certificate Available</center>
+        {% endif %}
     </div>
 </div>
 <style>

@@ -65,41 +65,171 @@ transition: transform 0.7s ease-in-out; /* Smooth image rotation */
     </div>
     <div class="shape-container"></div>
 </section>
- 
-<section>
- {% if news %}
-  <div class="container mt-4 mb-4 px-4">
-    <div class="row g-3">
+ <section>
+  {% if news %}
+  <div class="container mt-5 mb-5 px-0">
+    <!-- News Section Heading -->
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="fw-bold display-6 news-section-header" style="letter-spacing:1px;">
+          <span style="color:#1976d2;">Latest</span> <span style="color:#19b47e;">News</span>
+        </h2>
+        <hr style="width:180px; height:8px; border:none; background:linear-gradient(90deg, #1976d2 50%, #19b47e 50%); border-radius:6px; margin:auto;">
+        <p class="mt-2 text-muted">Stay updated with our latest announcements and industry updates.</p>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center">
       {% for news in news %}
-        
-      <div class="col-sm-4  px-3 py-3 "  >
-        <div class="bg-light shadow p-2 news-card"  style="border-radius: 10px; height: 100%;" >
-          <img src="{{news.thumbnail.url}}" alt="">
-          <div style="color: rgb(126, 126, 126); font-size: 15px;"> <i class="bi bi-clock"></i> <a href=""  style="color: rgb(126, 126, 126); font-size: 15px;"> {{news.date}}</a></a></div>
-          <h6 class="mt-2">{{news.title}}</h6>
-          <p></p>
-          <center>
-            <a href="{% url 'web_news_details' news.id %}" class="btn btn-primary mb-2 mt-2" style="border-radius: 10px; position: relative; ">Read More</a>
-          </center>
-        </div> 
-      </div>   
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+        <div class="news-card shadow-sm w-100 h-100 position-relative" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:1 }}00">
+          <div class="news-card-img-wrap">
+            <img src="{{news.thumbnail.url}}" alt="{{news.title}}" class="news-card-img" loading="lazy">
+            <span class="news-card-date">
+              <i class="bi bi-clock"></i> {{news.date}}
+            </span>
+          </div>
+          <div class="news-card-body d-flex flex-column px-3 py-2">
+            <h6 class="news-card-title mt-2 mb-2 fw-semibold">{{news.title}}</h6>
+            <div class="flex-grow-1"></div>
+            <a href="{% url 'web_news_details' news.id %}" class="btn news-card-btn mb-2 mt-2 w-100">
+              Read More <i class="fa fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+          <div class="news-card-gradient"></div>
+        </div>
+      </div>
       {% endfor %}
     </div>
   </div>
   {% else %}
-<center>
-  <div class="container mt-4 mb-3">
+  <div class="container mt-5 mb-5">
     <div class="row">
-      <div class="col-sm-12 text-center  ">
-        <h3 style="color: rgb(97, 97, 97);">No Update Found</h3>
+      <div class="col-12 text-center">
+        <h3 class="fw-bold text-muted" style="color: #1976d2;">No Update Found</h3>
       </div>
     </div>
   </div>
-</center>
   {% endif %}
-  
+  <style>
+    .news-section-header { font-size:2rem; }
+    .news-card {
+      background: #fff;
+      border-radius: 1.1rem;
+      box-shadow: 0 8px 32px 0 rgba(25,180,126,0.07), 0 2px 14px 0 rgba(25,180,126,0.10);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: box-shadow .22s, transform .14s;
+      min-height: 340px;
+    }
+    .news-card:hover {
+      box-shadow: 0 12px 38px 0 rgba(25,180,126,0.13), 0 7px 22px 0 rgba(25,180,126,0.18);
+      transform: translateY(-2px) scale(1.018);
+    }
+    .news-card-img-wrap {
+      position: relative;
+      width: 100%;
+      min-height: 165px;
+      background: linear-gradient(135deg, #e3f7ea 20%, #fafdff 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .news-card-img {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      border-radius: 1rem 1rem 0 0;
+      box-shadow: 0 2px 16px 0 rgba(25,180,126,0.08);
+      background: #fff;
+      transition: transform .32s cubic-bezier(.7,0,.3,1), box-shadow .2s;
+      display: block;
+    }
+    .news-card:hover .news-card-img {
+      transform: scale(1.04) rotate(-2deg);
+      box-shadow: 0 3px 14px 0 rgba(25,180,126,0.10);
+    }
+    .news-card-date {
+      position: absolute;
+      bottom: 12px;
+      left: 10px;
+      background: linear-gradient(90deg, #1976d2 0, #19b47e 100%);
+      color: #fff;
+      font-size: 0.95rem;
+      border-radius: 0.7em;
+      padding: 0.35em 0.8em;
+      font-weight: 600;
+      box-shadow: 0 2px 8px 0 rgba(25,180,126,0.09);
+      z-index: 2;
+      opacity: 0.92;
+      letter-spacing: 0.7px;
+    }
+    .news-card-title {
+      color: #1976d2;
+      text-align: left;
+      font-size: 1.07rem;
+      transition: color .18s;
+      margin-bottom: .3rem;
+      white-space: normal;
+    }
+    .news-card:hover .news-card-title {
+      color: #19b47e;
+      text-shadow: 0 2px 8px rgba(25,180,126,0.11);
+    }
+    .news-card-btn {
+      background: linear-gradient(90deg,#1976d2 0,#19b47e 100%);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 0.45em 0.9em;
+      box-shadow: 0 2px 10px 0 rgba(25,180,126,0.11);
+      font-size: 1.04rem;
+      transition: background .22s, color .22s, box-shadow .12s;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .news-card-btn:hover {
+      background: linear-gradient(90deg,#19b47e 0,#1976d2 100%);
+      color: #fff;
+      box-shadow: 0 2px 14px 0 rgba(25,180,126,0.17);
+    }
+    .news-card-gradient {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg,rgba(25,180,126,0.07) 0,rgba(25,180,126,0.03) 82%,rgba(25,180,126,0.00) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    @media (max-width: 991.98px) {
+      .news-card-img, .news-card-img-wrap { height: 120px; min-height: 120px;}
+      .news-section-header { font-size:1.2rem; }
+      .news-card { min-height:250px; }
+      .news-card-title { font-size:0.99rem;}
+    }
+    @media (max-width: 767.98px) {
+      .news-card-img, .news-card-img-wrap { height: auto; min-height:90px; }
+      .news-card-img {
+        width: 100%;
+        height: auto;
+        max-height: 160px;
+        object-fit: contain;
+        border-radius: 1rem 1rem 0 0;
+        background: #fff;
+      }
+      .news-card { border-radius:1rem; min-height:170px;}
+      .news-card-title { font-size:0.93rem;}
+      .news-section-header { font-size:1.1rem !important;}
+      .news-card-date { bottom: 6px; left: 6px; font-size: 0.88rem; padding: 0.25em 0.6em;}
+    }
+    @media (max-width: 575.98px) {
+      .news-card-img, .news-card-img-wrap { min-height:65px; }
+      .news-card-img { max-height:90px; }
+    }
+  </style>
 </section>
-
 
 
 

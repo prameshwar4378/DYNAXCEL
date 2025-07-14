@@ -1,0 +1,125 @@
+{% extends "admin_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Certificates</h1>
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="container" style="max-width:97%;">
+                <div class="text-lg-end text-start">
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#create_certificate">
+                        <i class="mdi mdi-file-pdf"></i> Add New
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Modal for Create Certificate -->
+    <div class="modal fade" id="create_certificate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:1000px;">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-light">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Create Certificate</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'create_certificate' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{ certificate_form|crispy }}
+                            </div>
+                        </div>
+                        <hr>
+                        <center>
+                            <input type="submit" id="btnCreateSubmit" value="Submit" class="btn bg-gradient-primary text-light">
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate List -->
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-lg-12">
+                <div style="padding:2%">
+                    <div style="overflow:scroll;">
+                        <table id="example" class="table table-striped" style="width:100%; min-width: max-content;">
+                            <thead>
+                                <tr style="background:#02B4C3;">
+                                    <th class="text-center text-white">Sr.No</th>
+                                    <th class="text-center text-white">Title</th>
+                                    <th class="text-center text-white">PDF</th>
+                                    <th class="text-center text-white">Image</th>
+                                    <th class="text-center text-white">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if certificate_data %}
+                                    {% for cert in certificate_data %}
+                                        <tr>
+                                            <td class="text-center">{{ forloop.counter }}</td>
+                                            <td class="text-center">{{ cert.title }}</td>
+                                            <td class="text-center">
+                                                {% if cert.pdf %}
+                                                    <a href="{{ cert.pdf.url }}" target="_blank">View PDF</a>
+                                                {% else %}
+                                                    N/A
+                                                {% endif %}
+                                            </td>
+                                            <td class="text-center">
+                                                {% if cert.image %}
+                                                    <img src="{{ cert.image.url }}" alt="Certificate Image" style="max-height:60px;">
+                                                {% else %}
+                                                    N/A
+                                                {% endif %}
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="{% url 'delete_certificate' cert.id %}" class="btn btn-danger px-3">Delete</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr><td colspan="5" class="text-center">No certificates found.</td></tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.summernote').each(function () {
+            const customHeight = $(this).data('height') || 300;
+            $(this).summernote({
+                height: customHeight,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
+    });
+</script>
+{% endblock %}

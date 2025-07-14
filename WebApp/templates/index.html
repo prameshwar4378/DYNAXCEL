@@ -139,22 +139,24 @@
 <!-- About Start -->
 <div class="container-fluid py-2 mb-3">
     <div class="container ">
-        <div class="row text-center mb-4">
-            <div class="Heading-section">
-                <i class="bi bi-gear-wide-connected"></i>
-                <span class="line-text"> <span class="text-secondary">About</span> us </span>
-                <i class="bi bi-gear-wide-connected"></i> <br>
+        
+        <div class="row text-center mb-4"> 
+        <!-- Header Section -->
+            <div class="Heading-section text-center mb-4">
+                
+                <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">About <span style="color: rgb(56, 187, 66);">Us</span></h2>
+                <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, rgb(56, 187, 66) 50%, black 50%); margin-top: -15px;"></center>
             </div>
-
-            <div class="row text-center">
-                <p>
-                    Learn More About Us – Experts in Innovative Manufacturing Solutions.
-                </p>
-            </div>
+            <center>
+                <p class="textdifferent text-center">Learn More About Us – Experts in Innovative Manufacturing Solutions.</p>
+            </center>
+            <br>
+ 
         </div>
 
 
         <div class="row g-5">
+             
             <!--
             <div class="col-lg-6">
                 <div class="d-flex flex-column" style="position:relative; margin-left:-20px;">
@@ -468,81 +470,260 @@
 
 
 
+            {% if news %}
+<!-- Latest Blogs Section Start -->
+<div class="container-fluid py-5 px-2 creative-blogs-bg position-relative">
+  <!-- Animated creative blurred shapes -->
+  <div class="creative-blogs-blur creative-blogs-blur-1"></div>
+  <div class="creative-blogs-blur creative-blogs-blur-2"></div>
+  <div class="creative-blogs-blur creative-blogs-blur-3"></div>
+  <div class="container position-relative" style="z-index:2;">
 
-
-{% if news %}
-<!-- News Start-->
-<div class="container-fluid p-2" style="margin: 0px;">
-
-    <div class="row text-center mb-4"> 
-            <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Latest <span style="color: rgb(56, 187, 66);">Blogs</span></h2>
+        <!-- Header Section -->
+            <div class="Heading-section text-center mb-4">
+                
+                <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Latest <span style="color: rgb(56, 187, 66);">Blogs</span></h2>
                 <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, rgb(56, 187, 66) 50%, black 50%); margin-top: -15px;"></center>
             </div>
             <center>
-                <p class="textdifferent text-center">We Offer a Diverse Range of Services</p>
+                <p class="textdifferent text-center">Join our community for regular updates and engineering insights that drive results</p>
             </center>
             <br>
+ 
+    <!-- Blogs Grid -->
+    <div class="row gy-5 gx-3 justify-content-center">
+      {% for i in news %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+        <div class="creative-blog-card flex-fill d-flex flex-column" data-aos="flip-left" data-aos-delay="{{ forloop.counter|add:1 }}00">
+          <div class="creative-blog-img-wrap">
+            <div class="creative-blog-img-bg"></div>
+            <img src="{{i.thumbnail.url}}" alt="{{i.title}}" loading="lazy" class="creative-blog-img">
+            <span class="creative-img-badge">
+              <i class="bi bi-image"></i>
+            </span>
+          </div>
+          <div class="creative-blog-info mt-3 px-3">
+            <span class="badge creative-blog-date"><i class="bi bi-calendar3"></i> {{i.date}}</span>
+          </div>
+          <hr class="mx-3 my-2">
+          <div class="px-3 pb-2">
+            <a href="{% url 'web_news_details' i.id %}" class="creative-blog-title-link">
+              <h5 class="creative-blog-title mb-1 mt-2">{{i.title}}</h5>
+            </a>
+          </div>
+          <div class="creative-blog-content px-3 mb-3 flex-grow-1">
+            <div class="creative-blog-content-box p-2 rounded-3">
+              {{ i.content|safe|slice:":100" }}...
+            </div>
+          </div>
+          <div class="mt-auto px-3 pb-3 text-center">
+            <a href="{% url 'web_news_details' i.id %}" class="btn creative-blog-btn">
+              Read More <i class="fa fa-arrow-right ms-2"></i>
+            </a>
+          </div>
         </div>
+      </div>
+      {% endfor %}
     </div>
+  </div>
+  <style>
+    /* Background and blur shapes for creative effect */
+    .creative-blogs-bg {
+      background: linear-gradient(135deg, #fafdff 0%, #e3f7ea 100%);
+      position: relative;
+      min-height: 100%;
+    }
+    .creative-blogs-blur {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.15;
+      z-index: 0;
+      animation: creative-blogs-move-shape 22s infinite alternate cubic-bezier(.7,0,.3,1);
+    }
+    .creative-blogs-blur-1 { width: 260px; height: 260px; top: -80px; left: 6%; background: radial-gradient(circle at 40% 50%, #0073e6 0, #fafdff 80%); animation-delay: 0s; }
+    .creative-blogs-blur-2 { width: 170px; height: 170px; top: 70%; left: 80%; background: radial-gradient(circle at 60% 40%, #19b47e 0, #0073e6 70%); animation-delay: 2s; }
+    .creative-blogs-blur-3 { width: 120px; height: 120px; bottom: -40px; right: 10%; background: radial-gradient(circle at 30% 60%, #34c1e4 0, #19b47e 95%); animation-delay: 10s; }
+    @keyframes creative-blogs-move-shape { 0% {transform: scale(1);} 100% {transform: scale(1.09);} }
 
-    <div class="row " >  
-                <div class="row text-center">
-                    <p>Join our community for regular updates and engineering insights that drive results</p>
-                </div>
+    /* Blog Card Styles */
+    .creative-blog-card {
+      background: rgba(255,255,255,0.98);
+      border-radius: 2rem 2rem 1rem 1rem;
+      box-shadow: 0 8px 32px 0 rgba(40,104,199,0.09), 0 2px 14px 0 rgba(25,180,126,0.12);
+      margin-bottom: 0.7rem;
+      transition: box-shadow .22s, transform .18s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: visible;
+      border: 1.5px solid #e3f7ea;
+      min-height: 420px;
+    }
+    .creative-blog-card:hover {
+      box-shadow: 0 14px 38px 0 rgba(40,104,199,0.13), 0 6px 22px 0 rgba(25,180,126,0.18);
+      transform: translateY(-3px) scale(1.02);
+      border-color: #19b47e33;
+    }
+    /* Creative image container */
+    .creative-blog-img-wrap {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1.7rem 1.7rem 0 0;
+      background: transparent;
+      padding-top: 18px;
+      padding-bottom: 12px;
+      overflow: visible;
+      min-height: 180px;
+    }
+    .creative-blog-img-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 1.5rem 1.5rem 0 0;
+      background: linear-gradient(135deg, #e3f7ea 20%, #fafdff 80%);
+      box-shadow: 0 2px 16px 0 rgba(0,115,230,0.05);
+      z-index: 1;
+    }
+    .creative-blog-img {
+      width: 90%;
+      max-width: 220px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 1.3rem 1.3rem 0 0;
+      box-shadow: 0 2px 16px 0 rgba(25,180,126,0.09);
+      z-index: 2;
+      background: #fff;
+      position: relative;
+      transition: transform .32s cubic-bezier(.7,0,.3,1), box-shadow .2s;
+    }
+    .creative-blog-card:hover .creative-blog-img {
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 5px 18px 0 rgba(0,115,230,0.10);
+    }
+    .creative-img-badge {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      z-index: 3;
+      background: linear-gradient(135deg, #0073e6 0, #19b47e 100%);
+      color: #fff;
+      border-radius: 50%;
+      padding: 7px 9px;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 10px 0 rgba(25,180,126,0.14);
+      opacity: 0.85;
+      transition: opacity .22s;
+    }
+    .creative-blog-card:hover .creative-img-badge {
+      opacity: 1;
+    }
+    /* Blog Info & Date */
+    .creative-blog-info {
+      font-size: 1.02rem;
+      color: #29412d;
+      font-weight: 500;
+      margin-bottom: .2rem;
+    }
+    .creative-blog-date {
+      background: linear-gradient(90deg,#0073e6 0,#19b47e 100%);
+      color: #fff;
+      font-size: 0.95rem;
+      border-radius: 0.7em;
+      padding: 0.38em 1em;
+      font-weight: 600;
+      box-shadow: 0 2px 8px 0 rgba(25,180,126,0.13);
+      letter-spacing: .5px;
+    }
+    .creative-blog-title-link {
+      text-decoration: none;
+    }
+    .creative-blog-title {
+      color: #0073e6;
+      font-weight: 700;
+      font-size: 1.13rem;
+      text-align: left;
+      transition: color .18s;
+      margin-bottom: .3rem;
+      white-space: normal;
+    }
+    .creative-blog-card:hover .creative-blog-title {
+      color: #19b47e;
+      text-shadow: 0 2px 8px rgba(25,180,126,0.11);
+    }
+    .creative-blog-content-box {
+      background: linear-gradient(90deg, #e3f7ea 0%, #fafdff 100%);
+      border-radius: 8px;
+      font-size: 0.99rem;
+      color: #444;
+      font-weight: 500;
+      box-shadow: 0 2px 10px 0 rgba(25,180,126,0.08);
+      min-height: 72px;
+      max-height: 96px;
+      overflow: hidden;
+      letter-spacing: .2px;
+    }
+    .creative-blog-btn {
+      background: linear-gradient(90deg,#0073e6 0,#19b47e 100%);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 600;
+      padding: 0.5em 1.2em;
+      box-shadow: 0 2px 10px 0 rgba(25,180,126,0.13);
+      text-decoration: none;
+      font-size: 1.07rem;
+      transition: background .25s, color .25s, box-shadow .22s;
+      border: none;
+    }
+    .creative-blog-btn:hover {
+      background: linear-gradient(90deg,#19b47e 0,#0073e6 100%);
+      color: #fff;
+      box-shadow: 0 2px 14px 0 rgba(0,115,230,0.17);
+    }
 
-                <div class="row">
-                    
-                    {% for i in news %}
-                    <div class="col-md-3 mb-4 " data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
-                        <div class="bg-light d-flex flex-column " style="height: 100%; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); border-radius: 20px;">
-                            <div class="news-img">
-                                <img src="{{i.thumbnail.url}}"
-                                alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy" style="height: 200px; width: 100%;">
-                            </div>
-                            <div class="news-info mt-3">
-                                <p class="news-date-location">
-                                <div class="row text-left">
-                                    <div class="col-sm-12 text-left">
-                                        <span class="badge bg-date mt-2"><i class="bi bi-calendar3"></i> {{i.date}}</span>
-                                    </div>
-                                    <!-- <div class="col-sm-7">
-                                        <span class="badge bg-location mt-2"><i class="bi bi-geo-alt"></i> Delhi,
-                                            India</span>
-                                    </div> 
-                                    --> 
-                                </div>
-                                </p>
-                            </div>
-                            <hr>
-                            <div class="row p-2">
-                                <div class="col-sm-12">
-                                    <a href="{% url 'web_news_details' i.id %}"> <h5 class="mb-1 mt-2"  style="color: rgb(3, 184, 166);">{{i.title}}</h5></a>
-                                </div>
-                            </div>
-                            <!-- <p class="" style="text-align: justify;"> <div style=" background-color: #f7f7f7; padding: 5px; border-radius: 8px; height: 140px;">
-                                {{ i.content|safe|slice:":100" }}
-                            </div></p> -->
-                            <br>
-                            <div class="row text-center mt-auto ">
-                                <div class="col-sm-12 text-center"> 
-                                    <a href="{% url 'web_news_details' i.id %}" class="btn btn-primary" style="position: relative; bottom: 10px;">
-                                        Read More <i class="fa fa-arrow-right text-secondary ms-2"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    {% endfor %}
-
- 
- 
-                </div>
-
-                 
-    </div>
+    /* Responsive: Mobile full image, desktop constant size */
+    @media (max-width: 1199.98px) {
+      .creative-blog-card { min-height: 360px; }
+      .creative-blog-img { height: 140px; max-width: 180px; }
+      .creative-blog-img-wrap { min-height: 140px; }
+    }
+    @media (max-width: 991.98px) {
+      .creative-blog-card { min-height: 320px; }
+      .creative-blog-img { height: 120px; max-width: 140px; }
+      .creative-blog-img-wrap { min-height: 120px; }
+      .creative-blog-title { font-size: 1rem;}
+    }
+    @media (max-width: 767.98px) {
+      .creative-blog-img-wrap {
+        min-height: 140px;
+        height: auto !important;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      .creative-blog-img-bg { border-radius: 1rem 1rem 0 0; }
+      .creative-blog-img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
+        border-radius: 1rem 1rem 0 0;
+        background: #fff;
+      }
+      .creative-blog-card { min-height: 250px; border-radius:1rem;}
+      .creative-blog-title {font-size:0.93rem;}
+      h2 {font-size: 1.3rem !important;}
+      .creative-img-badge { font-size: 1rem; padding: 5px 7px; top: 5px; right: 8px;}
+    }
+    @media (max-width: 575.98px) {
+      .creative-blog-img-wrap { min-height: 100px; }
+      .creative-blog-img { max-height: 120px; }
+    }
+  </style>
 </div>
-<!-- News Stop-->
+<!-- Latest Blogs Section End -->
 {% endif %}
 
 

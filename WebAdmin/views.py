@@ -252,6 +252,32 @@ def delete_enquiry(request,id):
 
 
 
+@login_required
+def certificate_list(request):
+    certificate_form = CertificateForm()
+    certificate_data = Certificate.objects.all().order_by("-id")
+    context = {
+        "certificate_form": certificate_form,
+        "certificate_data": certificate_data,
+    }
+    return render(request, 'admin_certificate_list.html', context)
+
+def create_certificate(request):
+    if request.method == 'POST':
+        form = CertificateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Certificate Created Successfully")
+            return redirect('/admin/certificate_list')
+        else:
+            messages.warning(request, "Error Creating Certificate")
+    return redirect('/admin/certificate_list')
+ 
+def delete_certificate(request, id):
+    Certificate.objects.get(id=id).delete()
+    messages.success(request, "Certificate Deleted Successfully")
+    return redirect('/admin/certificate_list')
+
 
 @login_required
 def news_list(request):

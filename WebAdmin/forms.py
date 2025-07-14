@@ -29,6 +29,18 @@ class PhotoGalleryForm(forms.ModelForm):
                 'placeholder': 'Enter a short description...',  # Optional placeholder
             }),
         }
+ 
+class CertificateForm(forms.ModelForm):
+    class Meta:
+        model = Certificate
+        fields = ['title', 'description', 'image', 'pdf']
+        widgets = {
+            'description': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 4,
+                'placeholder': 'Enter a short description...',
+            }),
+        }
 
 
 class VideoGalleryForm(forms.ModelForm):
