@@ -3,6 +3,17 @@ import os
 
 # Create your models here.
 
+class Certificate(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='website/certs/')
+    pdf = models.FileField(upload_to='website/certs/')
+    
+    def __str__(self):
+        return self.title
+    
+
+    
 class PhotoGalleryCategories(models.Model):
     category_name = models.CharField(max_length=255) 
  

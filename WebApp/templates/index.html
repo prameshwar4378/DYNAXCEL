@@ -5,98 +5,135 @@
 
 {% endblock style %}
 
-{% block content %}
-<!-- Carousel Start -->
+{% block content %}<!-- Carousel Start -->
 <div class="container-fluid p-0 pb-5">
     <div class="owl-carousel header-carousel position-relative">
+        <!-- Slide 1 -->
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/1.jpeg' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(53, 53, 53, .7);">
+            <img class="img-fluid carousel-bg-img" src="{% static 'website/img/1.jpeg' %}" alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
+            <div class="carousel-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-8 text-center">
-                            <h2 class="text-white text-uppercase mb-3 animated slideInDown">
+                            <h2 class="carousel-title text-uppercase mb-3 animated slideInDown">
                                 Welcome To 
-                                <span style="color: navy; -webkit-text-stroke: 1px white; text-stroke: 1px white;">
-                                    <b>Dynaxcel</b>
-                                </span>
-                            </h2>                            
-                            <!-- <h1 class="display-3 text-white animated slideInDown mb-4">Innovative Steel <span
-                                    class="text-primary">Engineering
-                                    Solutions</span></h1> -->
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Providing top-tier steel
-                                fabrication and construction services. Quality, precision, and durability in every
-                                project we undertake.</p>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="{% url "website_contact_us" %}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/2.jpeg' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(53, 53, 53, .7);">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-8 text-center">
-                            <h2 class="text-white text-uppercase mb-3 animated slideInDown">
-                                Welcome To 
-                                <span style="color: navy; -webkit-text-stroke: 1px white; text-stroke: 1px white;">
+                                <span class="carousel-highlight">
                                     <b>Dynaxcel</b>
                                 </span>
                             </h2>
-                            <!-- <h1 class="display-3 text-white animated slideInDown mb-4">Innovative Steel <span
-                                    class="text-primary">Engineering
-                                    Solutions</span></h1> -->
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Providing top-tier steel
-                                fabrication and construction services. Quality, precision, and durability in every
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Providing top-tier steel fabrication and construction services. Quality, precision, and durability in every
                                 project we undertake.</p>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
+                            <a href="#" class="btn btn-gradient-carousel py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="{% url 'website_contact_us' %}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
+        <!-- Slide 2 -->
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{% static 'website/img/carousel-4.png' %}"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy" style="height:80vh">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(53, 53, 53, .7);">
+            <img class="img-fluid carousel-bg-img" src="{% static 'website/img/2.jpeg' %}" alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
+            <div class="carousel-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-8 text-center">
-                            <h2 class="text-white text-uppercase mb-3 animated slideInDown">
+                            <h2 class="carousel-title text-uppercase mb-3 animated slideInDown">
                                 Welcome To 
-                                <span style="color: navy; -webkit-text-stroke: 1px white; text-stroke: 1px white;">
+                                <span class="carousel-highlight">
                                     <b>Dynaxcel</b>
                                 </span>
                             </h2>
-                            <!-- <h1 class="display-3 text-white animated slideInDown mb-4">Innovative Steel <span
-                                    class="text-primary">Engineering
-                                    Solutions</span></h1> -->
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Providing top-tier steel
-                                fabrication and construction services. Quality, precision, and durability in every
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Providing top-tier steel fabrication and construction services. Quality, precision, and durability in every
                                 project we undertake.</p>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
+                            <a href="#" class="btn btn-gradient-carousel py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="{% url 'website_contact_us' %}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
+        <!-- Slide 3 -->
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid carousel-bg-img" src="{% static 'website/img/carousel-4.png' %}" alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
+            <div class="carousel-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8 text-center">
+                            <h2 class="carousel-title text-uppercase mb-3 animated slideInDown">
+                                Welcome To 
+                                <span class="carousel-highlight">
+                                    <b>Dynaxcel</b>
+                                </span>
+                            </h2>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2 animated slideInLeft">Providing top-tier steel fabrication and construction services. Quality, precision, and durability in every
+                                project we undertake.</p>
+                            <a href="#" class="btn btn-gradient-carousel py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="{% url 'website_contact_us' %}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <style>
+        .index-header {
+            color: #2c3e50; /* Dark, professional header color */
+            font-size: 3em;
+            margin-bottom: 30px;
+            font-weight: 1000;
+        }
+
+
+        .carousel-bg-img {
+            height: 80vh;
+            width: 100%;
+            object-fit: cover;
+            filter: brightness(0.82) saturate(1.03) blur(0.5px);
+            transition: filter 0.3s;
+        }
+        .carousel-overlay {
+            background: linear-gradient(120deg, rgba(40,60,60,0.79) 45%, rgba(116, 93, 93, 0.7) 80%);
+            z-index: 2;
+        }
+        .carousel-title {
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-shadow: 0 4px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(56,187,66,0.13);
+        }
+        .carousel-highlight {
+            color: #006affff;
+            -webkit-text-stroke: 1px #fff;
+            text-stroke: 1px #fff;
+            padding: 0 0.2em;
+            letter-spacing: 0.04em;
+            text-shadow: 0 2px 12px #fff8, 0 2px 8px #ff000066;
+        }
+        .btn-gradient-carousel {
+            background: linear-gradient(90deg,#38bb42 0%,#3edb7b 100%);
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 10px 0 rgba(56,187,66,0.10);
+            transition: background 0.17s, box-shadow 0.17s;
+        }
+
+        .btn-gradient-carousel:hover, .btn-gradient-carousel:focus {
+            background: linear-gradient(90deg,#3edb7b 0%,#38bb42 100%);
+            color: #fff;
+            box-shadow: 0 6px 20px 0 rgba(56,187,66,0.15);
+        }
+        @media (max-width: 991.98px) {
+            .carousel-bg-img { height: 55vh; }
+        }
+        @media (max-width: 767.98px) {
+            .carousel-bg-img { height: 36vh; }
+            .carousel-title { font-size: 1.32rem; }
+        }
+    </style>
 </div>
 <!-- Carousel End -->
-
-
 
 
 <!-- About Start -->
@@ -242,127 +279,209 @@
 <!--<counter End-->
 
 
-<!-- Services Start-->
-<section class="index-service">
-    <br><br>
-    <div class="container" style="max-width: 1200px;">
-        <div class="row">
-
-            <div class="Heading-section">
-                <i class="bi bi-gear-wide-connected "></i>
-                <span class="line-text"> <span class="text-secondary ">Our</span> Services </span>
-                <i class="bi bi-gear-wide-connected"></i> <br>
+ <!-- Services Start-->
+<section class="index-service py-5 position-relative" style="overflow: hidden; background: linear-gradient(120deg, #f6fbff 0%, #e7edfa 100%); min-height: 100vh;">
+    <!-- Animated Blurry Shapes -->
+    <div class="blur-shape blur-1"></div>
+    <div class="blur-shape blur-2"></div>
+    <div class="blur-shape blur-3"></div>
+    <div class="container" style="max-width: 1200px; position: relative; z-index: 2;">
+        <!-- Header Section -->
+            <div class="Heading-section text-center mb-4">
+                
+                <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">OUR <span style="color: rgb(56, 187, 66);">JOURNEY</span></h2>
+                <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, rgb(56, 187, 66) 50%, black 50%); margin-top: -15px;"></center>
             </div>
             <center>
                 <p class="textdifferent text-center">We Offer a Diverse Range of Services</p>
             </center>
-            <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
-                <div class="service-box  " style="width: 100%;">
-                    <div class="service-img" style="width: 100%;">
-                        <center>
-                            <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png"  alt="Dynaxcel Engineers Pvt. Ltd."  loading="lazy">
-                        </center>
+            <br>
+        <!-- Services Grid -->
+        <div class="row g-4">
+            <!-- Service Card Start -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200">
+                <div class="service-card-pro bg-white glass-effect shadow-lg rounded-5 p-4 h-100 d-flex flex-column align-items-center">
+                    <div class="service-icon mb-4 gradient-border">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="Dynaxcel Engineers Pvt. Ltd." style="width: 60px; height: 60px;">
                     </div>
-                    <h4 class="text-success text-center">Stainless Steel & Exotic Fabrication</h4>
-                    <p>We specialize in processing stainless steel. Specially trained
-                        workforce to handle stainless steel takes care of material by
-                        having dedicated area, spotless handling and dedicated toolset. </p>
-                    <a href="{%url 'stainless_steel'%}" class="btn btn-primary mb-2">Explore More</a>
+                    <h5 class="text-success fw-bold text-center mb-2">Stainless Steel & Exotic Fabrication</h5>
+                    <p class="text-center text-muted flex-grow-1">We specialize in processing stainless steel. Specially trained workforce to handle stainless steel takes care of material by having dedicated area, spotless handling and dedicated toolset.</p>
+                    <a href="{%url 'stainless_steel'%}" class="btn btn-gradient-pro rounded-pill mt-3 px-4">Explore More</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
-                <div class="service-box  " style="width: 100%;">
-                    <div class="service-img" style="width: 100%;">
-                        <center>
-                            <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png"  alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
-                        </center>
+            <!-- Service Card End -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+                <div class="service-card-pro bg-white glass-effect shadow-lg rounded-5 p-4 h-100 d-flex flex-column align-items-center">
+                    <div class="service-icon mb-4 gradient-border">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="Dynaxcel Engineers Pvt. Ltd." style="width: 60px; height: 60px;">
                     </div>
-                    <div class="row" style="width: 100%;">
-                        <div class="col-sm-12  text-center" style="width: 100%; " >
-                            <h4 class="text-success">ASME & PED Vessels</h4> 
-                        </div>
-                    </div>
-
-                    <p>We are certified by Lloyds Register for ‘U’ stamp vessels and produce ‘PED’ vessels under the supervision of leading agencies like Bureau Veritas and TUV Rheinland. 
-                        </p>
-                    <a href="{%url 'services_ASME_PED_Vessels'%}" class="btn btn-primary mb-2">Explore More</a>
+                    <h5 class="text-success fw-bold text-center mb-2">ASME & PED Vessels</h5>
+                    <p class="text-center text-muted flex-grow-1">We are certified by Lloyds Register for ‘U’ stamp vessels and produce ‘PED’ vessels under the supervision of leading agencies like Bureau Veritas and TUV Rheinland.</p>
+                    <a href="{%url 'services_ASME_PED_Vessels'%}" class="btn btn-gradient-pro rounded-pill mt-3 px-4">Explore More</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50"
-                loading="lazy">
-                <div class="service-box  " style="width: 100%;">
-                    <div class="service-img" style="width: 100%;">
-                        <center>
-                            <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png"  alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
-                        </center>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <div class="service-card-pro bg-white glass-effect shadow-lg rounded-5 p-4 h-100 d-flex flex-column align-items-center">
+                    <div class="service-icon mb-4 gradient-border">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="Dynaxcel Engineers Pvt. Ltd." style="width: 60px; height: 60px;">
                     </div>
-                    <h4 class="text-success text-center">Railway & Metro Components</h4>
-                    <p>We have accreditations as per ISO3834-2 for welding and EN 15085-2 CL 1 for manufacturing metro components. We deal in steel, stainless steel, and aluminum metallurgy. </p>
-                    <a href="{%url 'services_railway_metro'%}" class="btn btn-primary mb-2">Explore More</a>
+                    <h5 class="text-success fw-bold text-center mb-2">Railway & Metro Components</h5>
+                    <p class="text-center text-muted flex-grow-1">We have accreditations as per ISO3834-2 for welding and EN 15085-2 CL 1 for manufacturing metro components. We deal in steel, stainless steel, and aluminum metallurgy.</p>
+                    <a href="{%url 'services_railway_metro'%}" class="btn btn-gradient-pro rounded-pill mt-3 px-4">Explore More</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50"
-                loading="lazy">
-                <div class="service-box  " style="width: 100%;">
-                    <div class="service-img" style="width: 100%;">
-                        <center>
-                            <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png"  alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
-                        </center>
-                    </div> 
-                    <div class="row" style="width: 100%;">
-                        <div class="col-sm-12  text-center" style="width: 100%; " >
-                            <h4 class="text-success">Defence Equipment</h4> 
-                        </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+                <div class="service-card-pro bg-white glass-effect shadow-lg rounded-5 p-4 h-100 d-flex flex-column align-items-center">
+                    <div class="service-icon mb-4 gradient-border">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="Dynaxcel Engineers Pvt. Ltd." style="width: 60px; height: 60px;">
                     </div>
-                    <p>We collaborate with leading equipment manufacturers in the defense sector, providing sub-assemblies for missile launch pad systems, missile cassette structures, and deflectors.</p>
-                    <a href="{%url 'services_defence_equipements'%}" class="btn btn-primary mb-2">Explore More</a>
+                    <h5 class="text-success fw-bold text-center mb-2">Defence Equipment</h5>
+                    <p class="text-center text-muted flex-grow-1">We collaborate with leading equipment manufacturers in the defense sector, providing sub-assemblies for missile launch pad systems, missile cassette structures, and deflectors.</p>
+                    <a href="{%url 'services_defence_equipements'%}" class="btn btn-gradient-pro rounded-pill mt-3 px-4">Explore More</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
-                <div class="service-box  " style="width: 100%;">
-                    <div class="service-img" style="width: 100%;">
-                        <center>
-                            <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png"  alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
-                        </center>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                <div class="service-card-pro bg-white glass-effect shadow-lg rounded-5 p-4 h-100 d-flex flex-column align-items-center">
+                    <div class="service-icon mb-4 gradient-border">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="Dynaxcel Engineers Pvt. Ltd." style="width: 60px; height: 60px;">
                     </div>
-                    
-                    <div class="row" style="width: 100%;">
-                        <div class="col-sm-12  text-center" style="width: 100%; " >
-                            <h4 class="text-success">Food & Pharma</h4> 
-                        </div>
-                    </div>
-                    <p>Our equipment is produced in a dedicated stainless steel clean room to prevent contamination, and we achieve a polished finish of up to 0.4 Ra in-house, with Electro-Polishing performed by specialized vendors. </p>
-                    <a href="{%url 'services_food_farma'%}" class="btn btn-primary mb-2">Explore More</a>
+                    <h5 class="text-success fw-bold text-center mb-2">Food & Pharma</h5>
+                    <p class="text-center text-muted flex-grow-1">Our equipment is produced in a dedicated stainless steel clean room to prevent contamination, and we achieve a polished finish of up to 0.4 Ra in-house, with Electro-Polishing performed by specialized vendors.</p>
+                    <a href="{%url 'services_food_farma'%}" class="btn btn-gradient-pro rounded-pill mt-3 px-4">Explore More</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
-                <div class="service-box  " style="width: 100%;">
-                    <div class="service-img" style="width: 100%;">
-                        <center>
-                            <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png"  alt="Dynaxcel Engineers Pvt. Ltd." loading="lazy">
-                        </center>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
+                <div class="service-card-pro bg-white glass-effect shadow-lg rounded-5 p-4 h-100 d-flex flex-column align-items-center">
+                    <div class="service-icon mb-4 gradient-border">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1326/1326589.png" alt="Dynaxcel Engineers Pvt. Ltd." style="width: 60px; height: 60px;">
                     </div>
-                    <h4 class="text-success text-center">PSA Based Oxygen Generator</h4>
-                    <p>The PSA plant employs Zeolite molecular sieves to separate oxygen from the air. 
-                        The PSA process comprises two vessels filled with molecular sieves and activated alumina.</p>
-                    <a href="{%url 'services_psa_based'%}" class="btn btn-primary mb-2">Explore More</a>
+                    <h5 class="text-success fw-bold text-center mb-2">PSA Based Oxygen Generator</h5>
+                    <p class="text-center text-muted flex-grow-1">The PSA plant employs Zeolite molecular sieves to separate oxygen from the air. The PSA process comprises two vessels filled with molecular sieves and activated alumina.</p>
+                    <a href="{%url 'services_psa_based'%}" class="btn btn-gradient-pro rounded-pill mt-3 px-4">Explore More</a>
                 </div>
             </div>
-
         </div>
     </div>
+    <style>
+        /* Animated Blurry Gradient Shapes */
+        .blur-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.45;
+            z-index: 1;
+            animation: move-shape 12s infinite alternate cubic-bezier(.6,0,.4,1);
+        }
+        .blur-1 {
+            width: 340px; height: 340px;
+            top: -80px; left: -90px;
+            background: radial-gradient(circle at 30% 60%, #6dd5ed 0, #ffffff33 70%);
+            animation-delay: 0s;
+        }
+        .blur-2 {
+            width: 230px; height: 230px;
+            bottom: 10%; right: 7%;
+            background: radial-gradient(circle at 60% 40%, #3c8ce7 0, #6dd5ed 70%);
+            animation-delay: 2s;
+        }
+        .blur-3 {
+            width: 180px; height: 180px;
+            top: 45%; left: 60%;
+            background: radial-gradient(circle at 80% 20%, #89f7fe 0, #66a6ff 70%);
+            animation-delay: 1s;
+        }
+        @keyframes move-shape {
+            0% { transform: translateY(0) scale(1);}
+            100% { transform: translateY(40px) scale(1.08);}
+        }
+
+        /* Glassmorphism card with gradient border */
+        .service-card-pro {
+            background: rgba(255,255,255,0.80);
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 8px 44px 0 rgba(60,140,231,0.10);
+            backdrop-filter: blur(10px);
+            transition: box-shadow .22s, transform .22s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card-pro:hover, .service-card-pro:focus-within {
+            box-shadow: 0 16px 44px 0 rgba(60,140,231,0.18), 0 0 0 4px #e6f0fd;
+            transform: translateY(-6px) scale(1.02);
+            z-index: 2;
+        }
+        .service-icon.gradient-border {
+            padding: 0.4rem;
+            background: conic-gradient(from 90deg at 50% 50%, #6dd5ed 0%, #3c8ce7 25%, #6dd5ed 75%, #3c8ce7 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .service-icon img {
+            background: #fff;
+            border-radius: 50%;
+            padding: 0.7rem;
+            box-shadow: 0 2px 12px 0 rgba(60,140,231,0.10);
+            width: 54px; height: 54px;
+        }
+        .btn-gradient-pro {
+            background: linear-gradient(90deg, #3c8ce7 0%, #6dd5ed 100%);
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            box-shadow: 0 2px 12px 0 rgba(60,140,231,0.10);
+            transition: background .2s, box-shadow .2s;
+        }
+        .btn-gradient-pro:hover, .btn-gradient-pro:focus {
+            background: linear-gradient(90deg, #6dd5ed 0%, #3c8ce7 100%);
+            color: #fff;
+            box-shadow: 0 6px 24px 0 rgba(60,140,231,0.13);
+        }
+        .Heading-section .line-text {
+            font-size: 2rem;
+            font-family: 'Montserrat',sans-serif;
+            letter-spacing: .04em;
+        }
+        @media (max-width: 991.98px) {
+            .service-card-pro {
+                padding: 1.3rem;
+            }
+            .blur-1, .blur-2, .blur-3 { filter: blur(42px); }
+        }
+        @media (max-width: 767.98px) {
+            .Heading-section .line-text {
+                font-size: 1.2rem;
+            }
+            .service-card-pro {
+                padding: 1.1rem;
+                border-radius: 22px;
+            }
+            .blur-1, .blur-2, .blur-3 { filter: blur(32px); }
+        }
+    </style>
 </section>
 <!-- Services Stop-->
+
+
+
+
 
 {% if news %}
 <!-- News Start-->
 <div class="container-fluid p-2" style="margin: 0px;">
 
-    <div class="row text-center mb-4">
-        <div class="Heading-section">
-            <i class="bi bi-gear-wide-connected"></i>
-            <span class="line-text"> <span class="text-secondary">Latest</span> Blogs </span>
-            <i class="bi bi-gear-wide-connected"></i>
+    <div class="row text-center mb-4"> 
+            <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Latest <span style="color: rgb(56, 187, 66);">Blogs</span></h2>
+                <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, rgb(56, 187, 66) 50%, black 50%); margin-top: -15px;"></center>
+            </div>
+            <center>
+                <p class="textdifferent text-center">We Offer a Diverse Range of Services</p>
+            </center>
+            <br>
         </div>
     </div>
 
@@ -427,151 +546,347 @@
 {% endif %}
 
 
-
 <!-- Gallery Start-->
 {% if gallery_images %}
-  
-<div class="container  px-2 py-5  mt-5" style="border-radius: 15px;">
+<div class="container px-2 py-5 mt-5 gallery-section-modern position-relative" style="border-radius: 24px; background: #f7fafc;">
+    <!-- Animated blurry shapes in background for subtle depth -->
+    <div class="gallery-blur gallery-blur-1"></div>
+    <div class="gallery-blur gallery-blur-2"></div>
     <div class="row text-center mb-4">
-        <div class="Heading-section">
-            <i class="bi bi-gear-wide-connected"></i>
-            <span class="line-text"> <span class="text-secondary">Photo</span> Gallery </span>
-            <i class="bi bi-gear-wide-connected"></i>
+        <div class="Heading-section"> 
+            <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Photo <span style="color: rgb(56, 187, 66);">Gallery</span></h2>
+            <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, rgb(56, 187, 66) 50%, black 50%); margin-top: -15px;"></center>
+            <center>
+                <p class="textdifferent text-center">Explore Our Diverse Visual Showcase</p>
+            </center>
         </div>
     </div>
 
     <div class="owl-carousel gallery-carousel">
         {% for image in gallery_images %}
-        <div class="item">
-            <img src="{{image.image.url}}"  alt="Dynaxcel Engineers Pvt. Ltd." style="width: 100%; height: 150px; object-fit: cover;" loading="lazy" />
+        <div class="item gallery-img-hover">
+            <img src="{{image.image.url}}" alt="Dynaxcel Engineers Pvt. Ltd."
+                style="width: 100%; height: 180px; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 16px rgba(60,140,231,0.09); transition: transform 0.15s;"
+                loading="lazy" />
         </div>
         {% endfor %}
     </div>
 
     <center>
-        <a class="btn btn-primary rounded-pill py-2 px-5 mt-3" href="{% url "web_photos_gallary" %}">More Images</a>
+        <a class="btn btn-gradient-gallery rounded-pill py-2 px-5 mt-4" href="{% url "web_photos_gallary" %}">More Images</a>
     </center>
-
 </div>
+<style>
+.gallery-section-modern {
+    position:relative;
+    overflow: hidden;
+    background: linear-gradient(120deg,#f7fafc 60%,#eafaf0 100%);
+    box-shadow: 0 8px 40px 0 rgba(56,187,66,.09);
+}
+.gallery-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(48px);
+    opacity: 0.19;
+    z-index: 0;
+    animation: gallery-blur-move 17s infinite alternate cubic-bezier(.7,0,.3,1);
+}
+.gallery-blur-1 {
+    width: 220px; height: 220px; top: -80px; left: -80px;
+    background: radial-gradient(circle at 30% 60%, #38bb42 0, #eafaf0 100%);
+    animation-delay: 0s;
+}
+.gallery-blur-2 {
+    width: 140px; height: 140px; bottom: -40px; right: 4%;
+    background: radial-gradient(circle at 60% 40%, #3edb7b 0, #eafaf0 80%);
+    animation-delay: 4s;
+}
+@keyframes gallery-blur-move {
+    0% { transform: translateY(0) scale(1);}
+    100% { transform: translateY(32px) scale(1.09);}
+}
+.gallery-img-hover:hover img, .gallery-img-hover:focus img {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 32px 0 rgba(56,187,66,.13);
+}
+.btn-gradient-gallery {
+    background: linear-gradient(90deg,#38bb42 0%,#3edb7b 100%);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 2px 10px 0 rgba(56,187,66,0.12);
+    transition: background 0.17s, box-shadow 0.17s;
+}
+.btn-gradient-gallery:hover, .btn-gradient-gallery:focus {
+    background: linear-gradient(90deg,#3edb7b 0%,#38bb42 100%);
+    color: #fff;
+    box-shadow: 0 6px 20px 0 rgba(56,187,66,0.18);
+}
+@media (max-width: 767.98px) {
+    .gallery-blur-1, .gallery-blur-2 { filter: blur(21px);}
+    .owl-carousel .item img { height: 110px !important; }
+}
+</style>
 {% endif %}
-
 <!-- Gallery Stop-->
 
 
 
 
-
-<section class="mb-5">
-    <div class="container bg-light px-2 py-5  mt-5"
-        style="border-radius: 15px; max-width: 1600px; box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.068);">
-        <div class="row text-center mb-4">
-            <div class="Heading-section">
-                <i class="bi bi-gear-wide-connected"></i>
-                <span class="line-text"> <span class="text-secondary">Do You Have</span> Question's ? </span>
-                <i class="bi bi-gear-wide-connected"></i>
-            </div>
-            <p class="  text-secondary mb-5">We hope you have found an answer to your question. <br>
-                If you need any help, please search your query on our Support Center or contact us via
-                email.</p>
+<section class="questions-modern-section mb-5 position-relative overflow-hidden">
+  <!-- Animated Blurry Shapes Background -->
+  <div class="questions-blur q-blur-1"></div>
+  <div class="questions-blur q-blur-2"></div>
+  <div class="questions-blur q-blur-3"></div>
+  <div class="questions-blur q-blur-4"></div>
+  <div class="container px-2 py-5 mt-5" style="border-radius: 24px; max-width: 1400px; position: relative; z-index: 2; background: rgba(255,255,255,0.97); box-shadow: 0 12px 54px 0 rgba(56,187,66,0.09);">
+    <!-- Heading -->
+    <div class="row text-center mb-4"> 
+        <div class="Heading-section"> 
+            <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Do You Have <span style="color: rgb(56, 187, 66);">Question's ?</span></h2>
+            <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, rgb(56, 187, 66) 50%, black 50%); margin-top: -15px;"></center>
+ 
         </div>
 
-        <div class="container">
-            <div class="row gy-5 gy-lg-0 align-items-lg-center">
-                <div class="col-12 col-lg-6 text-center align-items-center">
-                    <img class="img-fluid rounded" loading="lazy" src="{% static '/website/img/questions.png' %}"
-                    alt="Dynaxcel Engineers Pvt. Ltd." data-aos="zoom-out-down" data-aos-duration="1500"
-                        data-aos-delay="50">
-                </div>
+      <p class="text-secondary mb-5">We hope you have found an answer to your question. <br>
+        If you need any help, please search your query on our Support Center or contact us via email.</p>
+    </div>
 
-                <div class=" col-12 col-lg-6 bg-primary" style="border-radius: 10px;">
-                    <div class="accordion" id="myAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne">1.Do you do Stainless Steel Fabrication?</button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                data-bs-parent="#myAccordion">
-                                <div class="card-body">
-                                    <p>Yes, Our core strength is fabrication in Stainless Steel. We make equipment in SS
-                                        304/L, SS 316/L, SS 310, SS 317, SS 321, SS 347, Lean Duplex, Duplex & Super
-                                        Duplex Stainless Steel.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo">2. Do you do MS fabrication?</button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse " data-bs-parent="#myAccordion">
-                                <div class="card-body">
-                                    <p>The capacity is very limited. If an equipment contain both the metals such as MS
-                                        & SS, we do it.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button type="button" class="accordion-button " data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree">3. Do you fabricate vessels in exotic
-                                    material?</button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
-                                <div class="card-body">
-                                    <p>Yes, we do. We fabricate in Nickel & Its alloys, Titanium, Farralium, Aluminium,
-                                        Brass etc.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour">2. Do you do MS fabrication?</button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse " data-bs-parent="#myAccordion">
-                                <div class="card-body">
-                                    <p>The capacity is very limited. If an equipment contain both the metals such as MS
-                                        & SS, we do it.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive">2. Do you do MS fabrication?</button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse " data-bs-parent="#myAccordion">
-                                <div class="card-body">
-                                    <p>The capacity is very limited. If an equipment contain both the metals such as MS
-                                        & SS, we do it.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+    <div class="row gy-5 gy-lg-0 align-items-lg-center">
+      <!-- Illustration Column -->
+      <div class="col-12 col-lg-6 text-center align-items-center mb-4 mb-lg-0">
+        <div class="question-illus-wrap">
+          <img class="img-fluid rounded-4 shadow-lg question-illus" loading="lazy" src="{% static '/website/img/questions.png' %}" alt="Dynaxcel Engineers Pvt. Ltd."
+            data-aos="zoom-out-down" data-aos-duration="1500" data-aos-delay="50">
+        </div>
+      </div>
+      <!-- Accordion Column -->
+      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        <div class="modern-accordion" id="modernAccordion">
+          <div class="accordion-item">
+            <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+              <span class="accordion-qicon"><i class="bi bi-question-circle-fill"></i></span>
+              Do you do Stainless Steel Fabrication?
+              <span class="accordion-arrow"><i class="bi bi-chevron-down"></i></span>
+            </button>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#modernAccordion">
+              <div class="accordion-body">
+                Yes, Our core strength is fabrication in Stainless Steel. We make equipment in SS 304/L, SS 316/L, SS 310, SS 317, SS 321, SS 347, Lean Duplex, Duplex & Super Duplex Stainless Steel.
+              </div>
             </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+              <span class="accordion-qicon"><i class="bi bi-question-circle-fill"></i></span>
+              Do you do MS fabrication?
+              <span class="accordion-arrow"><i class="bi bi-chevron-down"></i></span>
+            </button>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#modernAccordion">
+              <div class="accordion-body">
+                The capacity is very limited. If an equipment contains both the metals such as MS & SS, we do it.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+              <span class="accordion-qicon"><i class="bi bi-question-circle-fill"></i></span>
+              Do you fabricate vessels in exotic material?
+              <span class="accordion-arrow"><i class="bi bi-chevron-down"></i></span>
+            </button>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#modernAccordion">
+              <div class="accordion-body">
+                Yes, we do. We fabricate in Nickel & Its alloys, Titanium, Farralium, Aluminium, Brass etc.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+              <span class="accordion-qicon"><i class="bi bi-question-circle-fill"></i></span>
+              Can you handle MS & SS combined equipment?
+              <span class="accordion-arrow"><i class="bi bi-chevron-down"></i></span>
+            </button>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#modernAccordion">
+              <div class="accordion-body">
+                The capacity is very limited. If an equipment contains both the metals such as MS & SS, we do it.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+              <span class="accordion-qicon"><i class="bi bi-question-circle-fill"></i></span>
+              Are there any limits on MS fabrication?
+              <span class="accordion-arrow"><i class="bi bi-chevron-down"></i></span>
+            </button>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#modernAccordion">
+              <div class="accordion-body">
+                The capacity is very limited. If an equipment contains both the metals such as MS & SS, we do it.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <center>
-                <a class="btn btn-primary rounded-pill py-2 px-5 mt-3" href="">Explore More</a>
-            </center>
-
+    <center>
+      <a class="btn btn-gradient-questions rounded-pill py-2 px-5 mt-4" href="">Explore More</a>
+    </center>
+  </div>
+  <style>
+    .questions-modern-section {
+      background: #f7fafc;
+      min-height: 450px;
+      position: relative;
+    }
+    .questions-blur {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.23;
+      z-index: 1;
+      animation: q-blur-move 14s infinite alternate cubic-bezier(.7,0,.3,1);
+    }
+    .q-blur-1 {
+      width: 220px; height: 220px; top: -60px; left: -60px;
+      background: radial-gradient(circle at 30% 60%, #38bb42 0, #eafaf0 100%);
+      animation-delay: 0s;
+    }
+    .q-blur-2 {
+      width: 160px; height: 160px; top: 45%; left: 85%;
+      background: radial-gradient(circle at 60% 40%, #3edb7b 0, #eafaf0 80%);
+      animation-delay: 2s;
+    }
+    .q-blur-3 {
+      width: 120px; height: 120px; bottom: -30px; right: 10%;
+      background: radial-gradient(circle at 80% 20%, #8cffb7 0, #38bb42 60%);
+      animation-delay: 5s;
+    }
+    .q-blur-4 {
+      width: 90px; height: 90px; bottom: 8%; left: 22%;
+      background: radial-gradient(circle at 80% 20%, #38bb42 0, #f8fcf7 90%);
+      animation-delay: 7s;
+    }
+    @keyframes q-blur-move {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(35px) scale(1.09);}
+    }
+    .question-illus-wrap {
+      background: linear-gradient(135deg, #f7fafc 85%, #d6ffe8 100%);
+      padding: 1.4rem;
+      border-radius: 1.8rem;
+      display: inline-block;
+      box-shadow: 0 2px 28px 0 rgba(56,187,66,0.06);
+      z-index: 2;
+      position: relative;
+    }
+    .question-illus {
+      max-width: 350px;
+      width: 90%;
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 24px 0 rgba(60,140,231,0.07);
+    }
+    /* Modern Accordion */
+    .modern-accordion .accordion-item {
+      border: none;
+      background: transparent;
+      margin-bottom: 0.5rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 10px 0 rgba(60,140,231,0.06);
+    }
+    .modern-accordion .accordion-btn {
+      background: linear-gradient(90deg, #eafaf0 0, #f7fafc 100%);
+      color: #38bb42;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 1.5rem;
+      box-shadow: none;
+      outline: none;
+      width: 100%;
+      padding: 1.1rem 1.5rem;
+      text-align: left;
+      transition: background .15s, color .15s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+    .modern-accordion .accordion-btn:not(.collapsed) {
+      background: linear-gradient(90deg, #38bb4220 0, #3edb7b20 100%);
+      color: #1e7a30;
+    }
+    .modern-accordion .accordion-btn:focus, .modern-accordion .accordion-btn:hover {
+      background: linear-gradient(90deg, #d6ffe8 0, #3edb7b1a 100%);
+      color: #106c22;
+    }
+    .modern-accordion .accordion-qicon {
+      background: linear-gradient(135deg, #38bb42 0, #3edb7b 100%);
+      color: #fff;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-right: 0.8rem;
+    }
+    .modern-accordion .accordion-arrow {
+      margin-left: auto;
+      font-size: 1.2rem;
+      color: #38bb42;
+      transition: transform 0.2s;
+    }
+    .modern-accordion .accordion-btn:not(.collapsed) .accordion-arrow {
+      transform: rotate(180deg);
+    }
+    .modern-accordion .accordion-body {
+      background: #fff;
+      padding: 1.2rem 1.4rem;
+      font-size: 1rem;
+      color: #4c5c52;
+      border-radius: 0 0 1.5rem 1.5rem;
+      border-top: 1px solid #e0e7ef;
+    }
+    .btn-gradient-questions {
+      background: linear-gradient(90deg,#38bb42 0%,#3edb7b 100%);
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      box-shadow: 0 2px 10px 0 rgba(56,187,66,0.12);
+      transition: background 0.17s, box-shadow 0.17s;
+    }
+    .btn-gradient-questions:hover, .btn-gradient-questions:focus {
+      background: linear-gradient(90deg,#3edb7b 0%,#38bb42 100%);
+      color: #fff;
+      box-shadow: 0 6px 20px 0 rgba(56,187,66,0.18);
+    }
+    @media (max-width: 991.98px) {
+      .question-illus-wrap { padding: 1rem;}
+      .question-illus { max-width: 240px;}
+      .questions-blur { filter: blur(32px);}
+    }
+    @media (max-width: 767.98px) {
+      .question-illus-wrap { padding: 0.3rem;}
+      .question-illus { max-width: 140px;}
+      .modern-accordion .accordion-btn { font-size: 1rem; padding: 0.85rem 1.1rem;}
+      .modern-accordion .accordion-body { font-size: 0.97rem; padding: 0.8rem 1.1rem;}
+      .questions-blur { filter: blur(13px);}
+    }
+  </style>
 </section>
-
-
 
 
 <!-- Contact Us Start -->
 <div class="container-fluid py-5 contact-form-section" loading="lazy"
     style=" background: url('/static/website/img/services-bg-1.webp'); background-position: center right;  background-size: cover;">
     <div class="container">
-        <div class="row text-center mb-4">
-            <div class="Heading-section">
-                <i class="bi bi-gear-wide-connected"></i>
-                <span class="line-text"> <span class="text-secondary">Contact</span> Us </span>
-                <i class="bi bi-gear-wide-connected"></i>
-            </div>
+        <div class="row text-center mb-4"> 
+        <div class="Heading-section"> 
+            <h2 class="index-header"  data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">Contact<span style="color: rgb(56, 187, 66);">Us</span></h2>
+            <center><hr style="width: 200px; height: 10px; border: none; background: linear-gradient(to right, rgb(56, 187, 66) 50%, black 50%); margin-top: -15px;"></center>
+        </div>
+
 
             <p class="  text-secondary mb-5">Get in touch with us for expert solutions and personalized support tailored
                 to your needs!</p>

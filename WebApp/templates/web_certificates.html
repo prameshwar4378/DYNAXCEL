@@ -5,80 +5,7 @@
 {% block links %}
 
 {% endblock links %}
-
-.page-header {
-position: relative;
-background: url('/static/website/certs/background-wave.png') ;
-<!-- background-color:green; -->
-background-position: center center;
-background-attachment: fixed;
-background-size: 100%;
-padding: 140px 0px 125px 0px;
-overflow: hidden; /* Hide overflowing animated shapes */
-}
-.page-header::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: rgba(61, 61, 61, 0.753);
-z-index: 1;
-}
-.page-header > * {
-position: relative;
-z-index:2;
-}
-
-/* Shape container */
-.shape-container {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 1;
-pointer-events: none; /* So the shapes don't interfere with clicks */
-}
-
-/* Basic shape styling */
-.shape {
-position: absolute;
-width: 50px;
-height: 50px;
-opacity: 0.8;
-animation: moveRandom 20s infinite ease-in-out;
-}
-
-/* Specific shape styling */
-
-.circle {
-border-radius: 50%;
-background-color: #ffffff56;
-}
-
-
-/* Random movement animation */
-@keyframes moveRandom {
-0% {
-transform: translate(0, 0) rotate(0deg);
-}
-25% {
-transform: translate(100px, 200px) rotate(45deg);
-}
-50% {
-transform: translate(-150px, 50px) rotate(90deg);
-}
-75% {
-transform: translate(200px, -100px) rotate(135deg);
-}
-100% {
-transform: translate(0, 0) rotate(180deg);
-}
-}
-
-
+ 
 
 
 .heading-title{
@@ -132,23 +59,18 @@ font-size: 30px;
         bottom: 40px;
     }
 </style>
-
-<section class="page-header">
+ 
+<section class="page-header" style="height: 200px;  ">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 text-center text-light">
-                <h1 class="text-light heading-title heading-text" style="font-weight:700; ">Latest <span
-                        class="text-primary">Certificates</span> </h1>
+                <h1 class="text-light" style="font-size: 3em;margin-bottom: 30px;font-weight: 1000;">Latest <span style="color:rgb(0, 255, 42); ">  </span> Certificates</h1>
             </div>
         </div>
     </div>
-    <!-- Shapes for animation -->
-    <div class="shape-container">
-        <div class="shape circle"></div>
-    </div>
+    <div class="shape-container"></div>
 </section>
-
-
+ 
 <!-- Gallery Start-->
 <div class="container shadow bg-light" id="certificate-head-carousel"
     style="border-radius: 15px; margin-top: -70px; z-index: 3;" >
@@ -208,390 +130,201 @@ font-size: 30px;
 
 <br>
 
-
-<div class="container" id="certificate-head-carousel" style="border-radius: 15px;">
+<div class="container py-5" id="certificate-head-carousel" style="border-radius: 18px; background: #f9fefe; position: relative; overflow: hidden;">
+    <!-- Blurry background shapes for premium effect -->
+    <div class="cert-blur cert-blur-1"></div>
+    <div class="cert-blur cert-blur-2"></div>
+    <div class="cert-blur cert-blur-3"></div>
     <div class="row text-center mb-4"></div>
-    <div class="Heading-section">
-        <span class="line-text"><span class="text-secondary">Recognized </span> Excellence </span>
+    <div class="Heading-section mb-2">
+        <span class="line-text">
+            <span class="text-secondary">Recognized </span> Excellence
+        </span>
     </div>
     <center>
-        <p>This is short description about certificate</p>
+        <p class="mb-4 text-dark fs-5">This is short description about certificate</p>
     </center>
-
-    <div class="row mb-4">
-        <!-- Certificate 1 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-delay="50">
-                <img src="{% static 'website/certs/cert1.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal1">Read More</a>
+    <div class="row mb-4 justify-content-center">
+        {% for cert in certificates %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch mb-4">
+            <div class="card cert-card shadow-sm w-100 position-relative" data-aos="zoom-in-down" data-aos-duration="1200" data-aos-delay="50">
+                <div class="cert-image-wrap d-flex align-items-center justify-content-center" style="height: 230px;">
+                    <img src="{{ cert.image.url }}" alt="{{ cert.title|default:'Certificate' }}" loading="lazy"
+                        class="cert-img mx-auto">
+                </div>
+                <div class="cert-card-body text-center py-2 px-2">
+                    <div class="cert-title fw-semibold text-success mb-0" style="font-size:1.03rem; min-height: 2.2em;">{{ cert.title|default:"Certificate" }}</div>
+                    <button class="btn btn-gradient-cert px-3 py-1 mt-3" data-bs-toggle="modal" data-bs-target="#certificateModal{{ forloop.counter }}">
+                        <i class="bi bi-eye me-1"></i>Read More
+                    </button>
+                </div>
             </div>
         </div>
-
-        <!-- Certificate 2 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/cert2.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal2">Read More</a>
-            </div>
-        </div>
-
-        <!-- Certificate 3 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/cert3.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal3">Read More</a>
-            </div>
-        </div>
-
-        <!-- Certificate 4 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/4. EN 15085-2-images-0.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal4">Read More</a>
-            </div>
-        </div>
-
-        <!-- Certificate 5 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/5. EN ISO 3834-2_page-0001.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal5">Read More</a>
-            </div>
-        </div>
-
-        <!-- Certificate 6 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/6. ASME U & U2_page-0001.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal6">Read More</a>
-            </div>
-        </div>
-
-        <!-- Certificate 7 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/7. NB - R 230609 - DYNAXCEL Engineers Pvt Ltd..jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal7">Read More</a>
-            </div>
-        </div>
-
-        <!-- Certificate 8 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/8. EIL Vendor enlistment Dynaxcel-1.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal8">Read More</a>
-            </div>
-        </div>
-
-        <!-- Certificate 9 -->
-        <div class="col-sm-3 mt-4">
-            <div class="card" data-aos-duration="1500" data-aos-delay="50" data-aos="zoom-in-down">
-                <img src="{% static 'website/certs/9. Letter of Approval - DEPL IBR 1950_page-0001.jpg' %}" alt="" loading="lazy">
-                <a href="#" class="btn btn-primary" style="position: absolute; opacity: 0.9; top:-15px;" data-toggle="modal" data-target="#certificateModal9">Read More</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Certificate 1 -->
-<div class="modal fade" id="certificateModal1" tabindex="-1" role="dialog" aria-labelledby="certificateModal1Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal1Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Certified management system as per ISO 9001:2015</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in ISO 9001:2015, a globally recognized standard for quality management systems. This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
+        <!-- Modal -->
+        <div class="modal fade" id="certificateModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="certificateModal{{ forloop.counter }}Title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 36px;">
+                <div class="modal-content" style="border-radius: 30px;">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="certificateModal{{ forloop.counter }}Title"><b>Certificate Details</b></h5>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close" style="font-size:1.6rem;"></button>
                     </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/cert1.jpg' %}" alt="NA" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/cert1.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/cert1.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
+                    <div class="modal-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <h4 class="fw-bold mb-2">{{ cert.title }}</h4>
+                                <p style="text-align: justify;">{{ cert.description }}</p>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <img src="{{ cert.image.url }}" alt="Certificate Image" style="max-height: 310px; width: auto; border-radius: 12px; box-shadow: 0 4px 22px #8ce4b855;" loading="lazy">
+                                <div class="mt-3">
+                                    {% if cert.pdf %}
+                                        <a href="{{ cert.pdf.url }}" class="btn btn-outline-success me-2" download>
+                                            <i class="bi bi-download me-1"></i>Download
+                                        </a>
+                                        <a href="{{ cert.pdf.url }}" class="btn btn-success" target="_blank">
+                                            <i class="bi bi-file-earmark-pdf me-1"></i>View
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
+<style>
+    /* Blurry background shapes for subtle section separation */
+    .cert-blur {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.16;
+        z-index: 1;
+        animation: cert-blur-move 15s infinite alternate cubic-bezier(.7,0,.3,1);
+    }
+    .cert-blur-1 {
+        width: 180px; height: 180px; top: -50px; left: -50px;
+        background: radial-gradient(circle at 30% 60%, #38bb42 0, #eafaf0 100%);
+        animation-delay: 0s;
+    }
+    .cert-blur-2 {
+        width: 120px; height: 120px; bottom: 7%; right: 6%;
+        background: radial-gradient(circle at 60% 40%, #3edb7b 0, #eafaf0 80%);
+        animation-delay: 2s;
+    }
+    .cert-blur-3 {
+        width: 70px; height: 70px; top: 26%; left: 80%;
+        background: radial-gradient(circle at 70% 40%, #ffe082 0, #eafaf0 90%);
+        animation-delay: 6s;
+    }
+    @keyframes cert-blur-move {
+        0% { transform: translateY(0) scale(1);}
+        100% { transform: translateY(28px) scale(1.05);}
+    }
+    /* Certificate Card Styles */
+    .cert-card {
+        border: none;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 6px 32px 0 rgba(56,187,66,0.06);
+        transition: box-shadow 0.15s, transform 0.15s;
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+    }
+    .cert-card:hover, .cert-card:focus-within {
+        box-shadow: 0 10px 48px 0 rgba(56,187,66,0.18), 0 0 0 6px #eafaf0;
+        transform: scale(1.025) translateY(-4px);
+        z-index: 5;
+    }
+    .cert-image-wrap {
+        width: 100%;
+        background: linear-gradient(120deg, #e8ffe3 60%, #eafaf0 100%);
+        border-radius: 14px 14px 0 0;
+        overflow: hidden;
+        height: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cert-img {
+        max-height: 210px;
+        max-width: 95%;
+        width: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        background: #f6fdfa;
+        box-shadow: 0 2px 16px 0 #aaffcc33;
+        transition: transform .16s, box-shadow .14s;
+    }
+    .cert-card:hover .cert-img, .cert-card:focus-within .cert-img {
+        transform: scale(1.03) rotate(-1deg);
+        box-shadow: 0 8px 28px 0 #7fd34733;
+    }
+    .cert-card-body {
+        min-height: 75px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .cert-title {
+        color: #38bb42;
+        font-weight: 700;
+        text-align: center;
+    }
+    .btn-gradient-cert {
+        background: linear-gradient(90deg,#38bb42 0%,#3edb7b 100%);
+        color: #fff;
+        border: none;
+        border-radius: 1.2rem;
+        font-weight: 500;
+        font-size: 1rem;
+        box-shadow: 0 1px 6px 0 #3edb7b44;
+        transition: background 0.14s, box-shadow 0.14s;
+    }
+    .btn-gradient-cert:hover, .btn-gradient-cert:focus {
+        background: linear-gradient(90deg,#3edb7b 0%,#38bb42 100%);
+        color: #fff;
+        box-shadow: 0 2px 12px 0 #38bb4255;
+    }
+    /* Modal Styles (Bootstrap 5) */
+    .modal-content {
+        box-shadow: 0 8px 60px 0 #38bb4250;
+        border-radius: 30px;
+    }
+    .modal-header, .modal-footer {
+        background: #f8fcf7;
+        border-radius: 30px 30px 0 0;
+    }
+    @media (max-width: 991.98px) {
+        .cert-img, .cert-image-wrap { max-height: 140px; height: 140px;}
+        .cert-card { min-height: 250px; }
+    }
+    @media (max-width: 767.98px) {
+        .cert-img,
+        .cert-image-wrap {
+            max-height: 180px;
+            height: 180px;
+        }
+        .cert-img {
+            width: 100%;
+            object-fit: contain;
+        }
+        .cert-card { min-height: 220px; }
+        .cert-blur { filter: blur(13px);}
+    }
+</style>
 
-<!-- Modal for Certificate 2 -->
-<div class="modal fade" id="certificateModal2" tabindex="-1" role="dialog" aria-labelledby="certificateModal2Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal2Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Certified management system as per ISO 14001:2015</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in ISO 14001:20155, a globally recognized standard for quality management systems. This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/cert2.jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/cert2.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/cert2.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Certificate 3 -->
-<div class="modal fade" id="certificateModal3" tabindex="-1" role="dialog" aria-labelledby="certificateModal3Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal3Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Certified management system as per ISO 45001:2018</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in ISO 45001:2018, a globally recognized standard for quality management systems. This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/cert3.jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/cert3.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/cert3.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 4 -->
-
-<div class="modal fade" id="certificateModal4" tabindex="-1" role="dialog" aria-labelledby="certificateModal3Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal3Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Welding of railway vehicles and components according to EN 15085-2</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in Welding of railway vehicles and
-                            components according to EN 15085-2, This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/4. EN 15085-2-images-0.jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/4. EN 15085-2.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/4. EN 15085-2.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 5 -->
-<div class="modal fade" id="certificateModal5" tabindex="-1" role="dialog" aria-labelledby="certificateModal3Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal3Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Inspection Of Welding Process</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in Inspection Of Welding Process, This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/5. EN ISO 3834-2_page-0001.jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/5. EN ISO 3834-2.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/5. EN ISO 3834-2.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 6 -->
-<div class="modal fade" id="certificateModal6" tabindex="-1" role="dialog" aria-labelledby="certificateModal3Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal3Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Certified ACME</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in ACME, This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/6. ASME U & U2_page-0001.jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/6. ASME U & U2.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/6. ASME U & U2.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- 7 -->
-<div class="modal fade" id="certificateModal7" tabindex="-1" role="dialog" aria-labelledby="certificateModal3Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal3Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Certified in Boiler & Pressure Vessel Inspectors</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in Boiler & Pressure Vessel Inspectors, This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/7. NB - R 230609 - DYNAXCEL Engineers Pvt Ltd..jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/7. NB - R 230609 - DYNAXCEL Engineers Pvt Ltd..pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/7. NB - R 230609 - DYNAXCEL Engineers Pvt Ltd..pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 8 -->
-<div class="modal fade" id="certificateModal8" tabindex="-1" role="dialog" aria-labelledby="certificateModal3Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal3Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Certified in Pressure Vessel-SS</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its certification in Pressure Vessel-SS, This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/8. EIL Vendor enlistment Dynaxcel-1.jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/8. EIL Vendor enlistment Dynaxcel-1.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/8. EIL Vendor enlistment Dynaxcel-1.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 9 -->
-
-<div class="modal fade" id="certificateModal9" tabindex="-1" role="dialog" aria-labelledby="certificateModal3Title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px; border-radius: 50px;">
-        <div class="modal-content" style="border-radius: 30px;">
-            <div class="modal-header">
-                <h5 class="modal-title" id="certificateModal3Title"><b>Certificate Details</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Letter of Approval - DEPL IBR 1950</b></h4>
-                        <p style="text-align: justify;">Dynaxcel Engineering Pvt. Ltd. is proud to announce its Letter of Approval - DEPL IBR 1950, This certification demonstrates our commitment to delivering high-quality products and services while continuously improving our processes to meet customer needs.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <center>
-                            <img src="{% static 'website/certs/9. Letter of Approval - DEPL IBR 1950_page-0001.jpg' %}" alt="" style="height: 300px;" loading="lazy">
-                            <br>
-                            <a href="{% static 'website/certs/9. Letter of Approval - DEPL IBR 1950.pdf' %}" class="btn btn-primary" download>Download</a>
-                            <a href="{% static 'website/certs/9. Letter of Approval - DEPL IBR 1950.pdf' %}" class="btn btn-primary" target="_blank">View</a>
-                        </center>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Add modals for certificates 4 to 9 similarly -->
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

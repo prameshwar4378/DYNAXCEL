@@ -240,7 +240,8 @@ def sustainability(request):
     return render(request,"sustainability.html")
 
 def certificates(request):
-    return render(request,"web_certificates.html")
+    certificates = Certificate.objects.all()
+    return render(request,"web_certificates.html", {'certificates': certificates})
 
 def web_photos_gallary(request):
     categories = PhotoGalleryCategories.objects.prefetch_related('photos').all()

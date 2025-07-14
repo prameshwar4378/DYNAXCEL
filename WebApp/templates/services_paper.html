@@ -2,84 +2,7 @@
 {% block title %}Services | Paper{% endblock title %}
 {% load static %}
 {% block style %}
-
-.page-header {
-    position: relative;
-    background: url('/static/website/img/background-wave.png');
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: 100%;
-    padding: 140px 0px 125px 0px;
-    overflow: hidden;
-}
-.page-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(61, 61, 61, 0.753);
-    z-index: 1;
-}
-.page-header > * {
-    position: relative;
-    z-index: 2;
-}
-
-/* Shape container */
-.shape-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-}
-.shape {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    opacity: 0.8;
-    animation: moveRandom 20s infinite ease-in-out;
-}
-.circle {
-    border-radius: 50%;
-    background-color: #ffffff56;
-}
-
-@keyframes moveRandom {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-        transform: translate(100px, 200px) rotate(45deg);
-    }
-    50% {
-        transform: translate(-150px, 50px) rotate(90deg);
-    }
-    75% {
-        transform: translate(200px, -100px) rotate(135deg);
-    }
-    100% {
-        transform: translate(0, 0) rotate(180deg);
-    }
-}
-
-h1 {
-    font-size: 70px;
-}
-@media (max-width: 990px) {
-    h1 {
-        font-size: 60px;
-    }
-}
-@media (max-width: 500px) {
-    h1 {
-        font-size: 30px;
-    }
-}
+ 
 
 /* Carousel Styling */
 .carousel-inner img {
@@ -106,18 +29,18 @@ h1 {
 {% endblock style %}
 
 {% block content %}
+ 
 <section class="page-header">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 text-center text-light">
-                <h1 class="text-light">Paper</h1>
+                <h1 class="text-light">Paper <span style="color:rgb(0, 255, 42);"> </span></h1>
             </div>
         </div>
     </div>
-    <div class="shape-container">
-        <div class="shape circle"></div>
-    </div>
+    <div class="shape-container"></div>
 </section>
+ 
 
 <section class="pulp-overview py-5">
     <div class="container">
@@ -224,26 +147,55 @@ h1 {
     </div>
 </section>
 
-<section class="why-choose-us py-5 bg-light">
-    <div class="container" data-aos="zoom-in" data-aos-delay="1000">
-        <div class="row">
-            <div class="col-lg-6">
-                <img src="{% static 'website/img/whyus1.jpg' %}" class="img-fluid why-choose-us-img" alt="Pulp & Paper Fabrication" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                <h2 class="text-primary">Why Choose Us</h2>
-                <ul class="list-unstyled">
-                    <li><i class="bi bi-check-circle text-primary"></i> Expertise in stainless steel equipment</li>
-                    <li><i class="bi bi-check-circle text-primary"></i> State-of-the-art fabrication technologies</li>
-                    <li><i class="bi bi-check-circle text-primary"></i> Quality assurance with industry-specific standards</li>
-                    <li><i class="bi bi-check-circle text-primary"></i> Cost-effective and timely delivery</li>
-                    <li><i class="bi bi-check-circle text-primary"></i> Custom solutions tailored to your pulp and paper needs</li>
-                    <li><i class="bi bi-check-circle text-primary"></i> Dedicated support throughout the project</li>
-                </ul>
-            </div>
+
+<section class="why-choose-us-section py-5 position-relative">
+  <!-- Animated blurred background shapes for depth -->
+  <div class="wcu-blur wcu-blur-1"></div>
+  <div class="wcu-blur wcu-blur-2"></div>
+  <div class="wcu-blur wcu-blur-3"></div>
+  <div class="container" data-aos="fade-up" data-aos-delay="350">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="wcu-img-wrap position-relative" data-aos="zoom-in" data-aos-delay="500">
+          <img src="{% static 'website/img/whyus1.jpg' %}" class="img-fluid wcu-img" alt="Fabrication" loading="lazy">
+          <div class="wcu-img-glass"></div>
         </div>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-4" style="color:#2868c7; font-size:2.3rem;">
+          <span class="d-inline-block mb-2" data-aos="fade-right">Why Choose Us</span>
+        </h2>
+        <ul class="wcu-list list-unstyled" data-aos="fade-left">
+          <li>
+            <span class="wcu-list-icon"><i class="bi bi-check-circle"></i></span>
+            Expertise in handling exotic materials
+          </li>
+          <li>
+            <span class="wcu-list-icon"><i class="bi bi-check-circle"></i></span>
+            State-of-the-art fabrication technologies
+          </li>
+          <li>
+            <span class="wcu-list-icon"><i class="bi bi-check-circle"></i></span>
+            Quality assurance with international standards
+          </li>
+          <li>
+            <span class="wcu-list-icon"><i class="bi bi-check-circle"></i></span>
+            Cost-effective and timely delivery
+          </li>
+          <li>
+            <span class="wcu-list-icon"><i class="bi bi-check-circle"></i></span>
+            Custom solutions tailored to your needs
+          </li>
+          <li>
+            <span class="wcu-list-icon"><i class="bi bi-check-circle"></i></span>
+            Dedicated customer support throughout the project
+          </li>
+        </ul>
+      </div>
     </div>
+  </div> 
 </section>
+
 
 <section class="cta py-5">
     <div class="container text-center" data-aos="fade-up" data-aos-delay="300">
